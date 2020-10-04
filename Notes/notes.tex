@@ -1,0 +1,64 @@
+%\documentclass[14pt,a4paper]{extreport}
+\documentclass[12pt,a4paper]{article}
+\usepackage[cp1251]{inputenc}
+\usepackage[ukrainian]{babel}
+
+\usepackage{amssymb}
+\usepackage[active]{srcltx}
+\usepackage[final]{pdfpages}
+
+\usepackage[hidelinks]{hyperref}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\pagestyle{empty}                     %нумерацiя сторiнок i т.д.
+\pagestyle{headings}                   %нумерацiя сторiнок вгорi зправа i т.д.
+%\renewcommand{\baselinestretch}{1.5}   %мiжстрiчковий інтервал
+%\parindent=7.5mm                      %абзацний відступ
+ \righthyphenmin=2                     %перенос 2 останніх букв
+ \pagenumbering{arabic}
+ \tolerance=400
+ \mathsurround=2pt
+ \hfuzz=1.5pt
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \hoffset=-0.5cm        %+2.5cm -- вiдступ вiд лiвого краю
+ \voffset=-1.5cm        %+2.5cm -- вiдступ зверху
+ \oddsidemargin=0.1cm   %ліве поле
+ \topmargin=0.1cm       %верхнє поле
+ \headheight=0.5cm      %висота верхнього колонтитулу
+ \footskip=1cm          %висота нижнього колонтитулу
+ \headsep=0.3cm         %відступ від колонт. до тексту
+ \textwidth=17cm        %ширина сторінки
+ \textheight=25.5cm     %висота сторінки
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \newcounter{e}
+ \setcounter{e}{0}
+ \newcommand{\n}{\refstepcounter{e} (\arabic{e})}
+
+% \setcounter{page}{1}
+% \setcounter{section}{1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \newcounter{stali}
+ \setcounter{stali}{0}
+ \newcommand{\s}{\refstepcounter{stali} \arabic{stali}}
+
+ \newcommand{\st}{C_{\s}}
+ \newcommand{\stl}[1]{C_{\s \label{#1}}}
+
+ \newcommand{\cd}{{} $$ \vspace{-0.3cm} $$ {}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ \begin{document}
+ \begin{LARGE}
+ Нотатки
+ \end{LARGE}
+	
+ \thispagestyle{empty}
+ \section{Завдання}
+ Знайти наближений розв'язок мішаної задачі Діріхле-Неймана для рівняння Лапласа у двозв'язній області методом ІР у випадку гладких границь, заданих параметрично. Використати потенціал простого шару. Чисельне розв'язування ІР здійснити методом колокації з використанням кусково-лінійних базисних функцій.
+ 
+ \section{Рівняння Лапласа}
+ $$
+ \Delta u = 0
+ $$
+
+ \end{document}
