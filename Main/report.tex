@@ -1,8 +1,13 @@
 \documentclass[14pt,a4paper]{extarticle}
 %\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
 \usepackage[ukrainian]{babel}
 
+
 \usepackage{amssymb}
+\usepackage{physics}
+
 
 \usepackage[active]{srcltx}
 \usepackage[final]{pdfpages}
@@ -160,5 +165,39 @@
 	\thispagestyle{empty}
 	\section{Постановка задачі}
 	
+	Припускаємо, що деяке двовимірне тіло задається двозв'язною областю $D \subset R$ з досить гладкою границею що складається з внутрішньої кривої $\Gamma_1$ та зовнішньої $\Gamma_2$. 
 	
+	Нехай $D_1 \subset 	\mathbb{R}$ – обмеженна область з гладкою границею $\Gamma_1 \subset   C^2$ та $D_2 \subset \mathbb{R}$ – обмеженна область з гладкою границею $\Gamma_2 \subset C^2$. Тоді двузв'язна область матиме вигляд: $D = D_2 \; \backslash \; \overline{D}_1$ (Рис. \ref{fig:double-connected-region})
+
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.5\textwidth]{resources/doubly-connected-region}
+		\caption{}
+		\label{fig:double-connected-region}
+	\end{figure}
+
+	Мішана задача Діріхле-Неймана для рівняння Лапласа полягає в знаходженні такої функції $u(x_1, x_2) \in C^{2}(D) \cup  C^{1}(\overline{D})$ що задовольняє
+
+	\begin{enumerate}
+		\item
+		Рівняння Лапласа: 
+		\begin{equation}
+			\Delta{u} = 0 \quad \text{в} \quad D
+		\end{equation}
+
+		\item
+		Граничні умови:
+		\begin{equation}
+			\label{dirichlet-condition}
+			u = f_1, \quad (x_1, x_2) \in \Gamma_1,
+		\end{equation}
+	
+		\begin{equation}
+			\label{neumann-condition}
+			\pdv{u}{v} = f_2, \quad (x_1, x_2) \in \Gamma_2 		
+		\end{equation}
+
+	\end{enumerate}
+	, де $v = v(x)$ - одиничний вектор зовнішньої нормалі, (\ref{dirichlet-condition}) є умовою Діріхле, а (\ref{neumann-condition}) є умовою Неймана.
+
 \end{document}
