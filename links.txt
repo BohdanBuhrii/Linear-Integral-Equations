@@ -1,3 +1,18 @@
+# Google Scholar
+- РС Хапко
+https://scholar.google.com/scholar?hl=uk&as_sdt=0%2C5&q=%D0%A0%D0%A1+%D0%A5%D0%B0%D0%BF%D0%BA%D0%BE&btnG=
+- Задача Діріхле-Неймана для р-ня Лапласа
+https://scholar.google.com/scholar?hl=uk&as_sdt=0%2C5&q=%D0%B4%D1%96%D1%80%D1%96%D1%85%D0%BB%D0%B5-%D0%BD%D0%B5%D0%B9%D0%BC%D0%B0%D0%BD%D0%B0+%D0%B4%D0%BB%D1%8F+%D0%BB%D0%B0%D0%BF%D0%BB%D0%B0%D1%81%D0%B0&btnG=
+
+# Про чисельне розв'язування задачі Неймана для еліптичного рівняння зі змінними коефіцієнтами методом граничних інтегральних рівнянь
+http://www.irbis-nbuv.gov.ua/cgi-bin/irbis_nbuv/cgiirbis_64.exe?C21COM=2&I21DBN=UJRN&P21DBN=UJRN&IMAGE_FILE_DOWNLOAD=1&Image_file_name=PDF/VKhIMAM_2012_1015_19_5.pdf
+
+# Про чисельне розв'язування задачі Діріхле для рівняння лапласа в тривимірних двозв'язних областях
+http://www.irbis-nbuv.gov.ua/cgi-bin/irbis_nbuv/cgiirbis_64.exe?C21COM=2&I21DBN=UJRN&P21DBN=UJRN&IMAGE_FILE_DOWNLOAD=1&Image_file_name=PDF/Vlnu_prmat_2015_23_7.pdf
+
+# Метод интегральных уравнений в смешанной задаче Дирихле–Неймана для уравнения Лапласа вне разрезов на плоскости
+http://www.mathnet.ru/rus/de10463
+
 https://cyberleninka.ru/article/n/reshenie-smeshannoy-kraevoy-zadachi-dirihle-neymana-dlya-uravneniya-puassona-v-mnogomernom-beskonechnom-sloe/viewer
 https://cyberleninka.ru/article/n/the-solution-of-a-mixed-boundary-value-problem-for-the-laplace-equation-in-a-multiply-connected-domain/viewer
 
