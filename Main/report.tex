@@ -86,85 +86,83 @@
  
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{document}
+ \begin{document}
 	
-	
-	%\bibliographystyle{insrt}
-	
-	\thispagestyle{empty}
-	
-	\begin{center}
-		\large
-		Міністерство освіти і науки, молоді та спорту України \\
-		Львівський національний університет імені Івана Франка \\
-		Факультет прикладної математики та інформатики \\
-		Кафедра обчислювальної матаматики
-	\end{center}
-	
-	\vspace{45pt}
-	
-	\vfill
-	
-	\begin{center}
-		{\Huge{Звіт}}\\
-		{\large на тему:}
-	\end{center}
-	
-	\begin{center}\Large
-		\textbf{\emph{"Розв'язування задачі Діріхле-Неймана для рівняння Лапласа"}}
-	\end{center}
-	
-	\vfill
-	\vskip100pt
-	
-	\begin{flushleft}
-		\hskip8cm 
-		Виконали:
-		\\ \hskip8cm 
-		студенти 4-го курсу групи ПМп-41
-		\\ \hskip8cm
-		напрямку підготовки (спеціальності)
-		\\ \hskip8cm
-		113 -- ``Прикладна математика''
-		\\ \hskip8cm
-		Бугрій Б.О.
-		\\ \hskip8cm
-		Середович В.B.
-	\end{flushleft}
-	
-	\begin{flushleft}
-		\hskip8cm 
-		Перевірив:
-		\\ \hskip8cm
-		ст. в. Гарасим Я.С.
-	\end{flushleft}
-	
-	\vfill
-	
-	\begin{center}
-		\large
-		Львів - 2020
-	\end{center}
-	
-	\newpage
-	\thispagestyle{empty}
-	\tableofcontents
-	
-	\newpage
-	\thispagestyle{empty}
-	\addcontentsline{toc}{section}{Вступ}
-	\section*{Вступ}
-	\begin{center}\end{center}
-	літературний огляд
-	хто розглядав розв'язування цієї задачі
-	які процеси описує
-	мета - розв'язати якимось методом
-	огляд наступних розділів
-	
-	\newpage
-	\thispagestyle{empty}
-	\section{Постановка задачі}
-	
+ %\bibliographystyle{insrt}
+
+ \thispagestyle{empty}
+
+ \begin{center}
+	\large
+	Міністерство освіти і науки, молоді та спорту України \\
+	Львівський національний університет імені Івана Франка \\
+	Факультет прикладної математики та інформатики \\
+	Кафедра обчислювальної матаматики
+ \end{center}
+
+ \vspace{45pt}
+
+ \vfill
+
+ \begin{center}
+	{\Huge{Звіт}}\\
+	{\large на тему:}
+ \end{center}
+
+ \begin{center}\Large
+	\textbf{\emph{"Розв'язування задачі Діріхле-Неймана для рівняння Лапласа"}}
+ \end{center}
+
+ \vfill
+ \vskip100pt
+
+ \begin{flushleft}
+	\hskip8cm 
+	Виконали:
+	\\ \hskip8cm 
+	студенти 4-го курсу групи ПМп-41
+	\\ \hskip8cm
+	напрямку підготовки (спеціальності)
+	\\ \hskip8cm
+	113 -- ``Прикладна математика''
+	\\ \hskip8cm
+	Бугрій Б.О.
+	\\ \hskip8cm
+	Середович В.B.
+ \end{flushleft}
+
+ \begin{flushleft}
+	\hskip8cm 
+	Перевірив:
+	\\ \hskip8cm
+	ст. в. Гарасим Я.С.
+ \end{flushleft}
+
+ \vfill
+
+ \begin{center}
+	\large
+	Львів - 2020
+ \end{center}
+
+ \newpage
+ \thispagestyle{empty}
+ \tableofcontents
+
+ \newpage
+ \thispagestyle{empty}
+ \addcontentsline{toc}{section}{Вступ}
+ \section*{Вступ}
+ \begin{center}\end{center}
+ літературний огляд \\
+ хто розглядав розв'язування цієї задачі \\
+ які процеси описує \\
+ мета - розв'язати якимось методом \\
+ огляд наступних розділів
+
+ \thispagestyle{empty}
+ \section{Постановка задачі}
+		
 	Припускаємо, що деяке двовимірне тіло задається двозв'язною областю $D \subset R$ з досить гладкою границею що складається з внутрішньої кривої $\Gamma_1$ та зовнішньої $\Gamma_2$. 
 	
 	Нехай $D_1 \subset 	\mathbb{R}$ – обмеженна область з гладкою границею $\Gamma_1 \subset   C^2$ та $D_2 \subset \mathbb{R}$ – обмеженна область з гладкою границею $\Gamma_2 \subset C^2$. Тоді двузв'язна область матиме вигляд: $D = D_2 \; \backslash \; \overline{D}_1$ (Рис. \ref{fig:double-connected-region})
@@ -199,5 +197,15 @@
 
 	\end{enumerate}
 	, де $v = v(x)$ - одиничний вектор зовнішньої нормалі, (\ref{dirichlet-condition}) є умовою Діріхле, а (\ref{neumann-condition}) є умовою Неймана.
+	
+	
+ \thispagestyle{empty}
+ \section{Коректність}
 
-\end{document}
+ \subsection{Існування розв'язку}
+ \subsection{Єдиність розв'язку}
+ \subsection{Неперервна залежність від даних}
+	
+ \end{document}
+ 
+ 
