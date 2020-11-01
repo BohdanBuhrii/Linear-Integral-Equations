@@ -13,6 +13,11 @@ http://www.irbis-nbuv.gov.ua/cgi-bin/irbis_nbuv/cgiirbis_64.exe?C21COM=2&I21DBN=
 # Метод интегральных уравнений в смешанной задаче Дирихле–Неймана для уравнения Лапласа вне разрезов на плоскости
 http://www.mathnet.ru/rus/de10463
 
+# гарно описано про двозв'язну область
+http://www.irbis-nbuv.gov.ua/cgi-bin/irbis_nbuv/cgiirbis_64.exe?C21COM=2&I21DBN=UJRN&P21DBN=UJRN&IMAGE_FILE_DOWNLOAD=1&Image_file_name=PDF/Vlnu_prmat_2017_25_4.pdf
+
+# джекпот!!!
+http://visnyk-ami.lnu.edu.ua/db/284/14.pdf
 https://cyberleninka.ru/article/n/reshenie-smeshannoy-kraevoy-zadachi-dirihle-neymana-dlya-uravneniya-puassona-v-mnogomernom-beskonechnom-sloe/viewer
 https://cyberleninka.ru/article/n/the-solution-of-a-mixed-boundary-value-problem-for-the-laplace-equation-in-a-multiply-connected-domain/viewer
 

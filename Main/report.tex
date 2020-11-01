@@ -1,6 +1,5 @@
 \documentclass[14pt,a4paper]{extarticle}
 %\documentclass[12pt,a4paper]{article}
-\usepackage[cp1251]{inputenc}
 \usepackage[ukrainian]{babel}
 
 \usepackage{amssymb}
@@ -12,25 +11,25 @@
 
 \usepackage{verbatim}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\pagestyle{empty}                     %нумерацiя сторiнок i т.д.
-\pagestyle{headings}                   %нумерацiя сторiнок вгорi зправа i т.д.
-%\renewcommand{\baselinestretch}{1.5}   %мiжстрiчковий інтервал
-%\parindent=7.5mm                      %абзацний відступ
- \righthyphenmin=2                     %перенос 2 останніх букв
+%\pagestyle{empty}                     %РЅСѓРјРµСЂР°С†iСЏ СЃС‚РѕСЂiРЅРѕРє i С‚.Рґ.
+\pagestyle{headings}                   %РЅСѓРјРµСЂР°С†iСЏ СЃС‚РѕСЂiРЅРѕРє РІРіРѕСЂi Р·РїСЂР°РІР° i С‚.Рґ.
+%\renewcommand{\baselinestretch}{1.5}   %РјiР¶СЃС‚СЂiС‡РєРѕРІРёР№ С–РЅС‚РµСЂРІР°Р»
+%\parindent=7.5mm                      %Р°Р±Р·Р°С†РЅРёР№ РІС–РґСЃС‚СѓРї
+ \righthyphenmin=2                     %РїРµСЂРµРЅРѕСЃ 2 РѕСЃС‚Р°РЅРЅС–С… Р±СѓРєРІ
  \pagenumbering{arabic}
  \tolerance=400
  \mathsurround=2pt
  \hfuzz=1.5pt
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- \hoffset=-0.5cm        %+2.5cm -- вiдступ вiд лiвого краю
- \voffset=-1.5cm        %+2.5cm -- вiдступ зверху
- \oddsidemargin=0.1cm   %ліве поле
- \topmargin=0.1cm       %верхнє поле
- \headheight=0.5cm      %висота верхнього колонтитулу
- \footskip=1cm          %висота нижнього колонтитулу
- \headsep=0.3cm         %відступ від колонт. до тексту
- \textwidth=17cm        %ширина сторінки
- \textheight=25.5cm     %висота сторінки
+ \hoffset=-0.5cm        %+2.5cm -- РІiРґСЃС‚СѓРї РІiРґ Р»iРІРѕРіРѕ РєСЂР°СЋ
+ \voffset=-1.5cm        %+2.5cm -- РІiРґСЃС‚СѓРї Р·РІРµСЂС…Сѓ
+ \oddsidemargin=0.1cm   %Р»С–РІРµ РїРѕР»Рµ
+ \topmargin=0.1cm       %РІРµСЂС…РЅС” РїРѕР»Рµ
+ \headheight=0.5cm      %РІРёСЃРѕС‚Р° РІРµСЂС…РЅСЊРѕРіРѕ РєРѕР»РѕРЅС‚РёС‚СѓР»Сѓ
+ \footskip=1cm          %РІРёСЃРѕС‚Р° РЅРёР¶РЅСЊРѕРіРѕ РєРѕР»РѕРЅС‚РёС‚СѓР»Сѓ
+ \headsep=0.3cm         %РІС–РґСЃС‚СѓРї РІС–Рґ РєРѕР»РѕРЅС‚. РґРѕ С‚РµРєСЃС‚Сѓ
+ \textwidth=17cm        %С€РёСЂРёРЅР° СЃС‚РѕСЂС–РЅРєРё
+ \textheight=25.5cm     %РІРёСЃРѕС‚Р° СЃС‚РѕСЂС–РЅРєРё
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  \newcounter{e}
  \setcounter{e}{0}
@@ -38,15 +37,23 @@
  
  \newcounter{pic}
  \setcounter{pic}{0}
- \newcommand{\pic}[1]{\refstepcounter{pic} \vspace{-0.3cm}\textit{Рисунок \arabic{pic}\label{#1}.}}
+ \newcommand{\pic}[1]{\refstepcounter{pic} \vspace{-0.3cm}\textit{Р РёСЃСѓРЅРѕРє \arabic{pic}\label{#1}.}}
  
  \newcounter{tabl}
  \setcounter{tabl}{0}
- \newcommand{\tabl}[1]{\refstepcounter{tabl} \vspace{-0.3cm}\textit{Таблиця \arabic{tabl}\label{#1}.}}
+ \newcommand{\tabl}[1]{\refstepcounter{tabl} \vspace{-0.3cm}\textit{РўР°Р±Р»РёС†СЏ \arabic{tabl}\label{#1}.}}
  
  \newcounter{dod}
  \setcounter{dod}{0}
- \newcommand{\dod}[1]{\refstepcounter{dod} \textit{Додаток \arabic{dod}\label{#1}.}}
+ \newcommand{\dod}[1]{\refstepcounter{dod} \textit{Р”РѕРґР°С‚РѕРє \arabic{dod}\label{#1}.}}
+ 
+ \newcounter{defn}
+ \setcounter{defn}{0}
+ \newcommand{\defn}[1]{\refstepcounter{defn} \textbf{РћР·РЅР°С‡РµРЅРЅСЏ \arabic{defn}\label{#1}.}}
+ 
+ \newcounter{theorem}
+ \setcounter{theorem}{0}
+ \newcommand{\theorem}[1]{\refstepcounter{theorem} \textbf{РўРµРѕСЂРµРјР° \arabic{theorem}\label{#1}.}}
 % \setcounter{page}{1}
 % \setcounter{section}{1}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -83,10 +90,10 @@
 	
 	\begin{center}
 		\large
-		Міністерство освіти і науки, молоді та спорту України \\
-		Львівський національний університет імені Івана Франка \\
-		Факультет прикладної математики та інформатики \\
-		Кафедра обчислювальної матаматики
+		РњС–РЅС–СЃС‚РµСЂСЃС‚РІРѕ РѕСЃРІС–С‚Рё С– РЅР°СѓРєРё, РјРѕР»РѕРґС– С‚Р° СЃРїРѕСЂС‚Сѓ РЈРєСЂР°С—РЅРё \\
+		Р›СЊРІС–РІСЃСЊРєРёР№ РЅР°С†С–РѕРЅР°Р»СЊРЅРёР№ СѓРЅС–РІРµСЂСЃРёС‚РµС‚ С–РјРµРЅС– Р†РІР°РЅР° Р¤СЂР°РЅРєР° \\
+		Р¤Р°РєСѓР»СЊС‚РµС‚ РїСЂРёРєР»Р°РґРЅРѕС— РјР°С‚РµРјР°С‚РёРєРё С‚Р° С–РЅС„РѕСЂРјР°С‚РёРєРё \\
+		РљР°С„РµРґСЂР° РѕР±С‡РёСЃР»СЋРІР°Р»СЊРЅРѕС— РјР°С‚Р°РјР°С‚РёРєРё
 	\end{center}
 	
 	\vspace{45pt}
@@ -94,12 +101,12 @@
 	\vfill
 	
 	\begin{center}
-		{\Huge{Звіт}}\\
-		{\large на тему:}
+		{\Huge{Р—РІС–С‚}}\\
+		{\large РЅР° С‚РµРјСѓ:}
 	\end{center}
 	
 	\begin{center}\Large
-		\textbf{\emph{"Розв'язування задачі Діріхле-Неймана для рівняння Лапласа"}}
+		\textbf{\emph{"Р РѕР·РІ'СЏР·СѓРІР°РЅРЅСЏ Р·Р°РґР°С‡С– Р”С–СЂС–С…Р»Рµ-РќРµР№РјР°РЅР° РґР»СЏ СЂС–РІРЅСЏРЅРЅСЏ Р›Р°РїР»Р°СЃР°"}}
 	\end{center}
 	
 	\vfill
@@ -107,31 +114,31 @@
 	
 	\begin{flushleft}
 		\hskip8cm 
-		Виконали:
+		Р’РёРєРѕРЅР°Р»Рё:
 		\\ \hskip8cm 
-		студенти 4-го курсу групи ПМп-41
+		СЃС‚СѓРґРµРЅС‚Рё 4-РіРѕ РєСѓСЂСЃСѓ РіСЂСѓРїРё РџРњРї-41
 		\\ \hskip8cm
-		напрямку підготовки (спеціальності)
+		РЅР°РїСЂСЏРјРєСѓ РїС–РґРіРѕС‚РѕРІРєРё (СЃРїРµС†С–Р°Р»СЊРЅРѕСЃС‚С–)
 		\\ \hskip8cm
-		113 -- ``Прикладна математика''
+		113 -- ``РџСЂРёРєР»Р°РґРЅР° РјР°С‚РµРјР°С‚РёРєР°''
 		\\ \hskip8cm
-		Бугрій Б.О.
+		Р‘СѓРіСЂС–Р№ Р‘.Рћ.
 		\\ \hskip8cm
-		Середович В.B.
+		РЎРµСЂРµРґРѕРІРёС‡ Р’.B.
 	\end{flushleft}
 	
 	\begin{flushleft}
 		\hskip8cm 
-		Перевірив:
+		РџРµСЂРµРІС–СЂРёРІ:
 		\\ \hskip8cm
-		ст. в. Гарасим Я.С.
+		СЃС‚. РІ. Р“Р°СЂР°СЃРёРј РЇ.РЎ.
 	\end{flushleft}
 	
 	\vfill
 	
 	\begin{center}
 		\large
-		Львів - 2020
+		Р›СЊРІС–РІ - 2020
 	\end{center}
 	
 	\newpage
@@ -140,9 +147,18 @@
 	
 	\newpage
 	\thispagestyle{empty}
-	\addcontentsline{toc}{section}{Вступ}
-	\section*{Вступ}
+	\addcontentsline{toc}{section}{Р’СЃС‚СѓРї}
+	\section*{Р’СЃС‚СѓРї}
 	\begin{center}\end{center}
-	Вступ
+	Р»С–С‚РµСЂР°С‚СѓСЂРЅРёР№ РѕРіР»СЏРґ
+	С…С‚Рѕ СЂРѕР·РіР»СЏРґР°РІ СЂРѕР·РІ'СЏР·СѓРІР°РЅРЅСЏ С†С–С”С— Р·Р°РґР°С‡С–
+	СЏРєС– РїСЂРѕС†РµСЃРё РѕРїРёСЃСѓС”
+	РјРµС‚Р° - СЂРѕР·РІ'СЏР·Р°С‚Рё СЏРєРёРјРѕСЃСЊ РјРµС‚РѕРґРѕРј
+	РѕРіР»СЏРґ РЅР°СЃС‚СѓРїРЅРёС… СЂРѕР·РґС–Р»С–РІ
+	
+	\newpage
+	\thispagestyle{empty}
+	\section{РџРѕСЃС‚Р°РЅРѕРІРєР° Р·Р°РґР°С‡С–}
+	
 	
 \end{document}
