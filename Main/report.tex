@@ -163,9 +163,9 @@
  \thispagestyle{empty}
  \section{Постановка задачі}
 		
-	Припускаємо, що деяке двовимірне тіло задається двозв'язною областю $D \subset R$ з досить гладкою границею що складається з внутрішньої кривої $\Gamma_1$ та зовнішньої $\Gamma_2$. 
+	Припускаємо, що деяке двовимірне тіло задається двозв'язною областю $D \subset \mathbb{R}$ з досить гладкою границею що складається з внутрішньої кривої $\Gamma_1$ та зовнішньої $\Gamma_2$. 
 	
-	Нехай $D_1 \subset 	\mathbb{R}$ – обмеженна область з гладкою границею $\Gamma_1 \subset   C^2$ та $D_2 \subset \mathbb{R}$ – обмеженна область з гладкою границею $\Gamma_2 \subset C^2$. Тоді двузв'язна область матиме вигляд: $D = D_2 \; \backslash \; \overline{D}_1$ (Рис. \ref{fig:double-connected-region})
+	Нехай $D_1 \subset \mathbb{R}$ – обмеженна область з гладкою границею $\Gamma_1 \subset C^2$ та $D_2 \subset \mathbb{R}$ – обмеженна область з гладкою границею $\Gamma_2 \subset C^2$. Тоді двозв'язна область $D = D_2 \; \backslash \; \overline{D}_1$ матиме вигляд:
 
 	\begin{figure}[h]
 		\centering
@@ -192,19 +192,29 @@
 	
 		\begin{equation}
 			\label{neumann-condition}
-			\pdv{u}{v} = f_2, \quad (x_1, x_2) \in \Gamma_2 		
+			\pdv{u}{v} = f_2, \quad (x_1, x_2) \in \Gamma_2,		
 		\end{equation}
 
 	\end{enumerate}
-	, де $v = v(x)$ - одиничний вектор зовнішньої нормалі, (\ref{dirichlet-condition}) є умовою Діріхле, а (\ref{neumann-condition}) є умовою Неймана.
+	де $v = v(x)$ - одиничний вектор зовнішньої нормалі, (\ref{dirichlet-condition}) є умовою Діріхле, а (\ref{neumann-condition}) є умовою Неймана.
 	
 	
  \thispagestyle{empty}
- \section{Коректність}
-
+ \section{Коректність задачі}
+ 
  \subsection{Існування розв'язку}
  \subsection{Єдиність розв'язку}
  \subsection{Неперервна залежність від даних}
+ 
+ \section{Зведення до інтегрального рівняння}
+ 
+ \section{Коректність інтегрального рівняння}
+ 
+ \section{Чисельне розв'язування}
+ \subsection{Похибка}
+ 
+ \section{Якийсь приклад}
+ 
 	
  \end{document}
  
