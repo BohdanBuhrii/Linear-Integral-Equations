@@ -59,6 +59,8 @@
  \newcounter{theorem}
  \setcounter{theorem}{0}
  \newcommand{\theorem}[1]{\refstepcounter{theorem} \textbf{Теорема \arabic{theorem}\label{#1}.}}
+ 
+ \newcommand{\proof}{\textit{Доведення. \space}}
 % \setcounter{page}{1}
 % \setcounter{section}{1}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -180,6 +182,7 @@
 		\item
 		Рівняння Лапласа: 
 		\begin{equation}
+			\label{laplace-eq}
 			\Delta{u} = 0 \quad \text{в} \quad D
 		\end{equation}
 
@@ -198,14 +201,54 @@
 	\end{enumerate}
 	де $v = v(x)$ - одиничний вектор зовнішньої нормалі, (\ref{dirichlet-condition}) є умовою Діріхле, а (\ref{neumann-condition}) є умовою Неймана.
 	
+\newcommand{\boundprob}{(\ref{laplace-eq}) -- (\ref{neumann-condition})} 
+	
 	
  \thispagestyle{empty}
  \section{Коректність задачі}
+ ...
  
- \subsection{Існування розв'язку}
- \subsection{Єдиність розв'язку}
- \subsection{Неперервна залежність від даних}
+ %\subsection{Існування розв'язку}
+ \subsection{Єдиність розв'язку задачі}
+ \hspace{0.5cm}\theorem{green} Нехай $D$ - область з межею $\partial D \in C^1$ i $\overrightarrow{\nu} -$ одиничний вектор зовнішньої нормалі до межі $\partial D$. Тоді для $u \in C^1(\overline{D})$ і $v \in C^2(\overline{D})$ має місце перша формула Гріна
+ $$
+ \int_{D}(u \Delta v+grad u \cdot grad v) d x=\int_{\partial D} u \frac{\partial v}{\partial \nu} d s
+ $$
+ i для $u, v \in C^{2}(\overline{D})$ має місце друга формула Гріна
+ $$
+ \int_{D}(u \Delta v-v \Delta u) d x=\int_{\partial D}\left(u \frac{\partial v}{\partial \nu}-v \frac{\partial u}{\partial \nu}\right) d s
+ $$
  
+ \proof Посилання на Креса.
+ 
+ 
+ \theorem{single-sol} Нехай $\Gamma_{1}, \Gamma_{2}$ -- гладкі границі, що належать класу $C^1$, обмежують двозв'язну (а може ні?) область $D$. Тоді задача \boundprob \space має на D (може замикання?) не більше одного розв'язку.
+ 
+ \proof Від супротивного. Нехай $\exists u_1, u_2 \in C^{2}(\overline{D}): u_1 \neq u_2 $ -- два різні розв'язки задачі \boundprob. Запишемо цю задачу для функції $u^* = u_1 - u_2$:
+ $$
+ \Delta u^* = \Delta u_1 - \Delta u_2 = 0
+ $$
+ $$
+ u^* = u_1 - u_2 = f_1 - f_1 = 0 \quad \text{на} \quad \Gamma_1
+ $$
+ $$
+ \frac{\partial u^*}{\partial \nu}
+ = \frac{\partial u_1}{\partial \nu} - \frac{\partial u_2}{\partial \nu}
+ = f_2 - f_2 = 0 \quad \text{на} \quad \Gamma_2
+ $$
+ Застосуємо першу формулу Гріна з теореми \ref{green} при $u = v = u^*$:
+ $$
+ \int_{D}(\operatorname{grad} u^*)^2 dx
+ = \int_{\partial D} u^* \frac{\partial u^*}{\partial \nu} dS
+ - \int_{D} u^* \Delta u^* dx
+ $$
+ Тут $\partial D = \Gamma_1 \cup \Gamma_2$. Так як $\Delta u^* = 0 $ (чи ні?) на $D$, $u^*=0$ на $\Gamma_1$ і $\frac{\partial u^*}{\partial \nu} = 0$ на $\Gamma_2$, то отримуємо рівність
+ $$
+ \int_{D}(\operatorname{grad} u^*)^2 dx = 0,
+ $$
+ з якої випливає, що $\frac{\partial u^*}{\partial x_1} = 0$ і $\frac{\partial u^*}{\partial x_2} = 0$ на всій області $D$, тобто $u^* = \operatorname{const}$. Функція $u^*$ неперервна на $\overline{D}$ і $u^*=0$ на $\Gamma_1 \subset \overline{D}$, отже $u^*\equiv0 \Rightarrow u_1\equiv u_2$, що суперечить початковому припущенню. $\blacksquare$
+ 
+ \thispagestyle{empty}
  \section{Зведення до інтегрального рівняння}
  
  \section{Коректність інтегрального рівняння}
