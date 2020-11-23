@@ -199,11 +199,11 @@
 	
 		\begin{equation}
 			\label{neumann-condition}
-			\pdv{u}{v} = f_2, \quad (x_1, x_2) \in \Gamma_2,		
+			\pdv{u}{\nu} = f_2, \quad (x_1, x_2) \in \Gamma_2,		
 		\end{equation}
 
 	\end{enumerate}
-	де $v = v(x)$ - одиничний вектор зовнішньої нормалі, (\ref{dirichlet-condition}) є умовою Діріхле, а (\ref{neumann-condition}) є умовою Неймана.
+	де $v = \nu(x)$ - одиничний вектор зовнішньої нормалі, (\ref{dirichlet-condition}) є умовою Діріхле, а (\ref{neumann-condition}) є умовою Неймана.
 	
 \newcommand{\boundprob}{(\ref{laplace-eq}) -- (\ref{neumann-condition})} 
 	
@@ -256,10 +256,17 @@
  \section{Зведення до інтегрального рівняння}
  ...
  \subsection{Теорія потенціалів. Потенціал простого шару}
+
+
  
  \hspace{0.5cm} Означення гармонічної функції ...
  
- Означення фундаментального розв'язку ...
+ \theorem{fundamental-solution}  Функція
+ $$
+ \Phi(x, y) := \frac{1}{2\pi} \ln \frac{1}{\abs{x - y}} 
+$$
+визначена на  $x \neq y,$ $x \in \mathbb{R}$ називається фундаментальним розв'язком рівняння Лапласа. Для фіксованого $y \in \mathbb{R}^2$ вона є гармонічною в $\mathbb{R}^2 \backslash \{y\}$.
+ 
  
  \defn{single-layer-potential} Нехай функція $\varphi \in C(\partial D),$ тоді
  $$
@@ -338,12 +345,139 @@
  
  \section{Параметризація}
  
+
+ Припустимо, що кривi $\Gamma_{1}$ та $\Gamma_{2}$ заданi в параметричному виглядi:
+\begin{equation}
+	 \Gamma_{i} := \{ x_{i}(t) = (x_{i1}(t), x_{i2}(t)), \; t \in [ 0, 2\pi ] \} , \quad i = 1, 2
+\end{equation}
+\indent де $x_{i} : \mathbb{R} \rightarrow \mathbb{R}^2$, $2\pi$ періодична $\forall{t} \; \abs{x'(t)} > 0$
+
+Позначимо $\nu$ - одиничний вектор зовнішньої нормалі до кривої $\Gamma_{i}$, заданий як:
+
+$$
+	\nu(x_i(t)) = \left(
+	\frac{
+		x'_{i2}(t)}{\abs{x'_{i}(t)}
+	},
+	- \frac{
+	x'_{i1}(t)}{\abs{x'_{i}(t)}}
+	\right)
+$$
+
+Обчислимо похідні по нормалі від фундаментального роз'вязку.
+$$
+	\pdv{\Phi(x, y)}{\nu(x)} = -\frac{1}{2\pi} \pdv{\ln(r)}{r}\pdv{r}{\nu(x)}
+$$
+
+\indent де $r = \abs{x - y}$, отримаємо
+
+$$
+	\pdv{\Phi(x, y)}{\nu(x)} = \frac{1}{2\pi} \frac{(y - x) \cdot \nu(x)}{r^2}  \quad \text{та} \quad
+	\pdv{\Phi(x, y)}{\nu(y)} = \frac{1}{2\pi} \frac{(x - y) \cdot \nu(y)}{r^2}
+$$
+
+Таким чином використовуючи параметризацію та описані вище перетворення перейдемо до параметризованої системи.
+
+$$
+	\left\{
+	\begin{array}{l}
+		\displaystyle
+		\frac{1}{2\pi} \intl_{0}^{2\pi} \psi_1(\tau) K_{11}(t, \tau) d \tau
+		+ \frac{1}{2\pi} \intl_{0}^{2\pi}  \psi_2(\tau) K_{12}(t, \tau) d \tau
+		= g_{1}(t)
+		\\ [0.3cm]
+		\displaystyle
+		- \frac{\psi_2(x)}{\abs{x'_{2}(t))}}
+		+ \frac{1}{\pi}\intl_{0}^{2\pi} \psi_1(\tau) K_{21}(t, \tau) d \tau
+		+ \frac{1}{\pi}\intl_{0}^{2\pi}  \psi_2(\tau) K_{22}(t, \tau) d \tau
+		= 2g_{2}(t)
+	\end{array}\right.
+$$
+
+\indent де $\psi_{i}(t) = \varphi(x_{i}(t)) \cdot \abs{x'_{i}(t)}$, $g_{i} = f_{i}(x_{i}(t))$, $i  = 1, 2$, ядра матимуть вигляд
+
+
+$$
+	\begin{array}{l}
+		\displaystyle
+		K_{11}(t, \tau) = \left.
+			\ln{\frac{1}{\abs{x - y}}}
+		\right|_{
+			{\small \parbox{20mm}{$ x = x_1(t)$ \\[-4pt] $y = x_1 ({\tau})$}}
+		}, \quad t \neq \tau
+		\\ [1cm]
+		
+		\displaystyle
+		K_{12}(t, \tau) = \left.
+			\ln{\frac{1}{\abs{x - y}}}
+		\right|_{
+			{\small \parbox{20mm}{$ x = x_1(t)$ \\[-4pt] $y = x_2 ({\tau})$}}
+		};
+		\\ [1cm]
+		
+		\displaystyle
+		K_{21}(t, \tau) = \left.
+			\frac{(x - y) \cdot \nu(y)}{r^2}
+		\right|_{
+			{\small \parbox{20mm}{$ x = x_2(t)$ \\[-4pt] $y = x_1 ({\tau})$}}
+		};
+		\\ [1cm]
+		
+		\displaystyle
+		K_{22}(t, \tau) = \left.
+			\frac{(x - y) \cdot \nu(y)}{r^2}
+		\right|_{
+			{\small \parbox{20mm}{$ x = x_2(t)$ \\[-4pt] $y = x_2 ({\tau})$}}
+		} 
+		, \quad t \neq \tau
+		\\ [1cm]
+	\end{array}
+$$
+
+В ядрах $K_{12}$, $K_{21}$ внаслідок параметризації тачки $x$ та $y$ знаходяться на різних кривих в результаті чого при інтегруванні в них не виникають особливості.
+
+У випадку $K_{11}$, $K_{22}$ обидві точки знаходяться на одній кривій і тому вони мають особливість при $t = \tau$. Для тґого що її позбутись, можна знайти границю цих ядер при $t \rightarrow \tau$ і використати її замість ядра для випадків, коли $t = \tau$. Скористуємось правилом лопіталя і знайдемо границю........
+
+$$
+	K_{11}(t, \tau) = 
+	\left\{
+	\begin{array}{l}
+		\displaystyle
+
+		, \quad t \neq \tau
+		\\ [1cm]
+
+		\displaystyle
+
+		, \quad t = \tau
+	\end{array}
+	\right.
+$$
+
+$$
+K_{22}(t, \tau) = 
+\left\{
+\begin{array}{l}
+	\displaystyle
+	\quad t \neq \tau
+	\\ [1cm]
+	
+	\displaystyle
+	\quad t = \tau
+	\\ [1cm]	
+\end{array}
+\right.
+$$
+1) Розібратиь з тим як записати ядра K11 та K22 для особливих випадків \\
+2) Записати систему інтегральних рівнянь в параметричному вигляді
+
+
  \section{Чисельне розв'язування}
  \subsection{Похибка}
  
  \section{Якийсь приклад}
  
 	
- \end{document}
+\end{document}
  
  
