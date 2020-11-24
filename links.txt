@@ -23,3 +23,6 @@ https://cyberleninka.ru/article/n/the-solution-of-a-mixed-boundary-value-problem
 
 # Розяснення похідної по вектору
 https://www.khanacademy.org/math/multivariable-calculus/multivariable-derivatives/gradient-and-directional-derivatives/v/directional-derivative
+
+# Про метод колокації
+https://kpfu.ru/staff_files/F182952823/0_NMEQ_2019.pdf
