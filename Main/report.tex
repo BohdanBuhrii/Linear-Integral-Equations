@@ -440,6 +440,27 @@ $$
 
 Скористуємось правилом лопіталя і знайдемо границю........
 
+\newpage
+Ядро $K_{22}$ можна записати у вигляді
+
+$$
+\begin{array}{l}
+	\displaystyle
+	K_{11} (t, \tau) = {K_{11}}^{(1)}  (t, \tau) \ln{\left( \frac{4}{e} \sin^{2}{\frac{t - \tau}{2}}   \right) }  +  {K_{11}}^{(2)} (t, \tau)
+	\\ [1cm]
+	
+	\displaystyle
+	{K_{11}}^{(1)} (t, \tau) = - \frac{1}{2} \abs{x'_{2}(\tau) }; 
+	\\ [1cm]
+	
+	\displaystyle
+	{K_{11}}^{(2)} (t, \tau) = \frac{1}{2} \abs{x'_{2}(\tau) } \ln{\frac{\frac{4}{e} \sin^{2}{\frac{t - \tau}{2} }}  { \abs{x_{2}(t) - x_{2}(\tau)}^2 }}
+	\\ [1cm]	
+\end{array}
+$$
+
+
+\begin{comment}
  $$
  K_{11}(t, \tau) = 
  \left\{
@@ -458,6 +479,8 @@ $$
  \end{array}
  \right.
  $$
+\end{comment}
+
 
  $$
  K_{22}(t, \tau) = 
@@ -472,14 +495,38 @@ $$
 	\\ [1cm]
 	
 	\displaystyle
-	
-	\quad t = \tau
+	- \frac{1}{2\pi} \frac{x'_{21}(\tau) x''_{22}(\tau) - x'_{22}(\tau) x''_{21}(\tau) }{\abs{x'_{2}(\tau)}}
+	,\quad t = \tau
 	\\ [1cm]	
  \end{array}
  \right.
  $$
-1) Розібратиь з тим як записати ядра K11 та K22 для особливих випадків \\
-2) Записати систему інтегральних рівнянь в параметричному вигляді
+ 
+Отже, система буде мати вигляд
+ $$
+ \left\{
+ \begin{array}{l}
+ 	\displaystyle
+ 	\frac{1}{2\pi} \intl_{0}^{2\pi} \psi_1(\tau) \left\{ {K_{11}}^{(1)}  (t, \tau) \ln{\left( \frac{4}{e} \sin^{2}{\frac{t - \tau}{2}}   \right) }  +  {K_{11}}^{(2)} (t, \tau) \right\} d \tau
+ 	\\[1cm] \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad
+ 	
+ 	\displaystyle
+ 	+ \frac{1}{2\pi} \intl_{0}^{2\pi}  \psi_2(\tau) K_{12}(t, \tau) d \tau
+ 	= g_{1}(t)
+ 	\\ [0.3cm]
+ 	
+ 	\displaystyle
+ 	- \frac{\psi_2(x)}{\abs{x'_{2}(t))}}
+ 	+ \frac{1}{\pi}\intl_{0}^{2\pi} \psi_1(\tau) K_{21}(t, \tau) d \tau
+ 	+ \frac{1}{\pi}\intl_{0}^{2\pi}  \psi_2(\tau) K_{22}(t, \tau) d \tau
+ 	= 2g_{2}(t)
+ \end{array}\right.
+ $$
+ 
+ 
+ 
+%1) Розібратиь з тим як записати ядра K11 та K22 для особливих випадків \\
+%2) Записати систему інтегральних рівнянь в параметричному вигляді
 
 
  \section{Чисельне розв'язування}
