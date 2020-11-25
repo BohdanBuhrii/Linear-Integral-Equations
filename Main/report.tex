@@ -90,6 +90,7 @@
  \newcommand{\suml}{\sum\limits}
  \newcommand{\intl}{\int\limits}
  
+ \newcommand{\inttwopi}{\intl_{0}^{2\pi}}
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  \begin{document}
@@ -166,6 +167,7 @@
  мета - розв'язати якимось методом \\
  огляд наступних розділів
 
+ \newpage
  \thispagestyle{empty}
  \section{Постановка задачі}
 		
@@ -208,6 +210,7 @@
 \newcommand{\boundprob}{(\ref{laplace-eq}) -- (\ref{neumann-condition})} 
 	
 	
+ \newpage
  \thispagestyle{empty}
  \section{Коректність задачі}
  ...
@@ -252,6 +255,7 @@
  $$
  з якої випливає, що $\frac{\partial u^*}{\partial x_1} = 0$ і $\frac{\partial u^*}{\partial x_2} = 0$ на всій області $D$, тобто $u^* = \operatorname{const}$. Функція $u^*$ неперервна на $\overline{D}$ і $u^*=0$ на $\Gamma_1 \subset \overline{D}$, отже $u^*\equiv0 \Rightarrow u_1\equiv u_2$, що суперечить початковому припущенню. $\blacksquare$
  
+ \newpage
  \thispagestyle{empty}
  \section{Зведення до інтегрального рівняння}
  ...
@@ -340,11 +344,13 @@ $$
  $$
  \end{comment}
  
- 
+ \newpage
+ \thispagestyle{empty}
  \section{Коректність інтегрального рівняння}
  
+ \newpage
+ \thispagestyle{empty}
  \section{Параметризація}
- 
 
  Припустимо, що кривi $\Gamma_{1}$ та $\Gamma_{2}$ заданi в параметричному виглядi:
 \begin{equation}
@@ -382,14 +388,14 @@ $$
 	\left\{
 	\begin{array}{l}
 		\displaystyle
-		\frac{1}{2\pi} \intl_{0}^{2\pi} \psi_1(\tau) K_{11}(t, \tau) d \tau
-		+ \frac{1}{2\pi} \intl_{0}^{2\pi}  \psi_2(\tau) K_{12}(t, \tau) d \tau
+		\frac{1}{2\pi} \inttwopi \psi_1(\tau) K_{11}(t, \tau) d \tau
+		+ \frac{1}{2\pi} \inttwopi  \psi_2(\tau) K_{12}(t, \tau) d \tau
 		= g_{1}(t)
 		\\ [0.3cm]
 		\displaystyle
 		- \frac{\psi_2(x)}{\abs{x'_{2}(t))}}
-		+ \frac{1}{\pi}\intl_{0}^{2\pi} \psi_1(\tau) K_{21}(t, \tau) d \tau
-		+ \frac{1}{\pi}\intl_{0}^{2\pi}  \psi_2(\tau) K_{22}(t, \tau) d \tau
+		+ \frac{1}{\pi} \inttwopi \psi_1(\tau) K_{21}(t, \tau) d \tau
+		+ \frac{1}{\pi} \inttwopi  \psi_2(\tau) K_{22}(t, \tau) d \tau
 		= 2g_{2}(t)
 	\end{array}\right.
 $$
@@ -507,19 +513,18 @@ $$
  \left\{
  \begin{array}{l}
  	\displaystyle
- 	\frac{1}{2\pi} \intl_{0}^{2\pi} \psi_1(\tau) \left\{ {K_{11}}^{(1)}  (t, \tau) \ln{\left( \frac{4}{e} \sin^{2}{\frac{t - \tau}{2}}   \right) }  +  {K_{11}}^{(2)} (t, \tau) \right\} d \tau
- 	\\[1cm] \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad
- 	
+ 	\inttwopi \psi_1(\tau) \left\{ {K_{11}}^{(1)} (t, \tau) \ln{\left( \frac{4}{e} \sin^{2}{\frac{t - \tau}{2}} \right) } + {K_{11}}^{(2)} (t, \tau) \right\} d \tau
+ 	\\[0.3cm] \qquad \qquad \qquad \qquad \qquad \qquad \qquad \quad
  	\displaystyle
- 	+ \frac{1}{2\pi} \intl_{0}^{2\pi}  \psi_2(\tau) K_{12}(t, \tau) d \tau
- 	= g_{1}(t)
+ 	+ \inttwopi \psi_2(\tau) K_{12}(t, \tau) d \tau
+ 	= 2\pi g_{1}(t)
  	\\ [0.3cm]
  	
  	\displaystyle
- 	- \frac{\psi_2(x)}{\abs{x'_{2}(t))}}
- 	+ \frac{1}{\pi}\intl_{0}^{2\pi} \psi_1(\tau) K_{21}(t, \tau) d \tau
- 	+ \frac{1}{\pi}\intl_{0}^{2\pi}  \psi_2(\tau) K_{22}(t, \tau) d \tau
- 	= 2g_{2}(t)
+ 	- \pi\frac{\psi_2(x)}{\abs{x'_{2}(t))}}
+ 	+ \inttwopi \psi_1(\tau) K_{21}(t, \tau) d \tau
+ 	+ \inttwopi \psi_2(\tau) K_{22}(t, \tau) d \tau
+ 	= 2\pi g_{2}(t)
  \end{array}\right.
  $$
  
@@ -528,10 +533,108 @@ $$
 %1) Розібратиь з тим як записати ядра K11 та K22 для особливих випадків \\
 %2) Записати систему інтегральних рівнянь в параметричному вигляді
 
-
+ \newpage
+ \thispagestyle{empty}
  \section{Чисельне розв'язування}
+ 
+ \subsection{Метод колокації}
+ \hspace{0.7cm}...
+ 
+ ...
+ 
+ ...
+ 
+ Шукані функції подамо у вигляді суми ... (сказати щось про n):
+ $$
+ \tilde{\psi_k}(x)=\sum_{j=1}^{n} c^{(k)}_{j} \gamma^{(k)}_{j}(x), \quad k = 1,2
+ $$
+ Підставивши їх у систему оримаємо:
+ $$
+ \left\{
+ \begin{array}{l}
+ 	\displaystyle
+ 	  \sum_{j=1}^{n} c^{(1)}_{j} \inttwopi \gamma^{(1)}_{j}(\tau) K_{11}(t, \tau) d \tau
+ 	+ \sum_{j=1}^{n} c^{(2)}_{j} \inttwopi \gamma^{(2)}_{j}(\tau) K_{12}(t, \tau) d \tau
+ 	= 2\pi g_{1}(t)
+ 	\\ [0.3cm]
+ 	
+ 	\displaystyle
+ 	  \sum_{j=1}^{n} c^{(1)}_{j} \inttwopi \gamma^{(1)}_{j}(\tau) K_{21}(t, \tau) d \tau
+ 	\\ [0.3cm]
+ 	
+ 	\displaystyle
+ 	\qquad \qquad \quad
+ 	+ \sum_{j=1}^{n} c^{(2)}_{j} \left\{
+ 	    - \pi \frac{\gamma^{(2)}_{j}(t)}{\abs{x'_{2}(t))}}
+ 	    + \inttwopi \gamma^{(2)}_{j}(\tau) K_{22}(t, \tau) d \tau
+ 	  \right\}
+ 	= 2\pi g_{2}(t)
+ \end{array}\right.
+ $$
+ Цю систему необхідно протабулювати n разів по змінній t, щоб знайти відповідні значення векторів $c^{(1)}$ і $c^{(1)}$.
+ Запишемо отриману систему у зручному матричному вигляді
+ $$
+ Ac=g
+ $$
+ де
+ $$
+ A =
+ \begin{pmatrix}
+	 \begin{matrix}
+	 	G^{(1)}_{11} & \dots  & G^{(1)}_{1n} \\
+	 	\vdots 		 & \ddots & \\
+	 	G^{(1)}_{n1} & 		  & G^{(1)}_{nn} \\
+	 \end{matrix} &
+	 \begin{matrix}
+	 	G^{(2)}_{11} & \dots  & G^{(2)}_{1n} \\
+	 	\vdots 		 & \ddots & \\
+	 	G^{(2)}_{n1} & 		  & G^{(2)}_{nn} \\
+	 \end{matrix} \\[1cm]
+	 \begin{matrix}
+		G^{(3)}_{11} & \dots  & G^{(3)}_{1n} \\
+		\vdots 		 & \ddots & \\
+		G^{(3)}_{n1} & 		  & G^{(3)}_{nn} \\
+	 \end{matrix} &
+	 \begin{matrix}
+		G^{(4)}_{11} & \dots  & G^{(4)}_{1n} \\
+		\vdots 		 & \ddots & \\
+		G^{(4)}_{n1} & 		  & G^{(4)}_{nn} \\
+	 \end{matrix} \\
+ \end{pmatrix}
+ c = 
+ \begin{pmatrix}
+	c^{(1)}_1\\
+	\vdots\\
+	c^{(1)}_n\\
+	c^{(2)}_1\\
+	\vdots\\
+	c^{(2)}_n\\
+ \end{pmatrix}
+ g = 
+ \begin{pmatrix}
+	2\pi g_1(x_1)\\
+	\vdots\\
+	2\pi g_1(x_n)\\
+	2\pi g_2(x_1)\\
+	\vdots\\
+	2\pi g_2(x_n)\\
+ \end{pmatrix}
+ $$
+ де
+ $$
+ \begin{matrix}
+	G^{(1)}_{ji} = \inttwopi \gamma^{(1)}_{j}(\tau) K_{11}(t_i, \tau) d \tau & \hspace{-1.7cm}
+	G^{(2)}_{ji} = \inttwopi \gamma^{(2)}_{j}(\tau) K_{12}(t_i, \tau) d \tau \\[1cm]
+	G^{(3)}_{ji} = \inttwopi \gamma^{(1)}_{j}(\tau) K_{21}(t_i, \tau) d \tau & \hspace{1cm}
+	G^{(4)}_{ji} = -\pi\frac{\gamma^{(2)}_{j}(t_i)}{\abs{x'_{2}(t_i))}}
+				 + \inttwopi \gamma^{(2)}_{j}(\tau) K_{22}(t_i, \tau) d \tau \\
+ \end{matrix}
+ $$
+ 
  \subsection{Похибка}
  
+ \newpage
+ \thispagestyle{empty}
  \section{Якийсь приклад}
  
 	
