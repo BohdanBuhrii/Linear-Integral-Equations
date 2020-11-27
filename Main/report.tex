@@ -93,6 +93,15 @@
  \newcommand{\inttwopi}{\intl_{0}^{2\pi}}
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% bibliography
+\usepackage[
+backend=biber,
+style=numeric,
+sorting=ynt
+]{biblatex}
+\addbibresource{resources/bibliography.bibtex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
  \begin{document}
 	
  %\bibliographystyle{insrt}
@@ -173,7 +182,7 @@
 		
 	Припускаємо, що деяке двовимірне тіло задається двозв'язною областю $D \subset \mathbb{R}$ з досить гладкою границею що складається з внутрішньої кривої $\Gamma_1$ та зовнішньої $\Gamma_2$. 
 	
-	Нехай $D_1 \subset \mathbb{R}$ – обмеженна область з гладкою границею $\Gamma_1 \subset C^2$ та $D_2 \subset \mathbb{R}$ – обмеженна область з гладкою границею $\Gamma_2 \subset C^2$. Тоді двозв'язна область $D = D_2 \; \backslash \; \overline{D}_1$ матиме вигляд:
+	Нехай $D_1 \subset \mathbb{R}^2$ – обмеженна область з гладкою границею $\Gamma_1 \subset C^2$ та $D_2 \subset \mathbb{R}^2$ – обмеженна область з гладкою границею $\Gamma_2 \subset C^2$. Тоді двозв'язна область $D = D_2 \; \backslash \; \overline{D}_1$ матиме вигляд:
 
 	\begin{figure}[h]
 		\centering
@@ -182,7 +191,7 @@
 		\label{fig:double-connected-region}
 	\end{figure}
 
-	Мішана задача Діріхле-Неймана для рівняння Лапласа полягає в знаходженні такої функції $u(x_1, x_2) \in C^{2}(D) \cup  C^{1}(\overline{D})$ що задовольняє
+	Мішана задача Діріхле-Неймана для рівняння Лапласа полягає в знаходженні такої функції $u(x_1, x_2) \in C^{2}(D)\bigcap  C^{1}(\overline{D})$ що задовольняє
 
 	\begin{enumerate}
 		\item
@@ -196,16 +205,16 @@
 		Граничні умови:
 		\begin{equation}
 			\label{dirichlet-condition}
-			u = f_1, \quad (x_1, x_2) \in \Gamma_1,
+			u = f_1 \quad \text{на} \quad \Gamma_1,
 		\end{equation}
 	
 		\begin{equation}
 			\label{neumann-condition}
-			\pdv{u}{\nu} = f_2, \quad (x_1, x_2) \in \Gamma_2,		
+			\pdv{u}{\nu} = f_2 \quad \text{на} \quad \Gamma_2,		
 		\end{equation}
 
 	\end{enumerate}
-	де $v = \nu(x)$ - одиничний вектор зовнішньої нормалі, (\ref{dirichlet-condition}) є умовою Діріхле, а (\ref{neumann-condition}) є умовою Неймана.
+	де $\nu = \nu(x)$ - одиничний вектор зовнішньої нормалі, (\ref{dirichlet-condition}) є умовою Діріхле, а (\ref{neumann-condition}) є умовою Неймана.
 	
 \newcommand{\boundprob}{(\ref{laplace-eq}) -- (\ref{neumann-condition})} 
 	
@@ -249,11 +258,11 @@
  = \intl_{\partial D} u^* \frac{\partial u^*}{\partial \nu} dS
  - \intl_{D} u^* \Delta u^* dx
  $$
- Тут $\partial D = \Gamma_1 \cup \Gamma_2$. Так як $\Delta u^* = 0 $ (чи ні?) на $D$, $u^*=0$ на $\Gamma_1$ і $\frac{\partial u^*}{\partial \nu} = 0$ на $\Gamma_2$, то отримуємо рівність
+ Тут $\partial D = \Gamma_1 \cup \Gamma_2$. Так як $\Delta u^* = 0 $ (чи ні?) в $D$, $u^*=0$ на $\Gamma_1$ і $\frac{\partial u^*}{\partial \nu} = 0$ на $\Gamma_2$, то отримуємо рівність
  $$
  \intl_{D}(\operatorname{grad} u^*)^2 dx = 0,
  $$
- з якої випливає, що $\frac{\partial u^*}{\partial x_1} = 0$ і $\frac{\partial u^*}{\partial x_2} = 0$ на всій області $D$, тобто $u^* = \operatorname{const}$. Функція $u^*$ неперервна на $\overline{D}$ і $u^*=0$ на $\Gamma_1 \subset \overline{D}$, отже $u^*\equiv0 \Rightarrow u_1\equiv u_2$, що суперечить початковому припущенню. $\blacksquare$
+ з якої випливає, що $\frac{\partial u^*}{\partial x_1} = 0$ і $\frac{\partial u^*}{\partial x_2} = 0$ на всій області $D$, тобто $u^* = \operatorname{const}$. Функція $u^*$ неперервна в $\overline{D}$ і $u^*=0$ на $\Gamma_1 \subset \overline{D}$, отже $u^*\equiv0 \Rightarrow u_1\equiv u_2$, що суперечить початковому припущенню. $\blacksquare$
  
  \newpage
  \thispagestyle{empty}
@@ -325,6 +334,7 @@ $$
  	= 2f_{2}(x), \quad x \in \Gamma_{2}
  \end{array}\right.
  $$
+
  Пояснити про стрибок ...
  (ще раз перевірити на стрибок)
  
@@ -343,7 +353,7 @@ $$
  \end{array}\right.
  $$
  \end{comment}
- 
+
  \newpage
  \thispagestyle{empty}
  \section{Коректність інтегрального рівняння}
@@ -359,7 +369,6 @@ $$
 \indent де $x_{i} : \mathbb{R} \rightarrow \mathbb{R}^2$, $2\pi$ періодична $\forall{t} \; \abs{x'(t)} > 0$
 
 Позначимо $\nu$ - одиничний вектор зовнішньої нормалі до кривої $\Gamma_{i}$, заданий як:
-
 $$
 	\nu(x_i(t)) = \left(
 	\frac{
@@ -370,20 +379,18 @@ $$
 	\right)
 $$
 
-Обчислимо похідні по нормалі від фундаментального роз'вязку.
+Обчислимо похідну по нормалі від фундаментального роз'вязку
 $$
-	\pdv{\Phi(x, y)}{\nu(x)} = -\frac{1}{2\pi} \pdv{\ln(r)}{r}\pdv{r}{\nu(x)}
+\pdv{\Phi(x, y)}{\nu(x)} = -\frac{1}{2\pi} \pdv{\ln(r)}{r}\pdv{r}{\nu(x)}
 $$
 
 \indent де $r = \abs{x - y}$, отримаємо
 
 $$
-	\pdv{\Phi(x, y)}{\nu(x)} = \frac{1}{2\pi} \frac{(y - x) \cdot \nu(x)}{r^2}  \quad \text{та} \quad
-	\pdv{\Phi(x, y)}{\nu(y)} = \frac{1}{2\pi} \frac{(x - y) \cdot \nu(y)}{r^2}
+\pdv{\Phi(x, y)}{\nu(x)} = \frac{1}{2\pi} \frac{(y - x) \cdot \nu(x)}{r^2} 
 $$
 
-Таким чином використовуючи параметризацію та описані вище перетворення перейдемо до параметризованої системи.
-
+Перейдемо до параметризованої системи. Таким чином використовуючи параметризацію та описані вище перетворення перейдемо до параметризованої системи.
 $$
 	\left\{
 	\begin{array}{l}
@@ -393,33 +400,33 @@ $$
 		= g_{1}(t)
 		\\ [0.3cm]
 		\displaystyle
-		- \frac{\psi_2(x)}{\abs{x'_{2}(t))}}
+		- \frac{\psi_2(t)}{\abs{x'_{2}(t))}}
 		+ \frac{1}{\pi} \inttwopi \psi_1(\tau) K_{21}(t, \tau) d \tau
 		+ \frac{1}{\pi} \inttwopi  \psi_2(\tau) K_{22}(t, \tau) d \tau
 		= 2g_{2}(t)
 	\end{array}\right.
 $$
 
-\indent де $\psi_{i}(t) = \varphi(x_{i}(t)) \cdot \abs{x'_{i}(t)}$, $g_{i} = f_{i}(x_{i}(t))$, $i  = 1, 2$, ядра матимуть вигляд
-
+де $\displaystyle \psi_{i}(t) = \varphi(x_{i}(t)) \cdot \abs{x'_{i}(t)}, \; g_{i} = f_{i}(x_{i}(t)), \;  i  = 1, 2; \; t \in [0, 2\pi]$ \\[0.3cm]
+Ядра матимуть вигляд:
 
 $$
 	\begin{array}{l}
 		\displaystyle
 		K_{11}(t, \tau) = \left.
-			\ln{\frac{1}{\abs{x - y}}}
+			 \ln{\frac{1}{\abs{x - y}}}
 		\right|_{
 			{\small \parbox{20mm}{$ x = x_1(t)$ \\[-4pt] $y = x_1 ({\tau})$}}
-		}, \quad t \neq \tau
-		\\ [1cm]
+		} \quad \quad, \quad t \neq \tau
+		\\ [0.8cm]
 		
 		\displaystyle
 		K_{12}(t, \tau) = \left.
 			\ln{\frac{1}{\abs{x - y}}}
 		\right|_{
 			{\small \parbox{20mm}{$ x = x_1(t)$ \\[-4pt] $y = x_2 ({\tau})$}}
-		};
-		\\ [1cm]
+		} \quad \quad;
+		\\ [0.8cm]
 		
 		\displaystyle
 		K_{21}(t, \tau) = \left.
@@ -427,7 +434,7 @@ $$
 		\right|_{
 			{\small \parbox{20mm}{$ x = x_2(t)$ \\[-4pt] $y = x_1 ({\tau})$}}
 		};
-		\\ [1cm]
+		\\ [0.8cm]
 		
 		\displaystyle
 		K_{22}(t, \tau) = \left.
@@ -436,48 +443,87 @@ $$
 			{\small \parbox{20mm}{$ x = x_2(t)$ \\[-4pt] $y = x_2 ({\tau})$}}
 		} 
 		, \quad t \neq \tau
-		\\ [1cm]
 	\end{array}
 $$
 
-В ядрах $K_{12}$, $K_{21}$ внаслідок параметризації точки $x$ та $y$ знаходяться на різних кривих, зчого випливає що ці ядра неперервні і при інтегруванні в них не виникають особливості.
+В ядрах $K_{12}$, $K_{21}$ внаслідок параметризації точки $x$ та $y$ знаходяться на різних кривих, з чого випливає що ці ядра неперервні і при інтегруванні в них не виникають особливості.
 
-У випадку $K_{11}$, $K_{22}$ обидві точки знаходяться на одній кривій і тому вони мають, відповідно, логарифмічну і сингулярну особливості при $t = \tau$. Для того щоб їх позбутись, необхідно знайти границі цих ядер при $t \rightarrow \tau$ і використати границю замість ядра для випадків, коли $t = \tau$.
+У випадку $K_{11}$, $K_{22}$ обидві точки знаходяться на одній кривій і тому вони мають, відповідно, логарифмічну і сингулярну особливості при $t = \tau$. 
 
-Скористуємось правилом лопіталя і знайдемо границю........
+%Для того щоб їх позбутись, необхідно знайти границі цих ядер при $t \rightarrow \tau$ і використати границю замість ядра для випадків, коли $t = \tau$.
 
-\newpage
-Ядро $K_{22}$ можна записати у вигляді
+\begin{comment}
+K_{22}(t, \tau) = \abs{x'_{2}(\tau)} \left\{
+\frac{1}{2} \ln{\frac{1}{\abs{x_2(t) - x_2(\tau)}^2} } \pm \frac{1}{2} \ln{ \left( \frac{4}{e} \sin^2{\frac{t - \tau}{2}} \right) }
+\right\}
+= - \frac{1}{2} 
+\end{comment}
+
+Для  виділення логарифмічної особливості виконаємо наступні перетворення з $K_{11}$
+$$
+\begin{aligned}
+	K_{11}(t, \tau) 
+	&=
+	\frac{1}{2} \ln \frac{1}{\left|x_{1}(t)-x_{1}(\tau)\right|^{2}} \pm \frac{1}{2} \ln \left(\frac{4}{e} \sin ^{2} \frac{t-\tau}{2}\right)=\\
+	&=
+	-\frac{1}{2} \ln \left(\frac{4}{e} \sin ^{2} \frac{t-\tau}{2}\right)+\frac{1}{2} \ln \frac{\frac{4}{e} \sin ^{2} \frac{t-\tau}{2}}{\left|x_{1}(t)-x_{1}(\tau)\right|^{2}}
+\end{aligned}
+$$
+
+Отже, ядро $K_{11}$ можна записати у вигляді:
+%де ядра ${K_{11}}^{(1)}$  та  ${K_{11}}^{(2)}$ мають такий вигляд:
+
 
 $$
+	\displaystyle
+	K_{11}(t, \tau) = {K_{11}}^{(1)} \ln \left(\frac{4}{e} \sin ^{2}  \frac{t-\tau}{2}\right)+{K_{11}}^{(2)}(t, \tau) \\
+$$
+
+де ядра ${K_{11}}^{(1)}$ і ${K_{11}}^{(2)}$ матимуть вигляд:
+
+$$
+	\displaystyle
+	{K_{11}}^{(1)}(t, \tau) =-\frac{1}{2};
+	\displaystyle
+	\quad \text{та} \quad
+	\displaystyle
+	{K_{11}}^{(2)}(t, \tau) =\frac{1}{2} \ln{\frac{\frac{4}{e} \sin ^{2} \frac{t-\tau}{2}}{\left|x_{1}(t)-x_{1}(\tau)\right|^{2}}}, \quad t \neq \tau;
+$$
+
+Для того щоб довизначити ${K_{11}}^{(2)}$, знайдему границю за правилом Лопіталя
+$$
+\lim _{\tau \rightarrow t} K_{11}{ }^{(2)}(t, \tau) = \lim _{\tau \rightarrow t} \ln \frac{\frac{4}{e} \sin ^{2} \frac{t-\tau}{2}}{\left|x_{1}(t)-x_{1}(\tau)\right|^{2}}=\ln \frac{\frac{4}{e} \frac{(t-\tau)^{2}}{4}}{\left|x_{1}^{\prime}(t)\right|^{2}(t-\tau)^{2}}=\ln \frac{1}{e\left|x_{1}^{\prime}(t)\right|^{2}}
+$$
+В результаті отримаємо:
+$$
+{K_{11}}^{(2)}(t, \tau) =
+\left\{
 \begin{array}{l}
 	\displaystyle
-	K_{11} (t, \tau) = {K_{11}}^{(1)}  (t, \tau) \ln{\left( \frac{4}{e} \sin^{2}{\frac{t - \tau}{2}}   \right) }  +  {K_{11}}^{(2)} (t, \tau)
+	\frac{1}{2} \ln{\frac{\frac{4}{e} \sin ^{2} \frac{t-\tau}{2}}{\left|x_{1}(t)-x_{1}(\tau)\right|^{2}}}
+	,\quad t \neq \tau
 	\\ [1cm]
 	
 	\displaystyle
-	{K_{11}}^{(1)} (t, \tau) = - \frac{1}{2} \abs{x'_{2}(\tau) }; 
-	\\ [1cm]
-	
-	\displaystyle
-	{K_{11}}^{(2)} (t, \tau) = \frac{1}{2} \abs{x'_{2}(\tau) } \ln{\frac{\frac{4}{e} \sin^{2}{\frac{t - \tau}{2} }}  { \abs{x_{2}(t) - x_{2}(\tau)}^2 }}
-	\\ [1cm]	
+	\ln \frac{1}{e\left|x_{1}^{\prime}(t)\right|^{2}}
+	,\quad  \quad  \quad \quad  \quad t = \tau
 \end{array}
+\right.
 $$
-
+Виділимо сингулярну особливість ядра $K_{22}$. Знайдемо границю при $\tau \rightarrow t$
 
 \begin{comment}
  $$
  K_{11}(t, \tau) = 
  \left\{
  \begin{array}{l}
-	\displaystyle
+ 	\displaystyle
 	K_{11}(t, \tau) = \left.
 	\ln{\frac{1}{\abs{x - y}}}
 	\right|_{
 		\small \parbox{20mm}{$ x = x_1(t)$ \\[-4pt] $y = x_1 ({\tau})$}
-	}, \quad t \neq \tau
-	\\ [1cm]
+	}, \quad t \neq \tau \\
+ 	[1cm]
 
 	\displaystyle
 
@@ -487,33 +533,35 @@ $$
  $$
 \end{comment}
 
+$$
+\lim_{\tau \rightarrow t } \pdv{\Phi(x_{2}(t), x_{2}(\tau))}{\nu(t)} =
+\frac{ x''_{21}(t) x'_{22}(t) - x''_{22}(t) x'_{21}(t)}{2 \abs{x'_{2}(t)}^2}
+$$
 
+Отримаємо наступне параметризованне подання ядра:
  $$
  K_{22}(t, \tau) = 
  \left\{
  \begin{array}{l}
 	\displaystyle
-	K_{22}(t, \tau) = \left.
-	\frac{(x - y) \cdot \nu(y)}{r^2}
-	\right|_{
-		\small \parbox{20mm}{$ x = x_2(t)$ \\[-4pt] $y = x_2 ({\tau})$}
-	}, \quad t \neq \tau
+	\frac{ x'_{22}(t) (x_{21}(t) - x_{21}(\tau)) - x'_{21}(\tau) (x_{22}(t) - x_{22}(\tau))  }{\abs{x_1(t) - x_1(\tau)}} 
+	,\quad t \neq \tau
 	\\ [1cm]
 	
 	\displaystyle
-	- \frac{1}{2\pi} \frac{x'_{21}(\tau) x''_{22}(\tau) - x'_{22}(\tau) x''_{21}(\tau) }{\abs{x'_{2}(\tau)}}
-	,\quad t = \tau
+	\frac{ x''_{21}(t) x'_{22}(t) - x''_{22}(t) x'_{21}(t)}{2 \abs{x'_{2}(t)}^2}
+	,\quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad  t = \tau
 	\\ [1cm]	
  \end{array}
  \right.
  $$
- 
+  
 Отже, система буде мати вигляд
  $$
  \left\{
  \begin{array}{l}
  	\displaystyle
- 	\inttwopi \psi_1(\tau) \left\{ {K_{11}}^{(1)} (t, \tau) \ln{\left( \frac{4}{e} \sin^{2}{\frac{t - \tau}{2}} \right) } + {K_{11}}^{(2)} (t, \tau) \right\} d \tau
+ 	\inttwopi \psi_1(\tau) \left\{ {K_{11}}^{(1)} (t, \tau) \ln{\left( \frac{4}{e} \sin^{2}{\frac{t - \tau}{2}} \right) } + {K_{11}}^{(2)} (t, \tau) \right\} d \tau +
  	\\[0.3cm] \qquad \qquad \qquad \qquad \qquad \qquad \qquad \quad
  	\displaystyle
  	+ \inttwopi \psi_2(\tau) K_{12}(t, \tau) d \tau
@@ -521,18 +569,24 @@ $$
  	\\ [0.3cm]
  	
  	\displaystyle
- 	- \pi\frac{\psi_2(x)}{\abs{x'_{2}(t))}}
+ 	- \pi\frac{\psi_2(t)}{\abs{x'_{2}(t))}}
  	+ \inttwopi \psi_1(\tau) K_{21}(t, \tau) d \tau
  	+ \inttwopi \psi_2(\tau) K_{22}(t, \tau) d \tau
  	= 2\pi g_{2}(t)
  \end{array}\right.
  $$
  
+ Використовуючи параметризацію ref можемо записати наближенний розв'язок мішаної задачі ref в параметризованому вигляді:
+ $$
+ u(x)=\frac{1}{2 \pi} \int_{0}^{2 \pi} \psi_{1}(\tau) K_{1}(x, \tau) d \tau+\frac{1}{2 \pi} \int_{0}^{2 \pi} \psi_{2}(\tau) K_{2}(x, \tau) d \tau, \quad x \in D
+ $$
+ де відповідні ядра $K_{1}$ і $K_{2}$ мають вигляд:
+ $$
+  	K_{1}(x, \tau)=\ln \frac{1}{\left|x-x_{1}(\tau)\right|}
+  	\quad \text{та} \quad 
+ 	K_{2}(x, \tau)=\ln \frac{1}{\left|x-x_{2}(\tau)\right|}
+ $$
  
- 
-%1) Розібратиь з тим як записати ядра K11 та K22 для особливих випадків \\
-%2) Записати систему інтегральних рівнянь в параметричному вигляді
-
  \newpage
  \thispagestyle{empty}
  \section{Чисельне розв'язування}
@@ -637,7 +691,12 @@ $$
  \thispagestyle{empty}
  \section{Якийсь приклад}
  
-	
+  \newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+\nocite{kress2012linear}
+\printbibliography[title={Бібліографія}]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \end{document}
  
  
