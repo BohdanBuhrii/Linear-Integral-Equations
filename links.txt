@@ -26,3 +26,6 @@ https://www.khanacademy.org/math/multivariable-calculus/multivariable-derivative
 
 # Про метод колокації
 https://kpfu.ru/staff_files/F182952823/0_NMEQ_2019.pdf
+
+# Хапко про виділення особливості (якісь там квадратури)
+https://ejbe.libraries.rutgers.edu/index.php/ejbe/article/view/951/2345
