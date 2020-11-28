@@ -587,6 +587,9 @@ $$
  	K_{2}(x, \tau)=\ln \frac{1}{\left|x-x_{2}(\tau)\right|}
  $$
  
+ 
+ 
+ 
  \newpage
  \thispagestyle{empty}
  \section{Чисельне розв'язування}
@@ -684,6 +687,25 @@ $$
 				 + \inttwopi \gamma^{(2)}_{j}(\tau) K_{22}(t_i, \tau) d \tau \\
  \end{matrix}
  $$
+ 
+ 
+ 
+ 
+ Обчислення ядра $K_{11}$
+ 
+ For the full discretization of the integral equation of the first kind $(3.5),$ which has a logarithmic singularity, we apply a quadrature method together with the quadrature rule [13,14] based on trigonometric interpolation. For this purpose, we choose an equidistant mesh by setting $t_{i}:=i \pi / M, i=0, \ldots, 2 M-1, M \in \mathbb{N}$ and use the quadrature rules
+ $$
+ \begin{array}{c}
+ 	\frac{1}{2 \pi} \int_{0}^{2 \pi} f(\tau) d \tau \approx \frac{1}{2 M} \sum_{j=0}^{2 M-1} f\left(t_{j}\right) \\
+ 	\frac{1}{2 \pi} \int_{0}^{2 \pi} f(\tau) \ln \left(\frac{4}{e} \sin ^{2} \frac{t-\tau}{2}\right) d \tau \approx \sum_{j=0}^{2 M-1} R_{j}(t) f\left(t_{j}\right)
+ \end{array}
+ $$
+ with known weight functions $R_{j}$ (see [13]).
+ 
+ $$
+ R_{j}(t)=-\frac{1}{n} \sum_{m=1}^{n-1} \frac{1}{m} \cos m\left(t-t_{j}\right)+\frac{1}{2 n} \cos n\left(t-t_{j}\right)
+ $$
+ 
  
  \subsection{Похибка}
  
