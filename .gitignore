@@ -28,7 +28,8 @@ large/
 *.mtc1
 *.out
 *.synctex.gz
-
+*.bcf
+*.run.xml
 # Jupyter Notebook
 MANIFEST
 build
