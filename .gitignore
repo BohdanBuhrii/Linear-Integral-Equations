@@ -30,6 +30,12 @@ large/
 *.synctex.gz
 *.bcf
 *.run.xml
+*.nav
+*.pdf
+*.snm
+*.vrb
+
+
 # Jupyter Notebook
 MANIFEST
 build
