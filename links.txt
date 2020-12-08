@@ -33,4 +33,5 @@ https://ejbe.libraries.rutgers.edu/index.php/ejbe/article/view/951/2345
 # Потенціали і стрибки (презентація)
 https://www.eit.lth.se/fileadmin/eit/courses/eit070f/Documents/JumpConditions.pdf
 
-
+# Ваабще все про потенціал простого шару, дивитись обов'язково
+https://www.sciencedirect.com/topics/mathematics/single-layer-potential

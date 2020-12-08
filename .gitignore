@@ -4,6 +4,9 @@ large/
 # Visual Studio Code
 .vscode/
 
+# Visual Studio
+.vs/
+
 # LaTeX temporary & output files
 *.aux
 *.glo
