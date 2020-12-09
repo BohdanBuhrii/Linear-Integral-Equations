@@ -282,6 +282,58 @@
 	\subsection{Коректність системи ІР}
 	\begin{frame}
 		\frametitle{Коректність системи ІР}
+		
+	 	$$
+		\begin{array}{l}
+			
+			\displaystyle
+			(A \varphi)(x):= \intl_{\Gamma_{1}} \Phi(x, y) \varphi(y)  d s(y), \quad x \in \Gamma_{1}
+			\\[0.7cm]
+			
+			\displaystyle
+			(B \varphi)(x):=  \intl_{\Gamma_{2}} \Phi(x, y) \varphi(y)  d s(y), \quad x \in \Gamma_{1}
+			\\[0.7cm]
+			
+			\displaystyle
+			(C \varphi)(x):= 2 \intl_{\Gamma_{1}} \frac{\partial \Phi(x, y)}{\partial \nu(x)} \varphi(y)  d s(y), \quad x \in \Gamma_{2}
+			\\[0.7cm]
+			
+			\displaystyle
+			(D \varphi)(x):= 2 \intl_{\Gamma_{2}} \frac{\partial \Phi(x, y)}{\partial \nu(x)} \varphi(y)  d s(y), \quad x \in \Gamma_{2}
+			\\[0.7cm]
+		\end{array}
+		$$
+	
+	\end{frame}
+	
+	\begin{frame}
+
+		\begin{block}{Система в операторному вигляді}
+			\begin{equation}
+				\label{IE-operator}
+				\varphi-U \varphi=F
+			\end{equation}
+		
+		\end{block}
+		
+		де  $\displaystyle \varphi_:=\left(\varphi_{1}, \varphi_{2}\right)^{T} F:=\left(f_{1}, 2 f_{2}\right)^{T}$
+		$
+		\displaystyle
+		U:=\left(\begin{array}{ll}
+			A & B \\
+			C & D
+		\end{array}\right)
+		$
+
+		Позначимо $\Gamma:=\Gamma_{1} \cup \Gamma_{2}$.  $N(I-U)=\{0\}$, тобто оператор $(I-U)$ ін'єктивний, $(I-U)$ сюр'єктивний.
+		$$
+		\forall F \in C(\Gamma) \quad \exists ! \varphi \in C(\Gamma): \quad(I-U) \varphi=F
+		$$
+
+		\begin{block}{Розв'язок операторного рівняння}
+			$$\varphi=(I-U)^{-1} F$$
+		\end{block}
+	
 	\end{frame}
 	
 
@@ -289,8 +341,14 @@
 	\section{Параметризацiя та виділення особливостей} 
 	%------------------------------------------------
 	
+
+	%------------------------------------------------
+	\subsection{Параметризацiя} 
+	%------------------------------------------------
+
+	%------------------------------------------------	
 	\begin{frame}
-		\frametitle{Параметризацiя та виділення особливостей}
+		\frametitle{Параметризацiя}
 		Припустимо, що кривi $\Gamma_{1}$ та $\Gamma_{2}$ заданi в параметричному виглядi:
 		\begin{equation}
 			\Gamma_{i} := \{ x_{i}(t) = (x_{i1}(t), x_{i2}(t)), \; t \in [ 0, 2\pi ] \} , \quad i = 1, 2
@@ -309,7 +367,7 @@
 					= g_{1}(t)
 					\\ [0.3cm]
 					\displaystyle
-					- \frac{\psi_2(t)}{\abs{x'_{2}(t))}}
+					 \frac{\psi_2(t)}{\abs{x'_{2}(t))}}
 					+ \frac{1}{\pi} \inttwopi \psi_1(\tau) K_{21}(t, \tau) d \tau
 					+ \frac{1}{\pi} \inttwopi  \psi_2(\tau) K_{22}(t, \tau) d \tau
 					= 2g_{2}(t)
@@ -364,8 +422,15 @@
 	
 	%------------------------------------------------
 
+	%------------------------------------------------
+	\subsection{Виділення особливостей} 
+	%------------------------------------------------
+
+	%------------------------------------------------
+	
 	\begin{frame}
-		Виділяємо логарифмічну особливість для ядра $K_{11}$. За допомогою нескладних перетворень подамо його у вигляді:
+		\frametitle{Виділення особливостей}
+		 Подамо ядро $K_{11}$ його у вигляді:
 		$$
 		\displaystyle
 		K_{11}(t, \tau) = {K_{11}}^{(1)} \ln \left(\frac{4}{e} \sin ^{2}  \frac{t-\tau}{2}\right)+{K_{11}}^{(2)}(t, \tau)
@@ -380,7 +445,7 @@
 		{K_{11}}^{(2)}(t, \tau) =\frac{1}{2} \ln{\frac{\frac{4}{e} \sin ^{2} \frac{t-\tau}{2}}{\left|x_{1}(t)-x_{1}(\tau)\right|^{2}}}, \quad t \neq \tau;
 		$$
 		
-		Для того щоб довизначити ${K_{11}}^{(2)}$, знайдему границю за правилом Лопіталя і в результаті отримаємо:
+		 Знайдему границю за правилом Лопіталя і в результаті отримаємо:
 		$$
 		{K_{11}}^{(2)}(t, \tau) =
 		\left\{
@@ -402,7 +467,7 @@
 	%------------------------------------------------
 	
 	\begin{frame}
-		Виділимо сингулярну особливість ядра $K_{22}$. Знайдемо границю при $\tau \rightarrow t$
+	    Знайдемо границю при $\tau \rightarrow t$
 		$$
 		\lim_{\tau \rightarrow t } \pdv{\Phi(x_{2}(t), x_{2}(\tau))}{\nu(t)} =
 		\frac{  x''_{2}(\tau) \cdot \nu (x_2(t)) }{ 2\abs{ x'_{2}(t)}^2 } 
@@ -415,7 +480,7 @@
 		\begin{array}{l}
 			\displaystyle
 			\frac{ \left( x_{2}(\tau) - x_{2}(t) \right) \cdot \nu (x_2(t)) }{ \abs{ x_{2}(t)-x_{2}(\tau) }^2 } 
-			,\quad t \neq \tau
+			,\quad t = \tau
 			\\ [1cm]
 			
 			\displaystyle
@@ -428,8 +493,12 @@
 
 	%------------------------------------------------
 
+	%------------------------------------------------
+	\subsection{Подання розв'язку в параметричному вигляді} 
+	%------------------------------------------------
+
 	\begin{frame}
-		 Подання розв'язку TODO ref в параметричному вигляді:
+		\frametitle{Подання розв'язку в параметричному вигляді}
 		$$
 		u(x)=\frac{1}{2 \pi} \int_{0}^{2 \pi} \psi_{1}(\tau) K_{1}(x, \tau) d \tau+\frac{1}{2 \pi} \int_{0}^{2 \pi} \psi_{2}(\tau) K_{2}(x, \tau) d \tau, \quad x \in D
 		$$
@@ -528,6 +597,35 @@
 	\subsection{Похибка}	
 	\begin{frame}
 		\frametitle{Похибка}
+		
+		Проекційний оператор визначається як 
+		$$
+		\left(P_{n} \varphi\right)(x)= \sum_{j=0}^{n} \varphi\left(x_{i}\right) l_{j}(x) .
+		$$
+		
+		Для $P_{n} \varphi$ маємо такі оцінки 
+		$$
+		\begin{array}{l}
+			\displaystyle
+			\varphi \in C^{2}[a, b], \quad \quad \left\|P_{n} \varphi-\varphi\right\|_{\infty} \leq \frac{1}{8} h^{2}\left\|\varphi^{\prime \prime}\right\|_{\infty}  
+			\\[0.3cm]
+			
+			\displaystyle
+			\varphi \in C[a, b], \quad \quad \left\|P_{n} \varphi-\varphi\right\|_{\infty} \leq w(\varphi, h) \rightarrow 0
+			\\[0.3cm]	
+		\end{array}
+		$$
+		$P_{n} \varphi \rightarrow \varphi$ $\varphi \in C[a, b] \quad A: C[a, b] \rightarrow C[a, b]$  $\left\|P_{n} A-\dot{A}\right\| \rightarrow 0, n \rightarrow \infty$ 
+		
+		Для $n \geq N$ $\left(I-P_{n} A\right) \varphi_{n}=P_{n} f$ має єдиний $_{1}$ розв'язок для $f \in C[a, b] i\left\|\varphi_{n}-\varphi\right\|_{\infty} \leq \dot{M}\left\|P_{n} \varphi-\varphi\right\|_{\infty}$. 
+		
+		$$\text{Для } \varphi \in C^{2}[a, b]\left\|\varphi_{n}-\varphi\right\|_{\infty} \leq M \frac{1}{8} h^{2}\left\|\varphi^{\prime \prime}\right\|_{\infty}$$
+	
+		
+		
+		
+		
+		
 	\end{frame}
 	
 	%------------------------------------------------
