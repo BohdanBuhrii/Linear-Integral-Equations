@@ -1,3 +1,4 @@
 # took remote changes when merge .tex execution results
 report.pdf merge=ours
 notes.pdf merge=ours
+presentation.pdf merge=ours
