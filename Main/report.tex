@@ -319,21 +319,23 @@ $$
  з невідомими густинами $\varphi_1 \in C(\Gamma_{1}) $, $\varphi_2 \in C(\Gamma_{2})$.
  
  Враховуючи інтегральне подання розв'язку, крайові умови та властивості потенціалу простого шару, для знаходження невідомих функцій отримаємо таку систему інтегральних рівнянь:
- $$
- \left\{
- \begin{array}{l}
- 	\displaystyle
- 	  \intl_{\Gamma_{1}} \varphi_1(y) \Phi(x, y) d s(y)
- 	+ \intl_{\Gamma_{2}} \varphi_2(y) \Phi(x, y) d s(y)
- 	= f_{1}(x), \quad x \in \Gamma_{1} 
- 	\\ [0.3cm]
- 	\displaystyle
- 	  2\intl_{\Gamma_{1}} \varphi_1(y) \frac{\partial \Phi(x, y)}{\partial \nu(x)} d s(y)
- 	- \varphi_2(x)
- 	+ 2\intl_{\Gamma_{2}} \varphi_2(y) \frac{\partial \Phi(x, y)}{\partial \nu(x)} d s(y)
- 	= 2f_{2}(x), \quad x \in \Gamma_{2}
+ 
+ \begin{equation}
+ 	\label{IE-system}
+	 \left\{
+	 \begin{array}{l}
+	 	\displaystyle
+	 	  \intl_{\Gamma_{1}} \varphi_1(y) \Phi(x, y) d s(y)
+	 	+ \intl_{\Gamma_{2}} \varphi_2(y) \Phi(x, y) d s(y)
+	 	= f_{1}(x), \quad x \in \Gamma_{1} 
+	 	\\ [0.3cm]
+	 	\displaystyle
+	 	  2\intl_{\Gamma_{1}} \varphi_1(y) \frac{\partial \Phi(x, y)}{\partial \nu(x)} d s(y)
+	 	- \varphi_2(x)
+	 	+ 2\intl_{\Gamma_{2}} \varphi_2(y) \frac{\partial \Phi(x, y)}{\partial \nu(x)} d s(y)
+	 	= 2f_{2}(x), \quad x \in \Gamma_{2}
  \end{array}\right.
- $$
+ \end{equation}
 
  Пояснити про стрибок ...
  (ще раз перевірити на стрибок)
@@ -358,6 +360,53 @@ $$
  \thispagestyle{empty}
  \section{Коректність інтегрального рівняння}
  
+ \theorem{unique-solution} Для $\Gamma_{i} \in C^{2}$ i $f_{i} \in C\left(\Gamma_{i}\right)$ , $i=1,2,$ система інтегралъних рівнянь (\ref{IE-system}) має единий розв'язок $\mu_{i} \in C\left(\Gamma_{i}\right), i=1,2$, який неперервно залежить від вхідих даних.
+ 
+ Доведення: Введемо наступні інтегральні оператори:
+ $$
+ \begin{array}{l}
+ 	
+ 	\displaystyle
+ 	(A \varphi)(x):= 2 \intl_{\Gamma_{1}} \Phi(x, y) \varphi(y)  d s(y), \quad x \in \Gamma_{1}
+ 	\\[0.7cm]
+ 	 
+ 	 \displaystyle
+ 	(B \varphi)(x):= 2 \intl_{\Gamma_{2}} \Phi(x, y) \varphi(y)  d s(y), \quad x \in \Gamma_{1}
+ 	\\[0.7cm]
+ 	
+ 	 \displaystyle
+	(C \varphi)(x):= 2 \intl_{\Gamma_{1}} \frac{\partial \Phi(x, y)}{\partial \nu(x)} \varphi(y)  d s(y), \quad x \in \Gamma_{2}
+	\\[0.7cm]
+
+ 	 \displaystyle
+	(D \varphi)(x):= 2 \intl_{\Gamma_{1}} \frac{\partial \Phi(x, y)}{\partial \nu(x)} \varphi(y)  d s(y), \quad x \in \Gamma_{2}
+	\\[0.7cm]
+ \end{array}
+ $$
+ Запишемо систему інтегральних рівнянь \ref{IE-system} в операторному вигляді:
+ \begin{equation}
+ 	\label{IE-operator}
+	\varphi-U \varphi=F
+\end{equation}
+
+ де $\varphi_:=\left(\varphi_{1}, \varphi_{2}\right)^{T}, F:=\left(2 f_{1}, 2 f_{2}\right)^{T}$ і оператор $U$ заданий як
+ $$
+ U:=\left(\begin{array}{ll}
+ 	A & B \\
+ 	C & D
+ \end{array}\right)
+ $$
+ Позначимо $\Gamma:=\Gamma_{1} \cup \Gamma_{2}$. Оператори $B$ та $C$ містять неперервні ядра, отже $\epsilon$ компактними в $C(\Gamma) .$  Оператори А та D містять слабосингулярні ядра, а отже також є компактними. Таким чином ми можемо застосувати теорію Рісса для доведення коректності нашої системи IP.
+  
+  Відомо, що простір нулів $N(I-U)=\{0\}$, тобто оператор $(I-U)$ ін'єктивний. Тоді згідно теорії Рісса $(I-U)$ сюр'єктивний, тобто
+  $$
+  \forall F \in C(\Gamma) \quad \exists ! \varphi \in C(\Gamma): \quad(I-U) \varphi=F
+  $$
+  Тоді, обернений оператор $(I-U)^{-1}$ обмежений і розв'язок операторного рівняння \ref{IE-operator} можа подати у вигляді
+  $$
+  \varphi=(I-U)^{-1} F
+  $$
+  
  \newpage
  \thispagestyle{empty}
  \section{Параметризація}
@@ -549,7 +598,7 @@ $$
 	 \\ [1cm]
  
  	\displaystyle
- 	\frac{  x''_{2}(\tau) \cdot \nu (x_2(t)) }{ 2\abs{ x'_{2}(t)}^2 } 
+ 	\frac{  x''_{2}(t) \cdot \nu (x_2(t)) }{ 2\abs{ x'_{2}(t)}^2 } 
  	,\quad \quad  \quad  \quad  \quad  t \neq \tau
  \end{array}
  \right.
