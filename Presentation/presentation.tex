@@ -93,6 +93,11 @@
 
 \newcommand{\inttwopi}{\intl_{0}^{2\pi}}
 
+\newcommand{\boundprob}{(\ref{laplace-eq}) -- (\ref{neumann-condition})}
+
+\newtheorem{thm}{\protect\thmname}
+\renewcommand{\thmname}{Теорема}
+
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
 %----------------------------------------------------------------------------------------
@@ -125,24 +130,35 @@
 	%------------------------------------------------
 	\section{Мішана задача у двозв'язній області} 
 	%------------------------------------------------
-
+	
+	\begin{frame}
+		\frametitle{Вступ}
+	\end{frame}
+	
 	\subsection{Постановка задачі}
 	
 	\begin{frame}
 		\frametitle{Постановка задачі}
-		Нехай $D_1 \subset \mathbb{R}^2$ – обмеженна область з гладкою границею $\Gamma_1 \subset C^2$ та $D_2 \subset \mathbb{R}^2$ – обмеженна область з гладкою границею $\Gamma_2 \subset C^2$. Тоді двозв'язна область $D = D_2 \; \backslash \; \overline{D}_1$ матиме вигляд:
-	
+		\small
+		
+		Нехай $D_1 \subset \mathbb{R}^2$ – обмеженна область з гладкою границею $\Gamma_1 \subset C^2$ та $D_2 \subset \mathbb{R}^2$ – обмеженна область з гладкою границею $\Gamma_2 \subset C^2$, причому $D_1 \subset D_2$. Розглядатимемо двозв'язну область $D = D_2 \; \backslash \; \overline{D}_1$, яка має вигляд
 	
 		\begin{figure}[h]
 			\centering
 			\includegraphics[width=0.6\textwidth]{resources/doubly-connected-region}
-			\caption{Двоз'вязна область $D$}
+			
+			\caption{Область $D$}
 			\label{fig:double-connected-region}
 		\end{figure}
 	\end{frame}
 	
 	\begin{frame}
-		Задана мішана задача Діріхле-Неймана для рівняння Пуасона. Знайти таку функцію $u(x_1, x_2) \in C^{2}(D)\bigcap  C^{1}(\overline{D})$ що задовольняє рівняння (\ref{laplace-eq}) та граничні умови (\ref{dirichlet-condition}), (\ref{neumann-condition})
+		\small
+		
+		Розглядаємо мішану задачу Діріхле-Неймана для рівняння Лапласа.
+		\newline
+		\textbf{\textit{Завдання.}}
+		Знайти функцію $u \in C^{2}(D)\bigcap  C^{1}(\overline{D})$ що задовольняє рівняння (\ref{laplace-eq}) та граничні умови (\ref{dirichlet-condition}), (\ref{neumann-condition})
 	
 		\begin{block}{}
 			
@@ -160,7 +176,7 @@
 					\label{dirichlet-condition}
 					u = f_1 \quad \text{на} \quad \Gamma_1,
 				\end{equation}
-	
+				\vspace{-0.2cm}
 				\begin{equation}
 					\label{neumann-condition}
 					\pdv{u}{\nu} = f_2 \quad \text{на} \quad \Gamma_2,		
@@ -168,7 +184,7 @@
 		
 			\end{enumerate}
 		\end{block}
-		де $\nu = \nu(x)$ - одиничний вектор зовнішньої нормалі, (\ref{dirichlet-condition}) є умовою Діріхле, а (\ref{neumann-condition}) є умовою Неймана.
+		де $\nu = \nu(x)$ - одиничний вектор зовнішньої нормалі, (\ref{dirichlet-condition}) називатимемо умовою Діріхле, а (\ref{neumann-condition}) -- умовою Неймана.
 
 		
 	\end{frame}
@@ -178,6 +194,19 @@
 	\subsection{Єдиність розв'язку}
 	\begin{frame}
 		\frametitle{Єдиність розв'язку}
+		
+		\begin{theorem}[про єдиність розв'язку]
+			Нехай $\Gamma_{1}, \Gamma_{2}$ -- гладкі границі, що належать класу $C^1$, обмежують двозв'язну область $D$. Тоді задача \boundprob \space має на $D$ не більше одного розв'язку.
+		\end{theorem}
+		
+		\begin{proof}[Доведення]
+			Від супротивного. Припустимо, що $\exists u_1, u_2 \in C^{2}(\overline{D}): u_1 \neq u_2 $ -- два різні розв'язки задачі \boundprob. Запишемо цю задачу для функції $u^* = u_1 - u_2$
+			та застосуємо для її розв'язку першу формулу Гріна. Підставивши в отриманий вираз граничні умови та опираючись на неперервність функції $u^*$ в $\overline{D}$, легко бачити, що $u^*\equiv0 \Rightarrow u_1\equiv u_2$. Отримано суперечність
+		\end{proof}
+		
+		
+		
+		
 	\end{frame}
 
 	%------------------------------------------------
@@ -187,6 +216,19 @@
 	\subsection{Пов'язані поняття. Теорія потенціалів}
 	\begin{frame}
 		\frametitle{Пов'язані поняття. Теорія потенціалів}
+		\begin{block}{Потенціал простого шару}
+			$$
+			u(x)=\intl_{\partial D} \varphi(y) \Phi(x, y) d s(y), \quad x \in \partial D
+			$$
+		\end{block}
+		\vspace{0.8cm}
+		\begin{block}{Похідна від потенціалу простого шару}
+			$$
+			\frac{\partial u_{\pm}}{\partial \nu}(x) =
+			\intl_{\partial D} \varphi(y) \frac{\partial \Phi(x, y)}{\partial \nu(x)} d s(y) \mp \frac{1}{2} \varphi(x),
+			\quad x \in \partial D
+			$$
+		\end{block}
 	\end{frame}
 
 	%------------------------------------------------
@@ -194,6 +236,46 @@
 	\subsection{Загальний вигляд розв'язку}
 	\begin{frame}
 		\frametitle{Загальний вигляд розв'язку}
+		
+		\begin{block}{Передумови}
+			\begin{itemize}
+				\item Потенціал простого шару є гармонічною функцією
+				\item Задача \boundprob зводиться до системи ІР
+			\end{itemize}
+		\end{block}
+		\vspace{0.8cm}
+		\begin{block}{Вигляд розв'язку}
+			$$
+			u(x) 
+			= \intl_{\Gamma_1} \varphi_1(y) \Phi(x, y) d s(y)
+			+ \intl_{\Gamma_2} \varphi_2(y) \Phi(x, y) d s(y)
+			, \quad x \in D
+			$$
+		\end{block}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Система ІР}
+		
+		\begin{block}{}
+			$$
+			\left\{
+			\begin{array}{l}
+				\displaystyle
+				\intl_{\Gamma_{1}} \varphi_1(y) \Phi(x, y) d s(y)
+				+ \intl_{\Gamma_{2}} \varphi_2(y) \Phi(x, y) d s(y)
+				= f_{1}(x), \quad x \in \Gamma_{1} 
+				\\ [0.5cm]
+				\displaystyle
+				\intl_{\Gamma_{1}} \varphi_1(y) \frac{\partial \Phi(x, y)}{\partial \nu(x)} d s(y) \space +
+				\\
+				\displaystyle
+				\qquad\qquad + \space \frac{1}{2}\varphi_2(x)
+				+ \intl_{\Gamma_{2}} \varphi_2(y) \frac{\partial \Phi(x, y)}{\partial \nu(x)} d s(y)
+				= f_{2}(x), \quad x \in \Gamma_{2}
+			\end{array}\right.
+			$$
+		\end{block}
 	\end{frame}
 
 	%------------------------------------------------
@@ -365,9 +447,80 @@
 	\section{Чисельне розв'язування} 
 	%------------------------------------------------
 
-	\subsection{Метод квадратур}
+	\subsection{Метод колокації}
 	\begin{frame}
-			\frametitle{Метод квадратур}
+			\frametitle{Метод колокації}
+			
+			
+	\end{frame}
+
+	\begin{frame}
+		
+		$$
+		\begin{matrix}
+			G^{(1)}_{ji} = \inttwopi \gamma^{(1)}_{j}(\tau) K_{11}(t_i, \tau) d \tau \\[0.8cm]
+			G^{(2)}_{ji} = \inttwopi \gamma^{(2)}_{j}(\tau) K_{12}(t_i, \tau) d \tau \\[0.8cm]
+			G^{(3)}_{ji} = \inttwopi \gamma^{(1)}_{j}(\tau) K_{21}(t_i, \tau) d \tau \\[0.8cm]
+			G^{(4)}_{ji} = \pi\frac{\gamma^{(2)}_{j}(t_i)}{\abs{x'_{2}(t_i))}}
+			+ \inttwopi \gamma^{(2)}_{j}(\tau) K_{22}(t_i, \tau) d \tau \\
+		\end{matrix}
+		$$
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Результуюча СЛАР}
+		
+		\begin{block}{}
+			\Large
+			$$
+			Ac=g
+			$$	
+		\end{block}
+		
+		\begin{block}{}
+		$$
+		\begin{pmatrix}
+			\begin{matrix}
+				G^{(1)}_{11} & \dots  & G^{(1)}_{1n} \\
+				\vdots 		 & \ddots & \\
+				G^{(1)}_{n1} & 		  & G^{(1)}_{nn} \\
+			\end{matrix} &
+			\begin{matrix}
+				G^{(2)}_{11} & \dots  & G^{(2)}_{1n} \\
+				\vdots 		 & \ddots & \\
+				G^{(2)}_{n1} & 		  & G^{(2)}_{nn} \\
+			\end{matrix} \\[1cm]
+			\begin{matrix}
+				G^{(3)}_{11} & \dots  & G^{(3)}_{1n} \\
+				\vdots 		 & \ddots & \\
+				G^{(3)}_{n1} & 		  & G^{(3)}_{nn} \\
+			\end{matrix} &
+			\begin{matrix}
+				G^{(4)}_{11} & \dots  & G^{(4)}_{1n} \\
+				\vdots 		 & \ddots & \\
+				G^{(4)}_{n1} & 		  & G^{(4)}_{nn} \\
+			\end{matrix} \\
+		\end{pmatrix}
+		\begin{pmatrix}
+			c^{(1)}_1\\
+			\vdots\\
+			c^{(1)}_n\\[0.5cm]
+			c^{(2)}_1\\
+			\vdots\\
+			c^{(2)}_n\\
+		\end{pmatrix}
+		= 
+		\begin{pmatrix}
+			2\pi g_1(x_1)\\
+			\vdots\\
+			2\pi g_1(x_n)\\[0.5cm]
+			2\pi g_2(x_1)\\
+			\vdots\\
+			2\pi g_2(x_n)\\
+		\end{pmatrix}
+		$$
+		\end{block}
+		
 	\end{frame}
 		
 	%------------------------------------------------
