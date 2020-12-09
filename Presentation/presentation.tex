@@ -105,7 +105,7 @@
 
 \title[Short title]{Розв'язування задачі Діріхле-Неймана для рівняння Лапласа} % The short title appears at the bottom of every slide, the full title is only on the title page
 
-\author{Бугрії Богдан, Середович Віктор} % Your name
+\author{Бугрій Богдан, Середович Віктор} % Your name
 \institute[UCLA] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
 {
 	Львівський національний університет імені Івана Франка \\
@@ -154,9 +154,6 @@
 	
 	\begin{frame}
 		\small
-		
-		Розглядаємо мішану задачу Діріхле-Неймана для рівняння Лапласа.
-		\newline
 		\textbf{\textit{Завдання.}}
 		Знайти функцію $u \in C^{2}(D)\bigcap  C^{1}(\overline{D})$ що задовольняє рівняння (\ref{laplace-eq}) та граничні умови (\ref{dirichlet-condition}), (\ref{neumann-condition})
 	
@@ -188,6 +185,9 @@
 
 		
 	\end{frame}
+	\begin{comment}
+		Розглядаємо мішану задачу Діріхле-Неймана для рівняння Лапласа.
+	\end{comment}
 
 	%------------------------------------------------
 
@@ -447,23 +447,89 @@
 
 	\subsection{Метод колокації}
 	\begin{frame}
-			\frametitle{Метод колокації}
-			
-			
+		\frametitle{Метод колокації}
+		
+		\begin{block}{Розбиття та базисні функції}
+			\begin{itemize}
+			\item $x_{j}=a+j h, j=0, \ldots, n$, $h=(b-a) / n$
+			\vspace{0.3cm}
+			\item $X_{n}-$ простір функцій, неперервних на $[a, b]$
+			\item $l_{j}(x)=\left\{
+			\begin{array}{lc}
+				\frac{x-x_{j-1}}{h}, \quad x \in\left[x_{j-1}, x_{j}\right], j \geq 1 \\
+				\frac{x_{j+1}-x}{h}, \quad x \in\left[x_{j}, x_{j+1}\right], j \leq n-1 \\
+				0, \qquad\quad \text { в інших випадках }
+			\end{array}\right.$
+		
+			\end{itemize}
+		\end{block}
+		
+		\begin{block}{Вигляд наближеного розв'язку}
+		$$
+		\tilde{\psi_k}(x)=\sum_{j=1}^{n} c^{(k)}_{j} l_{j}(x), \quad k = 1, 2
+		$$
+		\end{block}
+		
+
 	\end{frame}
+
+	\begin{comment}
+	Звичайно інтеграли в системі (2) можна записати як
+	(3)
+	\\$$
+	\int_{a}^{b} l_{j}(y) K\left(x_{i}, y\right) d y=\frac{1}{h} \int_{x_{j-1}}^{x_{j}}\left(y-x_{j-1}\right) K\left(x_{i}, y\right) d y+\frac{1}{h} \int_{x_{j}}^{x_{j+1}}\left(x_{j-1}-y\right) K\left(x_{i}, y\right) d y
+	$$
+	\end{comment}
+
+	\begin{comment}
+	Область D поділяється на підобласті і шукана функція апроксимується алгебраїчними поліномами невисокого степеня в межах підобласті.
+	
+	Маємо рівновіддалений поділ відрізка [a, b]
+	і простір неперервних на [a, b] функцій  звуження яких на підінтервал  є лінійна ф-ція 
+	
+	3 очевидними уточненнями для $l_{0}$ i $l_{n} .$ 
+	?уточнення на кінцях [a, b]
+	\end{comment}
 
 	\begin{frame}
 		
 		$$
-		\begin{matrix}
-			G^{(1)}_{ji} = \inttwopi \gamma^{(1)}_{j}(\tau) K_{11}(t_i, \tau) d \tau \\[0.8cm]
-			G^{(2)}_{ji} = \inttwopi \gamma^{(2)}_{j}(\tau) K_{12}(t_i, \tau) d \tau \\[0.8cm]
-			G^{(3)}_{ji} = \inttwopi \gamma^{(1)}_{j}(\tau) K_{21}(t_i, \tau) d \tau \\[0.8cm]
-			G^{(4)}_{ji} = \pi\frac{\gamma^{(2)}_{j}(t_i)}{\abs{x'_{2}(t_i))}}
-			+ \inttwopi \gamma^{(2)}_{j}(\tau) K_{22}(t_i, \tau) d \tau \\
-		\end{matrix}
+		\hspace{-0.3cm}
+		\left\{
+		\begin{array}{l}
+			\displaystyle
+			\sum_{j=1}^{n} c^{(1)}_{j} \inttwopi l_{j}(\tau) K_{11}(t, \tau) d \tau
+			+ \sum_{j=1}^{n} c^{(2)}_{j} \inttwopi l_{j}(\tau) K_{12}(t, \tau) d \tau
+			= 2\pi g_{1}(t)
+			\\ [0.3cm]
+			
+			\displaystyle
+			\sum_{j=1}^{n} c^{(1)}_{j} \inttwopi l_{j}(\tau) K_{21}(t, \tau) d \tau +
+			\\ [0.3cm]
+			
+			\displaystyle
+			\qquad \qquad
+			+ \sum_{j=1}^{n} c^{(2)}_{j} \left\{
+			\pi \frac{l_{j}(t)}{\abs{x'_{2}(t))}}
+			+ \inttwopi l_{j}(\tau) K_{22}(t, \tau) d \tau
+			\right\}
+			= 2\pi g_{2}(t)
+		\end{array}\right.
 		$$
+		
+
 	\end{frame}
+	\begin{comment}
+	$$
+	\begin{matrix}
+	G^{(1)}_{ji} = \inttwopi l_{j}(\tau) K_{11}(t_i, \tau) d \tau \\[0.8cm]
+	G^{(2)}_{ji} = \inttwopi l_{j}(\tau) K_{12}(t_i, \tau) d \tau \\[0.8cm]
+	G^{(3)}_{ji} = \inttwopi l_{j}(\tau) K_{21}(t_i, \tau) d \tau \\[0.8cm]
+	G^{(4)}_{ji} = \pi\frac{ l_{j}(t_i)}{\abs{x'_{2}(t_i))}}
+	+ \inttwopi l_{j}(\tau) K_{22}(t_i, \tau) d \tau \\
+	\end{matrix}
+	$$
+	\end{comment}
 
 	\begin{frame}
 		\frametitle{Результуюча СЛАР}
