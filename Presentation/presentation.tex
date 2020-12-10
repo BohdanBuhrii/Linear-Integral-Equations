@@ -480,12 +480,12 @@
 		\begin{array}{l}
 			\displaystyle
 			\frac{ \left( x_{2}(\tau) - x_{2}(t) \right) \cdot \nu (x_2(t)) }{ \abs{ x_{2}(t)-x_{2}(\tau) }^2 } 
-			,\quad t = \tau
+			,\quad t \neq \tau
 			\\ [1cm]
 			
 			\displaystyle
 			\frac{  x''_{2}(t) \cdot \nu (x_2(t)) }{ 2\abs{ x'_{2}(t)}^2 } 
-			,\quad \quad  \quad  \quad  \quad  t \neq \tau
+			,\quad \quad  \quad  \quad  \quad  t = \tau
 		\end{array}
 		\right.
 		$$
@@ -499,6 +499,7 @@
 
 	\begin{frame}
 		\frametitle{Подання розв'язку в параметричному вигляді}
+
 		$$
 		u(x)=\frac{1}{2 \pi} \int_{0}^{2 \pi} \psi_{1}(\tau) K_{1}(x, \tau) d \tau+\frac{1}{2 \pi} \int_{0}^{2 \pi} \psi_{2}(\tau) K_{2}(x, \tau) d \tau, \quad x \in D
 		$$
@@ -663,11 +664,12 @@
 	\subsection{Похибка}	
 	\begin{frame}
 		\frametitle{Похибка}
-		
-		Проекційний оператор визначається як 
+	
+		\begin{block}{Проекційний оператор }
 		$$
 		\left(P_{n} \varphi\right)(x)= \sum_{j=0}^{n} \varphi\left(x_{i}\right) l_{j}(x) .
 		$$
+		\end{block}
 		
 		Для $P_{n} \varphi$ маємо такі оцінки 
 		$$
@@ -678,18 +680,17 @@
 			
 			\displaystyle
 			\varphi \in C[a, b], \quad \quad \left\|P_{n} \varphi-\varphi\right\|_{\infty} \leq w(\varphi, h) \rightarrow 0
-			\\[0.3cm]	
 		\end{array}
 		$$
-		$P_{n} \varphi \rightarrow \varphi$ $\varphi \in C[a, b] \quad A: C[a, b] \rightarrow C[a, b]$  $\left\|P_{n} A-\dot{A}\right\| \rightarrow 0, n \rightarrow \infty$ 
 		
-		Для $n \geq N$ $\left(I-P_{n} A\right) \varphi_{n}=P_{n} f$ має єдиний $_{1}$ розв'язок для $f \in C[a, b] i\left\|\varphi_{n}-\varphi\right\|_{\infty} \leq \dot{M}\left\|P_{n} \varphi-\varphi\right\|_{\infty}$. 
-		
-		$$\text{Для } \varphi \in C^{2}[a, b]\left\|\varphi_{n}-\varphi\right\|_{\infty} \leq M \frac{1}{8} h^{2}\left\|\varphi^{\prime \prime}\right\|_{\infty}$$
 	
-		
-		
-		
+	\begin{block}{Оцінка похибки}
+		$$
+		\left\|\varphi_{n}-\varphi\right\|_{\infty} \leq M \frac{1}{8} h^{2}\left\|\varphi^{\prime \prime}\right\|_{\infty}, \quad \text{для } 
+		\varphi \in C^{2}[a, b]
+		$$
+	\end{block}	
+			
 		
 		
 	\end{frame}
@@ -708,11 +709,11 @@
 			\label{ex1}
 			\begin{array}{l}
 				\displaystyle
-				\Gamma_{1}=\left\{x_{1}(t)=(0.9 \cos t, 0.9 \sin t), t \in[0,2 
+				\Gamma_{1}=\left\{x_{1}(t)=(0.9 \cos t, 0.9 \sin t), \quad t \in[0,2 
 				\pi]\right\} \\
 				
 				\displaystyle
-				\Gamma_{2}=\left\{x_{2}(t)=(2 \cos t, 2 \sin t), t \in[0,2 \pi]\right\} \\[0.1cm]
+				\Gamma_{2}=\left\{x_{2}(t)=(2 \cos t, 2 \sin t), \quad  t \in[0,2 \pi]\right\} \\[0.1cm]
 
 				\displaystyle
 				f_{1}(x)=x  \text { на } \Gamma_{1} \quad \text {і} \quad
@@ -770,26 +771,26 @@
 	
 	%------------------------------------------------
 	
-	\section*{Література}
-	\begin{frame}
-		\thispagestyle{empty}
-		\frametitle{Література}
-		\begin{thebibliography}{99}
-			\bibliographystyle{plain}
-	
-			\bibitem{l1}{\it Kress R.}
-			Linear Integral Equations, 2nd. ed. / R. Kress. -- 
-			New-York: Springer-Verlag, 1989. -- 367 с.
-			
-			\bibitem{l2}{\it Chapko R., Johansson B.T. }
-			An alternating boundary integral based method for inverse potential flow around immersed bodies, No. 1, 2009
-	
-			\bibitem{l2}{\it Абрамовиц М.}
-			Справочник по специальным функциям / М. Абрамовиц, И. Стиган. 
-			-- М.: Наука, 1979. -- 832 с.
-	
-		\end{thebibliography}
-	\end{frame}
+\section*{Література}
+\begin{frame}
+	\thispagestyle{empty}
+	\frametitle{Література}
+	\begin{thebibliography}{99}
+		\bibliographystyle{plain}
+
+		\bibitem{l1}{\it Kress R.}
+		Linear Integral Equations, 2nd. ed. / R. Kress. -- 
+		New-York: Springer-Verlag, 1989. -- 367 с.
+		
+		\bibitem{l2}{\it Chapko R., Johansson B.T. }
+		An alternating boundary integral based method for inverse potential flow around immersed bodies, No. 1, 2009
+
+		\bibitem{l2}{\it Абрамовиц М.}
+		Справочник по специальным функциям / М. Абрамовиц, И. Стиган. 
+		-- М.: Наука, 1979. -- 832 с.
+
+	\end{thebibliography}
+\end{frame}
 
 	
 	%------------------------------------------------	
