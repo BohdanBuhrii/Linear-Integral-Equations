@@ -700,7 +700,69 @@
 
 	\begin{frame}
 		\frametitle{Приклад 1.}
+				
+					
+		
+		{\small{
+		\begin{equation}
+			\label{ex1}
+			\begin{array}{l}
+				\displaystyle
+				\Gamma_{1}=\left\{x_{1}(t)=(0.9 \cos t, 0.9 \sin t), t \in[0,2 
+				\pi]\right\} \\
+				
+				\displaystyle
+				\Gamma_{2}=\left\{x_{2}(t)=(2 \cos t, 2 \sin t), t \in[0,2 \pi]\right\} \\[0.1cm]
+
+				\displaystyle
+				f_{1}(x)=x  \text { на } \Gamma_{1} \quad \text {і} \quad
+				f_{2}(x)=1  \text { на } \Gamma_{2}
+			\end{array}
+		\end{equation}
+		}}
+				
+		\begin{figure}
+			\includegraphics[width=0.48\textwidth]{resources/curves_and_points.pdf}
+			\caption{Граничні умови $\Gamma_1$, $\Gamma_2$ для \ref{ex1}}
+		\end{figure}
+		
 	\end{frame}
+
+	\begin{frame}
+		\begin{columns}[c] 
+			\column{.5\textwidth}
+			\begin{figure}
+				\includegraphics[width=1\textwidth]{resources/x_ex.pdf}
+				\caption{Точний розв'язок}	
+			\end{figure}
+						
+			\column{.5\textwidth}
+			\begin{figure}
+				\includegraphics[width=1\textwidth]{resources/x_approx.pdf}
+				\caption{Наближений розв'язок}
+			\end{figure}
+						
+		\end{columns}
+		
+	\end{frame}	
+		
+	\begin{frame}
+	
+	\begin{table}
+		\begin{tabular}{l l l l}
+			\toprule
+			\textbf{M} & $x = (0.7, 1.2)$ & $x = (-0.8, 0.9)$  & $x = (0, -1.1)$  \\
+			\midrule
+			8 & 0.40279256 & 0.30825628& 0.18528191 \\			
+			16 & 0.17905565 & 0.16061103 & 0.1116888 \\
+			32 & 0.07499773&  0.07602952 & 0.05734572 \\
+			64 & 0.0337177 & 0.03639188 & 0.028495 \\
+			128 & 0.01590401 & 0.01773373 & 0.01413837 \\
+			\bottomrule
+		\end{tabular}
+		\caption{Абсолютна похибка розвязку для деяких $x \in D$ у випадку \ref{ex1} }
+	\end{table}
+\end{frame}
 	
 	\begin{frame}
 		\frametitle{Приклад 2.}
@@ -708,47 +770,30 @@
 	
 	%------------------------------------------------
 	
-\section*{Література}
-\begin{frame}
-	\thispagestyle{empty}
-	\frametitle{Література}
-	\begin{thebibliography}{99}
-		\bibliographystyle{plain}
-
-		\bibitem{l1}{\it Kress R.}
-		Linear Integral Equations, 2nd. ed. / R. Kress. -- 
-		New-York: Springer-Verlag, 1989. -- 367 с.
-		
-		\bibitem{l2}{\it Chapko R., Johansson B.T. }
-		An alternating boundary integral based method for inverse potential flow around immersed bodies, No. 1, 2009
-
-		\bibitem{l2}{\it Абрамовиц М.}
-		Справочник по специальным функциям / М. Абрамовиц, И. Стиган. 
-		-- М.: Наука, 1979. -- 832 с.
-
-	\end{thebibliography}
-\end{frame}
+	\section*{Література}
+	\begin{frame}
+		\thispagestyle{empty}
+		\frametitle{Література}
+		\begin{thebibliography}{99}
+			\bibliographystyle{plain}
+	
+			\bibitem{l1}{\it Kress R.}
+			Linear Integral Equations, 2nd. ed. / R. Kress. -- 
+			New-York: Springer-Verlag, 1989. -- 367 с.
+			
+			\bibitem{l2}{\it Chapko R., Johansson B.T. }
+			An alternating boundary integral based method for inverse potential flow around immersed bodies, No. 1, 2009
+	
+			\bibitem{l2}{\it Абрамовиц М.}
+			Справочник по специальным функциям / М. Абрамовиц, И. Стиган. 
+			-- М.: Наука, 1979. -- 832 с.
+	
+		\end{thebibliography}
+	\end{frame}
 
 	
 	%------------------------------------------------	
-	
-	\begin{frame}
 
-		\frametitle{Table}
-		\begin{table}
-			\begin{tabular}{l l l}
-				\toprule
-				\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
-				\midrule
-				Treatment 1 & 0.0003262 & 0.562 \\
-				Treatment 2 & 0.0015681 & 0.910 \\
-				Treatment 3 & 0.0009271 & 0.296 \\
-				\bottomrule
-			\end{tabular}
-			\caption{Table caption}
-		\end{table}
-	\end{frame}
-	
 	%----------------------------------------------------------------------------------------
 	
 \end{document} 
