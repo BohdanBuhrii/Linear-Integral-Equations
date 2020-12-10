@@ -131,14 +131,14 @@
 	\section{Мішана задача у двозв'язній області} 
 	%------------------------------------------------
 	
+	\subsection{Постановка задачі}
 	\begin{frame}
-		\frametitle{Вступ}
+		\frametitle{Завдання}
+		Знайти наближений розв'язок мішаної задачі Діріхле-Неймана для рівняння Лапласа у двозв'язній області методом ІР у випадку гладких границь, заданих параметрично. Використати потенціал простого шару. Чисельне розв'язування ІР здійснити методом колокації з використанням кусково-лінійних базисних функцій.
 	\end{frame}
 	
-	\subsection{Постановка задачі}
-	
 	\begin{frame}
-		\frametitle{Постановка задачі}
+		\frametitle{Область визначення}
 		\small
 		
 		Нехай $D_1 \subset \mathbb{R}^2$ – обмеженна область з гладкою границею $\Gamma_1 \subset C^2$ та $D_2 \subset \mathbb{R}^2$ – обмеженна область з гладкою границею $\Gamma_2 \subset C^2$, причому $D_1 \subset D_2$. Розглядатимемо двозв'язну область $D = D_2 \; \backslash \; \overline{D}_1$, яка має вигляд
@@ -153,8 +153,9 @@
 	\end{frame}
 	
 	\begin{frame}
+		\frametitle{Постановка задачі}
 		\small
-		\textbf{\textit{Завдання.}}
+		%\textbf{\textit{Постановка задачі.}}
 		Знайти функцію $u \in C^{2}(D)\bigcap  C^{1}(\overline{D})$ що задовольняє рівняння (\ref{laplace-eq}) та граничні умови (\ref{dirichlet-condition}), (\ref{neumann-condition})
 	
 		\begin{block}{}
@@ -195,19 +196,25 @@
 	\begin{frame}
 		\frametitle{Єдиність розв'язку}
 		
-		\begin{theorem}[про єдиність розв'язку]
+		\begin{block}{Теорема}
 			Нехай $\Gamma_{1}, \Gamma_{2}$ -- гладкі границі, що належать класу $C^1$, обмежують двозв'язну область $D$. Тоді задача \boundprob \space має на $D$ не більше одного розв'язку.
-		\end{theorem}
+		\end{block}
 		
-		\begin{proof}[Доведення]
-			Від супротивного. Припустимо, що $\exists u_1, u_2 \in C^{2}(\overline{D}): u_1 \neq u_2 $ -- два різні розв'язки задачі \boundprob. Запишемо цю задачу для функції $u^* = u_1 - u_2$
-			та застосуємо для її розв'язку першу формулу Гріна. Підставивши в отриманий вираз граничні умови та опираючись на неперервність функції $u^*$ в $\overline{D}$, легко бачити, що $u^*\equiv0 \Rightarrow u_1\equiv u_2$. Отримано суперечність
-		\end{proof}
-		
-		
-		
-		
+		\begin{block}{Доведення}
+			\begin{enumerate}
+				\item $\exists u_1, u_2 \in C^{2}(\overline{D}): u_1 \neq u_2 $
+				\item $u^* = u_1 - u_2$
+				\item Застосувати першу формулу Гріна
+				\item Підставити граничні умови
+			\end{enumerate}
+			
+		\end{block}
+
 	\end{frame}
+	\begin{comment}
+	Від супротивного. Припустимо, що $\exists u_1, u_2 \in C^{2}(\overline{D}): u_1 \neq u_2 $ -- два різні розв'язки задачі \boundprob. Запишемо цю задачу для функції $u^* = u_1 - u_2$
+	та застосуємо для її розв'язку першу формулу Гріна. Підставивши в отриманий вираз граничні умови та опираючись на неперервність функції $u^*$ в $\overline{D}$, легко бачити, що $u^*\equiv0 \Rightarrow u_1\equiv u_2$. Отримано суперечність
+	\end{comment}
 
 	%------------------------------------------------
 	\section{Зведення до системи iнтегральних рiвнянь} 	
@@ -279,6 +286,7 @@
 	\end{frame}
 
 	%------------------------------------------------
+	\begin{comment}
 	\subsection{Коректність системи ІР}
 	\begin{frame}
 		\frametitle{Коректність системи ІР}
@@ -295,11 +303,11 @@
 			\\[0.7cm]
 			
 			\displaystyle
-			(C \varphi)(x):= 2 \intl_{\Gamma_{1}} \frac{\partial \Phi(x, y)}{\partial \nu(x)} \varphi(y)  d s(y), \quad x \in \Gamma_{2}
+			(C \varphi)(x):= \intl_{\Gamma_{1}} \frac{\partial \Phi(x, y)}{\partial \nu(x)} \varphi(y)  d s(y), \quad x \in \Gamma_{2}
 			\\[0.7cm]
 			
 			\displaystyle
-			(D \varphi)(x):= 2 \intl_{\Gamma_{2}} \frac{\partial \Phi(x, y)}{\partial \nu(x)} \varphi(y)  d s(y), \quad x \in \Gamma_{2}
+			(D \varphi)(x):= \intl_{\Gamma_{2}} \frac{\partial \Phi(x, y)}{\partial \nu(x)} \varphi(y)  d s(y), \quad x \in \Gamma_{2}
 			\\[0.7cm]
 		\end{array}
 		$$
@@ -335,6 +343,7 @@
 		\end{block}
 	
 	\end{frame}
+	\end{comment}
 	
 
 	%------------------------------------------------
@@ -355,26 +364,26 @@
 		\end{equation}
 		\indent де $x_{i} : \mathbb{R} \rightarrow \mathbb{R}^2$, $2\pi$ періодична $\forall{t} \; \abs{x'(t)} > 0$ 
 		
-		Подамо систему ref в параметричному вигляді
+		Подамо систему в параметричному вигляді
 		\begin{small}
 			\begin{equation}
 				\label{IE-parametrized-system}
 				\left\{
 				\begin{array}{l}
 					\displaystyle
-					\frac{1}{2\pi} \inttwopi \psi_1(\tau) K_{11}(t, \tau) d \tau
-					+ \frac{1}{2\pi} \inttwopi  \psi_2(\tau) K_{12}(t, \tau) d \tau
-					= g_{1}(t)
+					\inttwopi \psi_1(\tau) K_{11}(t, \tau) d \tau
+					+ \inttwopi  \psi_2(\tau) K_{12}(t, \tau) d \tau
+					= 2\pi g_{1}(t)
 					\\ [0.3cm]
 					\displaystyle
-					 \frac{\psi_2(t)}{\abs{x'_{2}(t))}}
-					+ \frac{1}{\pi} \inttwopi \psi_1(\tau) K_{21}(t, \tau) d \tau
-					+ \frac{1}{\pi} \inttwopi  \psi_2(\tau) K_{22}(t, \tau) d \tau
-					= 2g_{2}(t)
+					 \pi \frac{\psi_2(t)}{\abs{x'_{2}(t))}}
+					+ \inttwopi \psi_1(\tau) K_{21}(t, \tau) d \tau
+					+ \inttwopi  \psi_2(\tau) K_{22}(t, \tau) d \tau
+					= 2\pi g_{2}(t)
 				\end{array}\right.
 			\end{equation}
 		
-		де $\displaystyle \psi_{i}(t) = \varphi(x_{i}(t)) \cdot \abs{x'_{i}(t)}, \; g_{i} = f_{i}(x_{i}(t)), \;  i  = 1, 2; \; t \in [0, 2\pi]$ \\[0.3cm]
+		де $\displaystyle \psi_{i}(t) = \varphi(x_{i}(t)) \abs{x'_{i}(t)}, \; g_{i} = f_{i}(x_{i}(t)), \;  i  = 1, 2; \; t \in [0, 2\pi]$ \\[0.3cm]
 		
 		\end{small}
 	\end{frame}
@@ -729,6 +738,24 @@
 		
 	\end{frame}
 
+	
+	\begin{frame}
+		\begin{table}
+			\begin{tabular}{l l l l}
+				\toprule
+				\textbf{M} & $x = (0.7, 1.2)$ & $x = (-0.8, 0.9)$  & $x = (0, -1.1)$  \\
+				\midrule
+				8 & 0.40279256 & 0.30825628& 0.18528191 \\			
+				16 & 0.17905565 & 0.16061103 & 0.1116888 \\
+				32 & 0.07499773&  0.07602952 & 0.05734572 \\
+				64 & 0.0337177 & 0.03639188 & 0.028495 \\
+				128 & 0.01590401 & 0.01773373 & 0.01413837 \\
+				\bottomrule
+			\end{tabular}
+			\caption{Абсолютна похибка розвязку для деяких $x \in D$ у випадку \ref{ex1} }
+		\end{table}
+	\end{frame}
+
 	\begin{frame}
 		\begin{columns}[c] 
 			\column{.5\textwidth}
@@ -746,29 +773,8 @@
 		\end{columns}
 		
 	\end{frame}	
-		
-	\begin{frame}
 	
-	\begin{table}
-		\begin{tabular}{l l l l}
-			\toprule
-			\textbf{M} & $x = (0.7, 1.2)$ & $x = (-0.8, 0.9)$  & $x = (0, -1.1)$  \\
-			\midrule
-			8 & 0.40279256 & 0.30825628& 0.18528191 \\			
-			16 & 0.17905565 & 0.16061103 & 0.1116888 \\
-			32 & 0.07499773&  0.07602952 & 0.05734572 \\
-			64 & 0.0337177 & 0.03639188 & 0.028495 \\
-			128 & 0.01590401 & 0.01773373 & 0.01413837 \\
-			\bottomrule
-		\end{tabular}
-		\caption{Абсолютна похибка розвязку для деяких $x \in D$ у випадку \ref{ex1} }
-	\end{table}
-\end{frame}
-	
-	\begin{frame}
-		\frametitle{Приклад 2.}
-	\end{frame}
-	
+
 	%------------------------------------------------
 	
 \section*{Література}
@@ -782,12 +788,14 @@
 		Linear Integral Equations, 2nd. ed. / R. Kress. -- 
 		New-York: Springer-Verlag, 1989. -- 367 с.
 		
-		\bibitem{l2}{\it Chapko R., Johansson B.T. }
-		An alternating boundary integral based method for inverse potential flow around immersed bodies, No. 1, 2009
+		\bibitem{l2}{\it R. Chapko }
+		An alternating boundary integral based method for inverse potential flow around immersed bodies / R. Chapko, B.T. Johansson -- J. Numer. Appl. Math.
+		No. 97, 2009, -- pp. 10-25
 
-		\bibitem{l2}{\it Абрамовиц М.}
-		Справочник по специальным функциям / М. Абрамовиц, И. Стиган. 
-		-- М.: Наука, 1979. -- 832 с.
+		\bibitem{l2}{\it R. Chapko }
+		On the numerical solution of a cauchy problem
+		for an elastostatic equation / R. Chapko, O. Sobeyko --
+		Ser. Appl. Math. Inform - 2009. Is. 15. -- pp. 135-148
 
 	\end{thebibliography}
 \end{frame}
