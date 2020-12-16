@@ -230,10 +230,6 @@ sorting=ynt
  $$
  \intl_{D}(u \Delta v+grad u \cdot grad v) d x=\intl_{\partial D} u \frac{\partial v}{\partial \nu} d s
  $$
- i для $u, v \in C^{2}(\overline{D})$ має місце друга формула Гріна
- $$
- \intl_{D}(u \Delta v-v \Delta u) d x=\intl_{\partial D}\left(u \frac{\partial v}{\partial \nu}-v \frac{\partial u}{\partial \nu}\right) d s
- $$
  
  \proof Посилання на Креса.
  
@@ -258,7 +254,7 @@ sorting=ynt
  = \intl_{\partial D} u^* \frac{\partial u^*}{\partial \nu} dS
  - \intl_{D} u^* \Delta u^* dx
  $$
- Тут $\partial D = \Gamma_1 \cup \Gamma_2$. Так як $\Delta u^* = 0 $ (чи ні?) в $D$, $u^*=0$ на $\Gamma_1$ і $\frac{\partial u^*}{\partial \nu} = 0$ на $\Gamma_2$, то отримуємо рівність
+ Тут $\partial D = \Gamma_1 \cup \Gamma_2$. Так як $\Delta u^* = 0 $ в $D$, $u^*=0$ на $\Gamma_1$ і $\frac{\partial u^*}{\partial \nu} = 0$ на $\Gamma_2$, то отримуємо рівність
  $$
  \intl_{D}(\operatorname{grad} u^*)^2 dx = 0,
  $$
@@ -272,26 +268,27 @@ sorting=ynt
 
 
  
- \hspace{0.5cm} Означення гармонічної функції ...
+ \hspace{0.45cm} \defn{harminic-func} Нехай $D \subset \mathbb{R}^2$ -- замкнена обмежена облясть. Функція $u \in C^2(D)$, що набуває дійсних значень, називається гармонічною, якщо вона задовольняє рівняння Лапласа $\delta u = 0$ в $D$.
  
- \theorem{fundamental-solution}  Функція
+ \defn{fundamental-solution}  Функція
  $$
  \Phi(x, y) := \frac{1}{2\pi} \ln \frac{1}{\abs{x - y}} 
-$$
-визначена на  $x \neq y,$ $x \in \mathbb{R}$ називається фундаментальним розв'язком рівняння Лапласа. Для фіксованого $y \in \mathbb{R}^2$ вона є гармонічною в $\mathbb{R}^2 \backslash \{y\}$.
+ $$
+ визначена на  $x \neq y,$ $x \in \mathbb{R}^2$ називається фундаментальним розв'язком рівняння Лапласа. Для фіксованого $y \in \mathbb{R}^2$ вона є гармонічною в $\mathbb{R}^2 \backslash \{y\}$.
  
  
  \defn{single-layer-potential} Нехай функція $\varphi \in C(\partial D),$ тоді
  $$
- u(x):=\intl_{\partial D} \varphi(y) \Phi(x, y) d s(y), \quad x \in \mathbb{R}^{m} \backslash \partial D
+ u(x):=\intl_{\partial D} \varphi(y) \Phi(x, y) d s(y), \quad x \in \mathbb{R}^{2} \backslash \partial D
  $$
  називають потенціалом простого шару з густиною $\varphi .$
  
- \theorem{potential-on-bound} Нехай $\partial D$ належить класу $C^{2}$ і $\varphi \in C(\partial D) .$ Тоді потенціал простого шару $u$ з густиною $\varphi$ неперервний на $\mathbb{R}^{m} .$ На границі області справджується рівність
+ \theorem{potential-on-bound} Нехай $\partial D$ належить класу $C^{2}$ і $\varphi \in C(\partial D) .$ Тоді потенціал простого шару $u$ з густиною $\varphi$ неперервний на $\mathbb{R}^{2} .$ На границі області справджується рівність
  $$
  u(x)=\intl_{\partial D} \varphi(y) \Phi(x, y) d s(y), \quad x \in \partial D
  $$
  де інтеграл існує і розуміється як невласний.
+ 
  \proof Кресс
  
  Щось про стрибок ...?
@@ -306,10 +303,12 @@ $$
  $$
  \frac{\partial u_{\pm}}{\partial v}(x):=\lim _{h \rightarrow+0} v(x) \cdot \operatorname{grad} u(x \pm h v(x))
  $$
- is to be understood in the sense of uniform convergence on $\partial D$ and where the integral exists as an improper integral.
+ слід розуміти у значенні рівномірної збіжності на $\partial D$ і інтеграл існує як невласний.
  
  \subsection{Загальний вигляд розв'язку}
- Потенціал простого шару є гармонічною функцією, тому розв'язок задачі \boundprob \space будемо шукати у вигляді суми потенціалів простого шару
+ Задача \boundprob \space зводиться до системи інтегральних рівнянь з двома невідомими функціями.
+ Потенціал простого шару є гармонічною функцією, а отже їх сума також гармонічна.
+ Тому розв'язок задачі \boundprob \space будемо шукати у вигляді суми потенціалів простого шару
  $$
  u(x) 
  = \intl_{\Gamma_1} \varphi_1(y) \Phi(x, y) d s(y)
@@ -328,22 +327,23 @@ $$
 	 	  \intl_{\Gamma_{1}} \varphi_1(y) \Phi(x, y) d s(y)
 	 	+ \intl_{\Gamma_{2}} \varphi_2(y) \Phi(x, y) d s(y)
 	 	= f_{1}(x), \quad x \in \Gamma_{1} 
-	 	\\ [0.3cm]
+	 	\\ [1cm]
 	 	\displaystyle
-	 	  2\intl_{\Gamma_{1}} \varphi_1(y) \frac{\partial \Phi(x, y)}{\partial \nu(x)} d s(y)
-	 	- \varphi_2(x)
-	 	+ 2\intl_{\Gamma_{2}} \varphi_2(y) \frac{\partial \Phi(x, y)}{\partial \nu(x)} d s(y)
-	 	= 2f_{2}(x), \quad x \in \Gamma_{2}
+	 	\frac{1}{2}\varphi_2(x)
+	 	+ \intl_{\Gamma_{1}} \varphi_1(y) \frac{\partial \Phi(x, y)}{\partial \nu(x)} d s(y) +
+	 	\\ [0.3cm]
+	 	\displaystyle \qquad \qquad \qquad \qquad \quad
+	 	+ \intl_{\Gamma_{2}} \varphi_2(y) \frac{\partial \Phi(x, y)}{\partial \nu(x)} d s(y)
+	 	= f_{2}(x), \quad x \in \Gamma_{2}
  \end{array}\right.
  \end{equation}
 
- Пояснити про стрибок ...
- (ще раз перевірити на стрибок)
+ Потенціал простого шару не має стрибка, але він може виникнути при диференціюванні. В другій частині другого рівняння точка інтегрування та точка спостереження лежать на одній кривій, що і породжує стрибок. Варто звернути увагу на те, що стрибок розглядається на зовнішній границі (границі Неймана), отже він буде додатнім.
  
  \begin{comment}
  Розв'язок задачі \boundprob \space будемо шукати у вигляді потенціалу простого шару:
  $$
- u(x)=\intl_{\partial D} \varphi(y) \Phi(x, y) d s(y), \quad x \in \mathbb{R}^{m} \backslash \partial D
+ u(x)=\intl_{\partial D} \varphi(y) \Phi(x, y) d s(y), \quad x \in \mathbb{R}^{2} \backslash \partial D
  $$
  Враховуючи інтегральне подання розв'язку, крайові умови та властивості потенціалу простого шару отримаємо таку систему інтегральних рівнянь:
  $$
@@ -643,41 +643,51 @@ $$
  \section{Чисельне розв'язування}
  
  \subsection{Метод колокації}
- \hspace{0.7cm}...
  
- ...
- 
- ...
+ \begin{itemize}
+ 	\item $x_{j}=a+j h, j=0, \ldots, n$, $h=(b-a) / n$
+ 	\vspace{0.3cm}
+ 	\item $X_{n}-$ простір функцій, неперервних на $[a, b]$
+ 	\item $\ell_{j}(x)=\left\{
+ 	\begin{array}{lc}
+ 		\displaystyle
+ 		\frac{x-x_{j-1}}{h}, \quad x \in\left[x_{j-1}, x_{j}\right], j \geq 1 \\
+ 		\displaystyle
+ 		\frac{x_{j+1}-x}{h}, \quad x \in\left[x_{j}, x_{j+1}\right], j \leq n-1 \\
+ 		0, \qquad\qquad \text { в інших випадках }
+ 	\end{array}\right.$
+ 	
+ \end{itemize}
  
  Шукані функції подамо у вигляді суми ... (сказати щось про n):
  $$
- \tilde{\psi_k}(x)=\sum_{j=1}^{n} c^{(k)}_{j} \gamma^{(k)}_{j}(x), \quad k = 1,2
+ \tilde{\psi_k}(x)=\sum_{j=1}^{n} c^{(k)}_{j} \ell_{j}(x), \quad k = 1,2
  $$
  Підставивши їх у систему оримаємо:
  $$
  \left\{
  \begin{array}{l}
  	\displaystyle
- 	  \sum_{j=1}^{n} c^{(1)}_{j} \inttwopi \gamma^{(1)}_{j}(\tau) K_{11}(t, \tau) d \tau
- 	+ \sum_{j=1}^{n} c^{(2)}_{j} \inttwopi \gamma^{(2)}_{j}(\tau) K_{12}(t, \tau) d \tau
+ 	  \sum_{j=1}^{n} c^{(1)}_{j} \inttwopi \ell_{j}(\tau) K_{11}(t, \tau) d \tau
+ 	+ \sum_{j=1}^{n} c^{(2)}_{j} \inttwopi \ell_{j}(\tau) K_{12}(t, \tau) d \tau
  	= 2\pi g_{1}(t)
  	\\ [0.3cm]
  	
  	\displaystyle
- 	  \sum_{j=1}^{n} c^{(1)}_{j} \inttwopi \gamma^{(1)}_{j}(\tau) K_{21}(t, \tau) d \tau
+ 	  \sum_{j=1}^{n} c^{(1)}_{j} \inttwopi \ell_{j}(\tau) K_{21}(t, \tau) d \tau
  	\\ [0.3cm]
  	
  	\displaystyle
  	\qquad \qquad \quad
  	+ \sum_{j=1}^{n} c^{(2)}_{j} \left\{
- 	    - \pi \frac{\gamma^{(2)}_{j}(t)}{\abs{x'_{2}(t))}}
- 	    + \inttwopi \gamma^{(2)}_{j}(\tau) K_{22}(t, \tau) d \tau
+ 	      \pi \frac{\ell_{j}(t)}{\abs{x'_{2}(t))}}
+ 	    + \inttwopi \ell_{j}(\tau) K_{22}(t, \tau) d \tau
  	  \right\}
  	= 2\pi g_{2}(t)
  \end{array}\right.
  $$
- Цю систему необхідно протабулювати n разів по змінній t, щоб знайти відповідні значення векторів $c^{(1)}$ і $c^{(1)}$.
- Запишемо отриману систему у зручному матричному вигляді
+ Цю систему необхідно протабулювати n разів по змінній t, щоб знайти відповідні значення векторів $c^{(1)}$ і $c^{(2)}$.
+ Отриману систему запишемо в зручному матричному вигляді
  $$
  Ac=g
  $$
@@ -728,11 +738,11 @@ $$
  де
  $$
  \begin{matrix}
-	G^{(1)}_{ji} = \inttwopi \gamma^{(1)}_{j}(\tau) K_{11}(t_i, \tau) d \tau & \hspace{-1.7cm}
-	G^{(2)}_{ji} = \inttwopi \gamma^{(2)}_{j}(\tau) K_{12}(t_i, \tau) d \tau \\[1cm]
-	G^{(3)}_{ji} = \inttwopi \gamma^{(1)}_{j}(\tau) K_{21}(t_i, \tau) d \tau & \hspace{1cm}
-	G^{(4)}_{ji} = -\pi\frac{\gamma^{(2)}_{j}(t_i)}{\abs{x'_{2}(t_i))}}
-				 + \inttwopi \gamma^{(2)}_{j}(\tau) K_{22}(t_i, \tau) d \tau \\
+	G^{(1)}_{ji} = \inttwopi \ell_{j}(\tau) K_{11}(t_i, \tau) d \tau & \hspace{-1.7cm}
+	G^{(2)}_{ji} = \inttwopi \ell_{j}(\tau) K_{12}(t_i, \tau) d \tau \\[1cm]
+	G^{(3)}_{ji} = \inttwopi \ell_{j}(\tau) K_{21}(t_i, \tau) d \tau & \hspace{1cm}
+	G^{(4)}_{ji} = \pi\frac{\ell_{j}(t_i)}{\abs{x'_{2}(t_i))}}
+				 + \inttwopi \ell_{j}(\tau) K_{22}(t_i, \tau) d \tau \\
  \end{matrix}
  $$
  
