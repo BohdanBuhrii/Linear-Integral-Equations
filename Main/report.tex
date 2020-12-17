@@ -523,7 +523,7 @@ $$
 	{K_{11}}^{(2)}(t, \tau) =\frac{1}{2} \ln{\frac{\frac{4}{e} \sin ^{2} \frac{t-\tau}{2}}{\left|x_{1}(t)-x_{1}(\tau)\right|^{2}}}, \quad t \neq \tau;
 $$
 
-Для того щоб довизначити ${K_{11}}^{(2)}$, знайдему границю за правилом Лопіталя
+Для того щоб доозначити ${K_{11}}^{(2)}$, знайдему границю за правилом Лопіталя
 $$
 \lim _{\tau \rightarrow t} K_{11}{ }^{(2)}(t, \tau) = \lim _{\tau \rightarrow t} \ln \frac{\frac{4}{e} \sin ^{2} \frac{t-\tau}{2}}{\left|x_{1}(t)-x_{1}(\tau)\right|^{2}}=\ln \frac{\frac{4}{e} \frac{(t-\tau)^{2}}{4}}{\left|x_{1}^{\prime}(t)\right|^{2}(t-\tau)^{2}}=\ln \frac{1}{e\left|x_{1}^{\prime}(t)\right|^{2}}
 $$
@@ -543,7 +543,7 @@ $$
 \end{array}
 \right.
 $$
-Виділимо сингулярну особливість ядра $K_{22}$. Знайдемо границю при $\tau \rightarrow t$
+Доозначуємо ядро $K_{22}$. Знайдемо границю при $\tau \rightarrow t$
 
 \begin{comment}
  $$
@@ -595,7 +595,7 @@ $$
  \begin{array}{l}
  	\displaystyle
  	\inttwopi \psi_1(\tau) \left\{ {K_{11}}^{(1)} (t, \tau) \ln{\left( \frac{4}{e} \sin^{2}{\frac{t - \tau}{2}} \right) } + {K_{11}}^{(2)} (t, \tau) \right\} d \tau +
- 	\\[0.3cm] \qquad \qquad \qquad \qquad \qquad \qquad \quad
+ 	\\[0.3cm] \qquad \qquad \qquad \qquad \qquad \qquad \qquad
  	\displaystyle
  	+ \inttwopi \psi_2(\tau) K_{12}(t, \tau) d \tau
  	= 2\pi g_{1}(t)
@@ -609,7 +609,7 @@ $$
  \end{array}\right.
 \end{equation}
  
- Використовуючи параметризацію ref можемо записати розв'язок мішаної задачі ref в параметризованому вигляді:
+ Використовуючи параметризацію (\ref{parametrization}) можемо записати розв'язок мішаної задачі (\ref{potentials-sum-solution}) в параметризованому вигляді:
  $$
  u(x)=\frac{1}{2 \pi} \int_{0}^{2 \pi} \psi_{1}(\tau) K_{1}(x, \tau) d \tau+\frac{1}{2 \pi} \int_{0}^{2 \pi} \psi_{2}(\tau) K_{2}(x, \tau) d \tau, \quad x \in D
  $$
@@ -730,10 +730,6 @@ $$
 t_{i}:=i \pi / M, \quad i=0, \ldots, 2 M-1, M \in \mathbb{N}
 $$
 Квадратурна формула буде мати вигляд:
-\begin{equation}
-\frac{1}{2 \pi} \int_{0}^{2 \pi} f(\tau) d \tau \approx \frac{1}{2 M} \sum_{j=0}^{2 M-1} f\left(t_{j}\right)
-\end{equation}
-та
 \begin{eqnarray}
 	\frac{1}{2 \pi} \int_{0}^{2 \pi} f(\tau) \ln \left(\frac{4}{e} \sin ^{2} \frac{t-\tau}{2}\right) d \tau \approx \sum_{j=0}^{2 M-1} R_{j}(t) f\left(t_{j}\right)
 \end{eqnarray}
@@ -823,7 +819,8 @@ $$
 
   
   \begin{figure}[h]
-  	\includegraphics[width=0.6\textwidth]{resources/curves_and_points.pdf}
+  	\includegraphics[width=0.4\textwidth]{resources/curves_and_points.pdf}
+  	\centering
   	\caption{Граничні умови $\Gamma_1$, $\Gamma_2$ для \ref{ex1:region}}
   \end{figure}
 
@@ -865,8 +862,10 @@ $$
   \newpage
   \subsection{Приклад 1}
   
-  
+ \newpage 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+\nocite{chapko2009altrating}
+\nocite{chapko2009numerical}
 \nocite{kress2012linear}
 \printbibliography[title={Бібліографія}]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
