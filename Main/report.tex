@@ -68,7 +68,7 @@
 % \setcounter{section}{1}
 
 \numberwithin{equation}{section}
-
+\numberwithin{figure}{section}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  \newcounter{stali}
  \setcounter{stali}{0}
@@ -810,10 +810,10 @@ $$
 
  Таким чином для достатньо великого $n \geq N$ апроксимаційне рівняння колокації $\left(I-P_{n} A\right) \varphi_{n}=P_{n} f$ має єдиний розв'язок:
 \begin{equation}
-	f \in C[a, b], \quad \left\|\varphi_{n}-\varphi\right\|_{\infty} \leq M\left\|P_{n} \varphi-\varphi\right\|_{\infty}
+	\varphi \in C[a, b], \quad \left\|\varphi_{n}-\varphi\right\|_{\infty} \leq M\left\|P_{n} \varphi-\varphi\right\|_{\infty}
 \end{equation}
 \begin{equation}
-	\varphi \in C^{2}[a, b]\left\|\varphi_{n}-\varphi\right\|_{\infty} \leq M \frac{1}{8} h^{2}\left\|\varphi^{\prime \prime}\right\|_{\infty}
+	\varphi \in C^{2}[a, b] \quad \left\|\varphi_{n}-\varphi\right\|_{\infty} \leq M \frac{1}{8} h^{2}\left\|\varphi^{\prime \prime}\right\|_{\infty}
 \end{equation}
 де М є деякою константою яка залежить від ядер системи.
 
@@ -822,6 +822,7 @@ $$
  \section{Чисельні експеременти}
  \subsection{Приклад 1}
 
+	Нехай криві $\Gamma_{1}$ та $\Gamma_{2}$ мають таке параметричне задання
 	\begin{equation}
 		\label{ex1}
 		\begin{array}{l}
@@ -831,12 +832,17 @@ $$
 			
 			\displaystyle
 			\Gamma_{2}=\left\{x_{2}(t)=(2 \cos t, 2 \sin t), \quad  t \in[0,2 \pi]\right\} \\[0.1cm]
-			
-			\displaystyle
-			f_{1}(x)=x  \text { на } \Gamma_{1} \quad \text {і} \quad
-			f_{2}(x)=1  \text { на } \Gamma_{2}
 		\end{array}
 	\end{equation}
+  
+  $$
+  		u(x_{1}, x_{2}) = x_{1}^2 - x_{2}^2 \\  
+  $$
+  $$
+  	  f_1 = u  \text { на } \Gamma_{2}
+	 \quad  \text {і}  \quad
+	  f_2 =	\pdv{u}{\nu}  \text { на } \Gamma_{1} \quad
+  $$  
   
   \begin{figure}[h]
   	\includegraphics[width=0.4\textwidth]{resources/curves_and_points.pdf}
@@ -845,11 +851,11 @@ $$
   \end{figure}
 
   
-  
+  Абсолютна похибка розв`язку
  \begin{center}
  	\begin{tabular}{|c|c|c|c|}
  		\hline
- 		
+
  		\tabboxc{2cm}{n}     
  		& \tabboxc{3cm}{x = (0.7,1.2)}
  		& \tabboxc{3cm}{x = (-0.8,0.9)}
@@ -879,8 +885,29 @@ $$
  	\end{tabular}
  \end{center}
  
+ \begin{figure}[!htb]
+  	\minipage[t]{0.49\textwidth}
+	 \includegraphics[width=1\textwidth]{resources/ex1-approx.pdf}
+	 \caption{Наближений розв'язок}
+	 \label{fig:defenses_bench}
+	 \endminipage
+ 	\minipage[t]{0.49\textwidth}
+ 	\includegraphics[width=1\textwidth]{resources/ex1-ex.pdf}
+ 	\caption{Точний розв'язок}	
+ 	\label{fig:attacks_bench}
+ 	\endminipage\hfill
+ \end{figure}
+
+ 
+ \newpage
+ \subsection{Приклад 2}
+  
+  
   \newpage
-  \subsection{Приклад 2}
+  \section{Висновок}
+	Отже ми розглянули мішану задачу Діріхле-Неймана для рівняння Лапласа у двозв’язній області. Чисельне розв’язування виконано методом колокацій з використання кусково лінійних базисних функцій. Чисельні експерименти підтверджують ефективність методу для розв’язання мішаної задачі для рівняння Лапласа.
+	
+  
   
  \newpage 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
