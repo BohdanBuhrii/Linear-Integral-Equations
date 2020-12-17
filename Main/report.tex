@@ -143,7 +143,7 @@ sorting=ynt
 	\hskip8cm 
 	Виконали:
 	\\ \hskip8cm 
-	студенти 4-го курсу групи ПМп-41
+	студенти \underline{IV} курсу групи \underline{ПМп-41}
 	\\ \hskip8cm
 	напрямку підготовки (спеціальності)
 	\\ \hskip8cm
@@ -314,7 +314,7 @@ sorting=ynt
 	 де інтеграл існує і розуміється як невласний.
 \end{theorem}
  
- \proof Кресс
+ \proof доведення в \cite{kress2012linear}
  
  Щось про стрибок ...?
  
@@ -737,7 +737,7 @@ $$
 Для обчислення ядра $K_{11}$ будемо використовувати відповідну квадратурну формулу. Для цього задаємо рівномірне розбиття:
 
 $$
-t_{i}:=i \pi / M, \quad i=0, \ldots, 2 M-1, M \in \mathbb{N}
+t_{i}:=i \pi / M, \quad i=0, \ldots, 2 M-1, M \in N
 $$
 Квадратурна формула буде мати вигляд:
 \begin{eqnarray}
@@ -752,57 +752,46 @@ $$
 \subsection{Похибка}
  
 \begin{theorem}
-	Нехай $A: X \rightarrow X$ - обмежений лінійний оператор у банаховому просторі $X$ та $ (I-A):X \rightarrow X$ -- ізоморфізм. Припустимо, що $\left\|P_{n} A-A\right\| \rightarrow 0, n \rightarrow \infty .$ Тоді для достатньо великого $n \geq N$ оператори $\left(I-P_{n} A\right)^{-1}: X \rightarrow$ Х існують і є рівномірно обмежені. Для точного і наближеного розв'язку $\varphi-\varphi_{n}=\left(I-P_{n} A\right)^{-1}\left(\varphi-P_{n} \varphi\right)$ має місце двостороння оцінка
-\end{theorem} 
-
+	\label{collocation-error}
+	Нехай $A: X \rightarrow X$ - обмежений лінійний оператор у банаховому просторі $X$ та $ (I-A):X \rightarrow X$ -- ізоморфізм. Припустимо, що $\left\|P_{n} A-A\right\| \rightarrow 0, n \rightarrow \infty .$ Тоді для достатньо великого $n \geq \mathbb{N}$ оператори $\left(I-P_{n} A\right)^{-1}: X \rightarrow X$ існують і є рівномірно обмежені. Для точного і наближеного розв'язку $\varphi-\varphi_{n}=\left(I-P_{n} A\right)^{-1}\left(\varphi-P_{n} \varphi\right)$ має місце двостороння оцінка
  \begin{equation}
 	 \frac{1}{\left\|I-P_{n} A\right\|}\left\|\varphi-P_{n} \varphi\right\| \leq\left\|\varphi-\varphi_{n}\right\| \leq\left\|\left(I-P_{n} A\right)^{-1}\right\|\left\|\varphi-P_{n} \varphi\right\|
  \end{equation}
- 
- 
+\end{theorem} 
 Проекційний оператор визначається як
- $$ччч
+\begin{equation}
  \left(P_{n} \varphi\right)(x)= \sum_{j=0}^{n} \varphi\left(x_{i}\right) l_{j}(x) .
- $$
+\end{equation}
  
- Для $P_{n} \varphi$ маємо такі оцінки 
+ Для оператора$P_{n} \varphi$ маємо такі оцінки похибки
  $$
  \begin{array}{l}
  	\displaystyle
-	\varphi \in C^{2}[a, b], \quad \quad \left\|P_{n} \varphi-\varphi\right\|_{\infty} \leq \frac{1}{8} h^{2}\left\|\varphi^{\prime \prime}\right\|_{\infty}  
+	\varphi \in C^{2}[a, b], \quad \left\|P_{n} \varphi-\varphi\right\|_{\infty} \leq \frac{1}{8} h^{2}\left\|\varphi^{\prime \prime}\right\|_{\infty}  
 	\\[0.3cm]
  	
  	\displaystyle
-	\varphi \in C[a, b], \quad \quad \left\|P_{n} \varphi-\varphi\right\|_{\infty} \leq w(\varphi, h) \rightarrow 0
+	\varphi \in C[a, b], \quad \; \left\|P_{n} \varphi-\varphi\right\|_{\infty} \leq w(\varphi, h) \rightarrow 0
 	\\[0.3cm]	
 \end{array}
  $$
  Звідси 
  $$ 
- P_{n} \varphi \rightarrow \varphi  \quad  \varphi \in C[a, b]
+ P_{n} \varphi \rightarrow \varphi,  \quad  \varphi \in C[a, b]
  $$
  
- Тепер для відповідного інтегрального оператора $A: C[a, b] \rightarrow C[a, b]$ маємо за лемою $4.2\left\|P_{n} A-\dot{A}\right\| \rightarrow 0, n \rightarrow \infty$
- Отже, результати теореми 4.1 можна використати в цьому конкретному випадку. 
- 
+ Для відповідного інтегрального оператора $A: C[a, b] \rightarrow C[a, b]$ маємо $\left\|P_{n} A-A\right\| \rightarrow 0, n \rightarrow \infty$.
+ Отже, можемо використовувати результати теореми (\ref{collocation-error}) для нашого випадку.
 
- Таким чином для достатньо великого $n \geq N$ апроксимаційне р-ня цього варіанту методу колокації  має єдиний
- 
+ Таким чином для достатньо великого $n \geq N$ апроксимаційне рівняння колокації $\left(I-P_{n} A\right) \varphi_{n}=P_{n} f$ має єдиний розв'язок:
 \begin{equation}
-\left(I-P_{n} A\right) \varphi_{n}=P_{n} f
+	f \in C[a, b], \quad \left\|\varphi_{n}-\varphi\right\|_{\infty} \leq M\left\|P_{n} \varphi-\varphi\right\|_{\infty}
 \end{equation}
- 
- $_{1}$ р-к для $f \in C[a, b] i\left\|\varphi_{n}-\varphi\right\|_{\infty} \leq \dot{M}\left\|P_{n} \varphi-\varphi\right\|_{\infty}$. Для
- $\varphi \in C^{2}[a, b]\left\|\varphi_{n}-\varphi\right\|_{\infty} \leq M \frac{1}{8} h^{2}\left\|\varphi^{\prime \prime}\right\|_{\infty}$
+\begin{equation}
+	\varphi \in C^{2}[a, b]\left\|\varphi_{n}-\varphi\right\|_{\infty} \leq M \frac{1}{8} h^{2}\left\|\varphi^{\prime \prime}\right\|_{\infty}
+\end{equation}
+де М є деякою константою яка залежить від ядер системи.
 
-
- |нтеграли (3) слід обчислювати наближено з використанням квадратур, які не понижують отриманої вище оцінки. Зокрема можна скористатись способом, розглянутим у в-ку м-ду вир. ядер.
- Для кускової інтерполяцї можна вибирати поліноми вищого степеня $r .$ При цьому заг. ідея залишається незмінною і порядок збіжності буде $O\left(h^{r+1}\right)$ для $\varphi \in C^{r+1}[a, b] .$
- 
- 
- p1 = [0.7, 1.2]
- p2 = [-0.8, 0.9]
- p3 = [-1, -1]
  \newpage
  \thispagestyle{empty}
  \section{Чисельні експеременти}
