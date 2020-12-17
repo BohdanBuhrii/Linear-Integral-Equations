@@ -104,7 +104,7 @@
 \usepackage[
 backend=biber,
 style=numeric,
-sorting=ynt
+sorting=none
 ]{biblatex}
 \addbibresource{resources/bibliography.bibtex}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -819,89 +819,169 @@ $$
 
  \newpage
  \thispagestyle{empty}
- \section{Чисельні експеременти}
- \subsection{Приклад 1}
+ \section{Чисельні експеременти} 
+\subsection{Приклад 1}
+Нехай криві $\Gamma_{1}$ та $\Gamma_{2}$ мають таке параметричне задання:
+\begin{equation}
+	\label{ex-curves}
+	\begin{array}{l}
+		\displaystyle
+		\Gamma_{1}=\left\{x_{1}(t)=(0.9 \cos t, 0.9 \sin t), \quad t \in[0,2 
+		\pi]\right\} \\
+		
+		\displaystyle
+		\Gamma_{2}=\left\{x_{2}(t)=(2 \cos t, 2 \sin t), \quad  t \in[0,2 \pi]\right\} \\[0.1cm]
+	\end{array}
+\end{equation}
 
-	Нехай криві $\Gamma_{1}$ та $\Gamma_{2}$ мають таке параметричне задання
-	\begin{equation}
+\begin{equation}
+	\begin{array}{cr}
 		\label{ex1}
-		\begin{array}{l}
-			\displaystyle
-			\Gamma_{1}=\left\{x_{1}(t)=(0.9 \cos t, 0.9 \sin t), \quad t \in[0,2 
-			\pi]\right\} \\
+		\displaystyle
+		u = x, \quad (x, y) \in D   \\ [0.3cm]
+		
+		\displaystyle
+		f_1 = x  \text { на } \Gamma_{1}
+		\quad  \text {і}  \quad
+		f_2 = 1  \text { на } \Gamma_{2} \quad
+	\end{array}
+\end{equation}
+
+\begin{figure}[h]
+	\includegraphics[width=0.4\textwidth]{resources/curves_and_points.pdf}
+	\centering
+	\caption{Граничні умови $\Gamma_1$, $\Gamma_2$ для (\ref{ex-curves})}
+\end{figure}
+
+В Табл. 1 наведено значення абсолютної похибки розв’язку мішаної задачі (\ref{laplace-eq}) - (\ref{neumann-condition}) в деяких точках $x \in D$ в залежностi вiд кiлькостi точок колокації $n$.
+
+\begin{table}[h]
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|}
+			\hline
 			
-			\displaystyle
-			\Gamma_{2}=\left\{x_{2}(t)=(2 \cos t, 2 \sin t), \quad  t \in[0,2 \pi]\right\} \\[0.1cm]
-		\end{array}
-	\end{equation}
-  
-  $$
-  		u(x_{1}, x_{2}) = x_{1}^2 - x_{2}^2 \\  
-  $$
-  $$
-  	  f_1 = u  \text { на } \Gamma_{2}
-	 \quad  \text {і}  \quad
-	  f_2 =	\pdv{u}{\nu}  \text { на } \Gamma_{1} \quad
-  $$  
-  
-  \begin{figure}[h]
-  	\includegraphics[width=0.4\textwidth]{resources/curves_and_points.pdf}
-  	\centering
-  	\caption{Граничні умови $\Gamma_1$, $\Gamma_2$ для \ref{ex1:region}}
-  \end{figure}
+			\tabboxc{2cm}{n}     
+			& \tabboxc{3cm}{x = (-0.8,0.9)}
+			& \tabboxc{3cm}{x = (0.7,1.2)}
+			& \tabboxc{3cm}{x = (-1, -1)}
+			\\ \hline
+			
+			4
+			& $1.54 \times 10 ^{-1}$
+			& $1.57 \times 10 ^{-1}$
+			& $3.25 \times 10 ^{-1}$
+			\\ \hline
+			8
+			& $3.57 \times 10 ^{-2}$
+			& $9.81 \times 10 ^{-2}$
+			& $7.77 \times 10 ^{-2}$
+			\\ \hline
+			16
+			& $4.98 \times 10 ^{-3}$
+			& $2.67 \times 10 ^{-2}$
+			& $9.52 \times 10 ^{-3}$
+			\\ \hline
+			32
+			& $1.67 \times 10 ^{-4}$
+			& $1.11\times 10 ^{-2}$
+			& $2.11\times 10 ^{-3}$
+			\\ \hline
+		\end{tabular}
+		\caption{Абсолютна похибка розв`язку}
+	\end{center}
+\end{table}
 
-  
-  Абсолютна похибка розв`язку
- \begin{center}
- 	\begin{tabular}{|c|c|c|c|}
- 		\hline
+\begin{figure}[!htb]
+	\minipage[t]{0.5\textwidth}
+	\includegraphics[width=1\textwidth]{resources/ex1-approx.pdf}
+	\caption{Наближений розв'язок}
+	\label{fig:ex1-approx}
+	\endminipage
+	\minipage[t]{0.5\textwidth}
+	\includegraphics[width=1\textwidth]{resources/ex1-ex.pdf}
+	\caption{Точний розв'язок}	
+	\label{fig:ex1-exact}
+	\endminipage\hfill
+\end{figure}
 
- 		\tabboxc{2cm}{n}     
- 		& \tabboxc{3cm}{x = (0.7,1.2)}
- 		& \tabboxc{3cm}{x = (-0.8,0.9)}
- 		& \tabboxc{3cm}{x = (-1, -1)}
- 		\\ \hline
- 		
- 		4
- 		& $3.32 \times 10 ^{-1}$
- 		& $7.88 \times 10 ^{-2}$
- 		& $3.11 \times 10 ^{-1}$
- 		\\ \hline
- 		8
- 		& $1.07 \times 10 ^{-1}$
- 		& $2.64 \times 10 ^{-2}$
- 		& $4.91 \times 10 ^{-3}$
- 		\\ \hline
- 		16
- 		& $5.30 \times 10 ^{-2}$
- 		& $5.76 \times 10 ^{-3}$
- 		& $8.18 \times 10 ^{-5}$
- 		\\ \hline
- 		32
- 		& $1.44\times 10 ^{-2}$
- 		& $2.48 \times 10 ^{-3}$
- 		& $1.61\times 10 ^{-5}$
-		\\ \hline
- 	\end{tabular}
- \end{center}
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.45\textwidth]{resources/ex1_contourf.pdf}
+	\caption{Лінії рівня наближенного розв'язку}
+	\label{fig:ex1_contourf}
+\end{figure}
+
+ \newpage
+ \subsection{Приклад 2}
+  Розглянемо інший приклад для параметричного задання (\ref{ex-curves}).
+\begin{equation}
+	\label{ex2}
+	\begin{array}{cr}
+		\displaystyle
+		u = x^2 - y^2, \quad (x, y) \in D \\[0.3cm]
+		\displaystyle
+		f_1 = x^2 - y^2  \text { на } \Gamma_{1}
+		\quad  \text {і}  \quad
+		f_2 = 2x - 2y \text { на } \Gamma_{2} \quad
+	\end{array}
+\end{equation}
+ 
+ \begin{table}[h]
+ 	\begin{center}
+ 		\begin{tabular}{|c|c|c|c|}
+ 			\hline
+ 			
+ 			\tabboxc{2cm}{n}     
+ 			& \tabboxc{3cm}{x = (0.7,1.2)}
+ 			& \tabboxc{3cm}{x = (-0.8,0.9)}
+ 			& \tabboxc{3cm}{x = (-1, -1)}
+ 			\\ \hline
+ 			
+ 			4
+ 			& $3.32 \times 10 ^{-1}$
+ 			& $7.88 \times 10 ^{-2}$
+ 			& $3.11 \times 10 ^{-1}$
+ 			\\ \hline
+ 			8
+ 			& $1.07 \times 10 ^{-1}$
+ 			& $2.64 \times 10 ^{-2}$
+ 			& $4.91 \times 10 ^{-3}$
+ 			\\ \hline
+ 			16
+ 			& $5.30 \times 10 ^{-2}$
+ 			& $5.76 \times 10 ^{-3}$
+ 			& $8.18 \times 10 ^{-5}$
+ 			\\ \hline
+ 			32
+ 			& $1.44\times 10 ^{-2}$
+ 			& $2.48 \times 10 ^{-3}$
+ 			& $1.61\times 10 ^{-5}$
+ 			\\ \hline
+ 		\end{tabular}
+ 		\caption{\label{ex1-table} Абсолютна похибка розв`язку}
+ 	\end{center}
+ \end{table}
  
  \begin{figure}[!htb]
-  	\minipage[t]{0.49\textwidth}
-	 \includegraphics[width=1\textwidth]{resources/ex1-approx.pdf}
+  	\minipage[t]{0.5\textwidth}
+	 \includegraphics[width=1\textwidth]{resources/ex2-approx.pdf}
 	 \caption{Наближений розв'язок}
-	 \label{fig:defenses_bench}
+	\label{fig:ex2-approx}
 	 \endminipage
- 	\minipage[t]{0.49\textwidth}
- 	\includegraphics[width=1\textwidth]{resources/ex1-ex.pdf}
+ 	\minipage[t]{0.5\textwidth}
+ 	\includegraphics[width=1\textwidth]{resources/ex2-ex.pdf}
  	\caption{Точний розв'язок}	
- 	\label{fig:attacks_bench}
+	\label{fig:ex2-exact}
  	\endminipage\hfill
  \end{figure}
 
- 
- \newpage
- \subsection{Приклад 2}
-  
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.45\textwidth]{resources/ex2_contourf.pdf}
+	\caption{Лінії рівня наближенного розв'язку}
+	\label{fig:ex2_contourf}
+\end{figure}
+
   
   \newpage
   \section{Висновок}
@@ -911,9 +991,13 @@ $$
   
  \newpage 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+
 \nocite{kress2012linear}
+\nocite{atkinson2009}
 \nocite{chapko2009altrating}
 \nocite{chapko2009numerical}
+
+
 \printbibliography[title={Бібліографія}]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
