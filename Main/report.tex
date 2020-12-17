@@ -234,19 +234,18 @@ sorting=none
  \section{Коректність задачі}
  \subsection{Єдиність розв'язку задачі}
  \begin{theorem}
- \label{green}
- Нехай $D$ - область з межею $\partial D \in C^1$ i $\overrightarrow{\nu} -$ одиничний вектор зовнішньої нормалі до межі $\partial D$. Тоді для $u \in C^1(\overline{D})$ і $v \in C^2(\overline{D})$ має місце перша формула Гріна
- $$
- \intl_{D}(u \Delta v+grad u \cdot grad v) d x=\intl_{\partial D} u \frac{\partial v}{\partial \nu} d s
- $$
-\end{theorem}
-\proof Див. \cite{kress2012linear}.
+	 \label{green}
+	 Нехай $D$ - область з межею $\partial D \in C^1$ i $\overrightarrow{\nu} -$ одиничний вектор зовнішньої нормалі до межі $\partial D$. Тоді для $u \in C^1(\overline{D})$ і $v \in C^2(\overline{D})$ має місце перша формула Гріна
+	 \begin{equation}
+	 	\intl_{D}(u \Delta v+grad u \cdot grad v) d x=\intl_{\partial D} u \frac{\partial v}{\partial \nu} d s
+	 \end{equation}
+ \end{theorem}
+ \proof Див. \cite{kress2012linear}.
   
-\begin{theorem}
+ \begin{theorem}
 	\label{single-sol}
 	Нехай $\Gamma_{1}, \Gamma_{2}$ -- гладкі границі, що належать класу $C^1$, обмежують двозв'язну область $D$. Тоді задача \boundprob \space має на $D$ не більше одного розв'язку.
-\end{theorem}
- 
+ \end{theorem}
  \proof Від супротивного. Нехай $\exists u_1, u_2 \in C^{2}(\overline{D}): u_1 \neq u_2 $ -- два різні розв'язки задачі \boundprob. Запишемо цю задачу для функції $u^* = u_1 - u_2$:
  $$
  \Delta u^* = \Delta u_1 - \Delta u_2 = 0
@@ -278,7 +277,7 @@ sorting=none
 
 \begin{defn}
 	\label{harminic-func}
-	Нехай $D \subset \mathbb{R}^2$ -- замкнена обмежена область. Функція $u \in C^2(D)$, що набуває дійсних значень, називається гармонічною, якщо вона задовольняє рівняння Лапласа $\delta u = 0$ в $D$.
+	Нехай $D \subset \mathbb{R}^2$ -- замкнена обмежена область. Функція $u \in C^2(D)$, що набуває дійсних значень, називається гармонічною, якщо вона задовольняє рівняння Лапласа $\Delta u = 0$ в $D$.
 \end{defn}
 
  \begin{defn}
@@ -312,15 +311,15 @@ sorting=none
  \begin{theorem}
  	 \label{potential-partial-derevative}
 	 Нехай $\partial D$ належить класу $C^{2} .$ Тоді для потенціалу простого шару $u$ з неперервною густиною $\varphi$ маємо, що
-	 $$
-	 \frac{\partial u_{\pm}}{\partial \nu}(x) =
-	 \intl_{\partial D} \varphi(y) \frac{\partial \Phi(x, y)}{\partial \nu(x)} d s(y) \mp \frac{1}{2} \varphi(x),
-	 \quad x \in \partial D
-	 $$
+	 \begin{equation}
+		 \frac{\partial u_{\pm}}{\partial \nu}(x) =
+		 \intl_{\partial D} \varphi(y) \frac{\partial \Phi(x, y)}{\partial \nu(x)} d s(y) \mp \frac{1}{2} \varphi(x),
+		 \quad x \in \partial D
+	 \end{equation}
 	 де
-	 $$
-	 \frac{\partial u_{\pm}}{\partial v}(x):=\lim _{h \rightarrow+0} v(x) \cdot \operatorname{grad} u(x \pm h v(x))
-	 $$
+	 \begin{equation}
+	 	\frac{\partial u_{\pm}}{\partial v}(x):=\lim _{h \rightarrow+0} v(x) \cdot \operatorname{grad} u(x \pm h v(x))
+	 \end{equation}
 	 слід розуміти в сенсі рівномірної збіжності на $\partial D$ і інтеграл існує як невласний.
  \end{theorem}
  \proof Див. \cite{kress2012linear}.
@@ -423,10 +422,10 @@ $$
 		= g_{1}(t)
 		\\ [0.3cm]
 		\displaystyle
-		\frac{\psi_2(t)}{\abs{x'_{2}(t)) }}
-		+ \frac{1}{\pi} \inttwopi \psi_1(\tau) K_{21}(t, \tau) d \tau
-		+ \frac{1}{\pi} \inttwopi  \psi_2(\tau) K_{22}(t, \tau) d \tau
-		= 2g_{2}(t)
+		\frac{\psi_2(t)}{2\abs{x'_{2}(t)) }}
+		+ \frac{1}{2\pi} \inttwopi \psi_1(\tau) K_{21}(t, \tau) d \tau
+		+ \frac{1}{2\pi} \inttwopi  \psi_2(\tau) K_{22}(t, \tau) d \tau
+		= g_{2}(t)
 	\end{array}\right.
 \end{equation}
 де $\displaystyle \psi_{i}(t) = \varphi(x_{i}(t)) \abs{x'_{i}(t)}, \; g_{i} = f_{i}(x_{i}(t)), \;  i  = 1, 2; \; t \in [0, 2\pi]$. \\[0.3cm]
@@ -447,7 +446,7 @@ $$
 			\ln{\frac{1}{\abs{x - y}}}
 		\right|_{
 			{\small \parbox{20mm}{$ x = x_1(t)$ \\[-3pt] $y = x_2 ({\tau})$}}
-		} \quad \quad;
+		}
 		\\ [0.8cm]
 		
 		\displaystyle
@@ -455,7 +454,7 @@ $$
 			\frac{(y - x) \cdot \nu(x)}{r^2}
 		\right|_{
 			{\small \parbox{20mm}{$ x = x_2(t)$ \\[-3pt] $y = x_1 ({\tau})$}}
-		};
+		}
 		\\ [0.8cm]
 		
 		\displaystyle
@@ -501,27 +500,28 @@ $$
 	{K_{11}}^{(2)}(t, \tau) =\frac{1}{2} \ln{\frac{\frac{4}{e} \sin ^{2} \frac{t-\tau}{2}}{\left|x_{1}(t)-x_{1}(\tau)\right|^{2}}}, \quad t \neq \tau;
 $$
 
-Для того щоб до означити ${K_{11}}^{(2)}$, знайдемо границю за правилом Лопіталя
+Для того щоб доозначити ${K_{11}}^{(2)}$, знайдемо границю за правилом Лопіталя
 $$
 \lim _{\tau \rightarrow t} K_{11}{ }^{(2)}(t, \tau) = \lim _{\tau \rightarrow t} \ln \frac{\frac{4}{e} \sin ^{2} \frac{t-\tau}{2}}{\left|x_{1}(t)-x_{1}(\tau)\right|^{2}}=\ln \frac{\frac{4}{e} \frac{(t-\tau)^{2}}{4}}{\left|x_{1}^{\prime}(t)\right|^{2}(t-\tau)^{2}}=\ln \frac{1}{e\left|x_{1}^{\prime}(t)\right|^{2}}
 $$
 В результаті отримаємо:
-$$
-{K_{11}}^{(2)}(t, \tau) =
-\left\{
-\begin{array}{l}
-	\displaystyle
-	\frac{1}{2} \ln{\frac{\frac{4}{e} \sin ^{2} \frac{t-\tau}{2}}{\left|x_{1}(t)-x_{1}(\tau)\right|^{2}}}
-	,\quad t \neq \tau
-	\\ [1cm]
-	
-	\displaystyle
-	\frac{1}{2} \ln \frac{1}{e\left|x_{1}^{\prime}(t)\right|^{2}}
-	,\quad  \quad  \quad  \quad   t = \tau
-\end{array}
-\right.
-$$
-До означуємо ядро $K_{22}$. Знайдемо границю при $\tau \rightarrow t$
+
+\begin{equation}
+	{K_{11}}^{(2)}(t, \tau) =
+	\left\{
+	\begin{array}{l}
+		\displaystyle
+		\frac{1}{2} \ln{\frac{\frac{4}{e} \sin ^{2} \frac{t-\tau}{2}}{\left|x_{1}(t)-x_{1}(\tau)\right|^{2}}}
+		,\quad t \neq \tau
+		\\ [1cm]
+		
+		\displaystyle
+		\frac{1}{2} \ln \frac{1}{e\left|x_{1}^{\prime}(t)\right|^{2}}
+		,\quad  \quad  \quad  \quad   t = \tau
+	\end{array}
+	\right.
+\end{equation}
+Доозначуємо ядро $K_{22}$. Знайдемо границю при $\tau \rightarrow t$
 
 \begin{comment}
  $$
@@ -550,21 +550,21 @@ $$
 $$
 
 Отримаємо наступне параметризоване подання ядра:
- $$
- K_{22}(t, \tau) = 
- \left\{
- \begin{array}{l}
-	 \displaystyle
-	 \frac{ \left( x_{2}(\tau) - x_{2}(t) \right) \cdot \nu (x_2(t)) }{ \abs{ x_{2}(t)-x_{2}(\tau) }^2 } 
-	 ,\quad t = \tau
-	 \\ [1cm]
- 
- 	\displaystyle
- 	\frac{  x''_{2}(t) \cdot \nu (x_2(t)) }{ 2\abs{ x'_{2}(t)}^2 } 
- 	,\quad \quad  \quad  \quad  \quad  t \neq \tau
- \end{array}
- \right.
-$$
+ \begin{equation}
+	 K_{22}(t, \tau) = 
+	 \left\{
+	 \begin{array}{l}
+		 \displaystyle
+		 \frac{ \left( x_{2}(\tau) - x_{2}(t) \right) \cdot \nu (x_2(t)) }{ \abs{ x_{2}(t)-x_{2}(\tau) }^2 } 
+		 ,\quad t = \tau
+		 \\ [1cm]
+	 
+	 	\displaystyle
+	 	\frac{  x''_{2}(t) \cdot \nu (x_2(t)) }{ 2\abs{ x'_{2}(t)}^2 } 
+	 	,\quad \quad  \quad  \quad  \quad  t \neq \tau
+	 \end{array}
+	 \right.
+ \end{equation}
 
 Отже, система буде мати вигляд
 \begin{equation}
@@ -588,15 +588,15 @@ $$
 \end{equation}
  
  Використовуючи параметризацію (\ref{parametrization}) можемо записати розв'язок мішаної задачі (\ref{potentials-sum-solution}) в параметризованому вигляді:
- $$
- u(x)=\frac{1}{2 \pi} \int_{0}^{2 \pi} \psi_{1}(\tau) K_{1}(x, \tau) d \tau+\frac{1}{2 \pi} \int_{0}^{2 \pi} \psi_{2}(\tau) K_{2}(x, \tau) d \tau, \quad x \in D
- $$
+ \begin{equation} 
+	 u(x)=\frac{1}{2 \pi} \int_{0}^{2 \pi} \psi_{1}(\tau) K_{1}(x, \tau) d \tau+\frac{1}{2 \pi} \int_{0}^{2 \pi}  \psi_{2}(\tau) K_{2}(x, \tau) d \tau, \quad x \in D
+ \end{equation}
  де відповідні ядра $K_{1}$ і $K_{2}$ мають вигляд:
- $$
+ \begin{equation}
   	K_{1}(x, \tau)=\ln \frac{1}{\left|x-x_{1}(\tau)\right|}
   	\quad \text{та} \quad 
  	K_{2}(x, \tau)=\ln \frac{1}{\left|x-x_{2}(\tau)\right|}
- $$
+ \end{equation}
  
  
  
@@ -730,13 +730,16 @@ $$
  \end{equation}
  де $K$ -- одне із ядер.
  
- Результуючий вигляд розв'язку ...
- 
- ...
- 
- ...
- 
- ...
+ Тоді отримаємо такий вигляд наближеного розв'язку:
+
+ \begin{equation}
+ 	\begin{matrix}
+ 	\displaystyle
+ 	\hspace{-1.5cm} u_n(x) = \frac{1}{2 \pi} \sum_{j=1}^{n} c^{(1)}_{j} \inttwopi \ell_{j}(\tau) K_{1}(x, \tau) d \tau + \\
+ 	\displaystyle
+ 	\hspace{1.5cm} + \frac{1}{2 \pi} \sum_{j=1}^{n} c^{(2)}_{j} \inttwopi \ell_{j}(\tau) K_{2}(x, \tau) d \tau, \quad x \in D
+    \end{matrix}
+ \end{equation}
  
  
  \subsection{Дискретизація}
@@ -749,7 +752,7 @@ t_{i}:=i \pi / M, \quad i=0, \ldots, 2 M-1, M \in N
 $$
 Квадратурна формула буде мати вигляд:
 \begin{eqnarray}
-	\frac{1}{2 \pi} \int_{0}^{2 \pi} f(\tau) \ln \left(\frac{4}{e} \sin ^{2} \frac{t-\tau}{2}\right) d \tau \approx \sum_{j=0}^{2 M-1} R_{j}(t) f\left(t_{j}\right)
+	\frac{1}{2 \pi} \inttwopi f(\tau) \ln \left(\frac{4}{e} \sin ^{2} \frac{t-\tau}{2}\right) d \tau \approx \sum_{j=0}^{2 M-1} R_{j}(t) f\left(t_{j}\right)
 \end{eqnarray}
 з ваговою функцією
 
@@ -760,7 +763,7 @@ $$
  Решта ядер не містять у собі особливості, тим більше легко бачити що вони є щонайменше двічі неперервно диференційовні на заданих кривих, отже доцільно буде для обчислення інтегралів застосувати квадратури трапецій:
  \begin{equation}
  	\displaystyle
- 	\int_{a}^{b} f(\tau) d \tau \approx h \left(\frac{f(a)+f(b)}{2}+\sum_{i=1}^{n-1} f\left(t_{i}\right)\right).
+ 	\inttwopi f(\tau) d \tau \approx h \left(\frac{f(0)+f(2\pi)}{2}+\sum_{i=1}^{n-1} f\left(t_{i}\right)\right).
  \end{equation}
  
  
@@ -971,8 +974,8 @@ $$
 	\label{fig:ex2_contourf}
 \end{figure}
 
-  
   \newpage
+ \thispagestyle{empty}
   \section{Висновок}
 	Отже ми розглянули мішану задачу Діріхле-Неймана для рівняння Лапласа у двозв’язній області. Чисельне розв’язування виконано методом колокацій з використання кусково лінійних базисних функцій. Чисельні експерименти підтверджують ефективність методу для розв’язання мішаної задачі для рівняння Лапласа.
 	
