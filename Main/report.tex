@@ -590,23 +590,23 @@ $$
 
 Отже, система буде мати вигляд
 \begin{equation}
-\label{IE-parametrized}
- \left\{
- \begin{array}{l}
- 	\displaystyle
- 	\inttwopi \psi_1(\tau) \left\{ {K_{11}}^{(1)} (t, \tau) \ln{\left( \frac{4}{e} \sin^{2}{\frac{t - \tau}{2}} \right) } + {K_{11}}^{(2)} (t, \tau) \right\} d \tau +
- 	\\[0.3cm] \qquad \qquad \qquad \qquad \qquad \qquad \qquad
- 	\displaystyle
- 	+ \inttwopi \psi_2(\tau) K_{12}(t, \tau) d \tau
- 	= 2\pi g_{1}(t)
- 	\\ [0.3cm]
- 	
- 	\displaystyle
- 	\pi\frac{\psi_2(t)}{\abs{x'_{2}(t))}}
- 	+ \inttwopi \psi_1(\tau) K_{21}(t, \tau) d \tau
- 	+ \inttwopi \psi_2(\tau) K_{22}(t, \tau) d \tau
- 	= 2\pi g_{2}(t)
- \end{array}\right.
+	 \label{IE-parametrized}
+	 \left\{
+	 \begin{array}{l}
+	 	\displaystyle
+	 	\inttwopi \psi_1(\tau) \left\{ {K_{11}}^{(1)} (t, \tau) \ln{\left( \frac{4}{e} \sin^{2}{\frac{t - \tau}{2}} \right) } + {K_{11}}^{(2)} (t, \tau) \right\} d \tau +
+	 	\\[0.3cm] \qquad \qquad \qquad \qquad \qquad \qquad \qquad
+	 	\displaystyle
+	 	+ \inttwopi \psi_2(\tau) K_{12}(t, \tau) d \tau
+	 	= 2\pi g_{1}(t)
+	 	\\ [0.3cm]
+	 	
+	 	\displaystyle
+	 	\pi\frac{\psi_2(t)}{\abs{x'_{2}(t))}}
+	 	+ \inttwopi \psi_1(\tau) K_{21}(t, \tau) d \tau
+	 	+ \inttwopi \psi_2(\tau) K_{22}(t, \tau) d \tau
+	 	= 2\pi g_{2}(t)
+	 \end{array}\right.
 \end{equation}
  
  Використовуючи параметризацію (\ref{parametrization}) можемо записати розв'язок мішаної задачі (\ref{potentials-sum-solution}) в параметризованому вигляді:
@@ -628,51 +628,60 @@ $$
  \section{Чисельне розв'язування}
  
  \subsection{Метод колокації}
+ Метод колокації належить до проекційних методів розв'язування лінійних інтегральних рівнянь. Ми будемо використовувати колокацію на основі поділу області $D$ на деякі підобласті, на яких шукана функція апроксимується алгебраїчними поліномами невисокого степеня, в нашому випадку кусково лінійними.
  
- \begin{itemize}
- 	\item $x_{j}=a+j h, j=0, \ldots, n$, $h=(b-a) / n$
- 	\vspace{0.3cm}
- 	\item $X_{n}-$ простір функцій, неперервних на $[a, b]$
- 	\item $\ell_{j}(x)=\left\{
- 	\begin{array}{lc}
- 		\displaystyle
- 		\frac{x-x_{j-1}}{h}, \quad x \in\left[x_{j-1}, x_{j}\right], j \geq 1 \\
- 		\displaystyle
- 		\frac{x_{j+1}-x}{h}, \quad x \in\left[x_{j}, x_{j+1}\right], j \leq n-1 \\
- 		0, \qquad\qquad \text { в інших випадках }
- 	\end{array}\right.$
- 	
- \end{itemize}
+ Нехай
+ \begin{equation}
+ 	\label{tabulation}
+ 	t_{j}=a+j h, \quad j=0, \ldots, n
+ \end{equation} 
+ це рівновіддалений поділ відрізка $[a, b]$ з кроком $h=(b-a) / n$. $X_{n} $ -- простір функцій, неперервних на $[a, b]$, звуження яких на підінтервал $[t_{j-1}, t_{j}]$ -- лінійна функція.
  
- Шукані функції подамо у вигляді суми ... (сказати щось про n):
+ Очевидно, що $\dim X_n = n+1$ і базис Лагранджа в цьому просторі має вигляд
+ \begin{equation}
+	 \label{basis}
+	 \ell_{j}(t)=\left\{
+	 \begin{array}{lc}
+	 	\displaystyle
+	 	\frac{t-t_{j-1}}{h}, \quad t \in\left[t_{j-1}, t_{j}\right], \quad j \geq 1 \\
+	 	\displaystyle
+	 	\frac{t_{j+1}-t}{h}, \quad t \in\left[t_{j}, t_{j+1}\right], \quad j \leq n-1 \\
+	 	0, \qquad\qquad \text { в інших випадках }
+	 \end{array}\right.
+ \end{equation}
+ з очевидним уточненням для $\ell_0$ та $\ell_n$.
+ Шукані функції з системи (\ref{IE-parametrized}) подамо у вигляді суми
  $$
- \tilde{\psi_k}(x)=\sum_{j=1}^{n} c^{(k)}_{j} \ell_{j}(x), \quad k = 1,2
+ \tilde{\psi_k}(t)=\sum_{j=1}^{n} c^{(k)}_{j} \ell_{j}(t), \quad k = 1,2
  $$
- Підставивши їх у систему оримаємо:
- $$
- \left\{
- \begin{array}{l}
- 	\displaystyle
- 	  \sum_{j=1}^{n} c^{(1)}_{j} \inttwopi \ell_{j}(\tau) K_{11}(t, \tau) d \tau
- 	+ \sum_{j=1}^{n} c^{(2)}_{j} \inttwopi \ell_{j}(\tau) K_{12}(t, \tau) d \tau
- 	= 2\pi g_{1}(t)
- 	\\ [0.3cm]
- 	
- 	\displaystyle
- 	  \sum_{j=1}^{n} c^{(1)}_{j} \inttwopi \ell_{j}(\tau) K_{21}(t, \tau) d \tau
- 	\\ [0.3cm]
- 	
- 	\displaystyle
- 	\qquad \qquad \quad
- 	+ \sum_{j=1}^{n} c^{(2)}_{j} \left\{
- 	      \pi \frac{\ell_{j}(t)}{\abs{x'_{2}(t))}}
- 	    + \inttwopi \ell_{j}(\tau) K_{22}(t, \tau) d \tau
- 	  \right\}
- 	= 2\pi g_{2}(t)
- \end{array}\right.
- $$
- Цю систему необхідно протабулювати n разів по змінній t, щоб знайти відповідні значення векторів $c^{(1)}$ і $c^{(2)}$.
- Отриману систему запишемо в зручному матричному вигляді
+ Підставивши їх у систему (\ref{IE-parametrized}) оримаємо:
+ 
+ \begin{equation}
+	 \label{coll-sys}
+	 \left\{
+	 \begin{array}{l}
+	 	\displaystyle
+	 	  \sum_{j=1}^{n} c^{(1)}_{j} \inttwopi \ell_{j}(\tau) K_{11}(t, \tau) d \tau
+	 	+ \sum_{j=1}^{n} c^{(2)}_{j} \inttwopi \ell_{j}(\tau) K_{12}(t, \tau) d \tau
+	 	= 2\pi g_{1}(t)
+	 	\\ [0.3cm]
+	 	
+	 	\displaystyle
+	 	  \sum_{j=1}^{n} c^{(1)}_{j} \inttwopi \ell_{j}(\tau) K_{21}(t, \tau) d \tau +
+	 	\\ [0.3cm]
+	 	
+	 	\displaystyle
+	 	\qquad \qquad \quad
+	 	+ \sum_{j=1}^{n} c^{(2)}_{j} \left\{
+	 	      \pi \frac{\ell_{j}(t)}{\abs{x'_{2}(t)}}
+	 	    + \inttwopi \ell_{j}(\tau) K_{22}(t, \tau) d \tau
+	 	  \right\}
+	 	= 2\pi g_{2}(t)
+	 \end{array}\right.
+ \end{equation}
+ 
+ Цю систему необхідно протабулювати на основі рівновіддаленого поділу (\ref{tabulation}) по змінній t щоб знайти відповідні значення векторів $c^{(1)}$ і $c^{(2)}$.
+ Подамо отримані результати в зручному матричному вигляді
  $$
  Ac=g
  $$
@@ -705,19 +714,19 @@ $$
  \begin{pmatrix}
 	c^{(1)}_1\\
 	\vdots\\
-	c^{(1)}_n\\
+	c^{(1)}_n\\[0.5cm]
 	c^{(2)}_1\\
 	\vdots\\
 	c^{(2)}_n\\
  \end{pmatrix}
  g = 
  \begin{pmatrix}
-	2\pi g_1(x_1)\\
+	2\pi g_{11}\\
 	\vdots\\
-	2\pi g_1(x_n)\\
-	2\pi g_2(x_1)\\
+	2\pi g_{1n}\\[0.5cm]
+	2\pi g_{21}\\
 	\vdots\\
-	2\pi g_2(x_n)\\
+	2\pi g_{2n}\\
  \end{pmatrix}
  $$
  де
@@ -731,9 +740,19 @@ $$
  \end{matrix}
  $$
  
+ Опираючись на властивості базису (\ref{basis}), інтеграли в системі (\ref{coll-sys}) можна подати у спрощеному вигляді:
+ 
+ \begin{equation}
+ 	\inttwopi \ell_{j}(\tau) K\left(t_{i}, \tau\right) d \tau=\frac{1}{h} \intl_{t_{j-1}}^{t_{j}}\left(\tau-t_{j-1}\right) K\left(t_{i}, \tau\right) d \tau+\frac{1}{h} \intl_{t_{j}}^{t_{j+1}}\left(t_{j+1}-\tau\right) K\left(t_{i}, \tau\right) d \tau
+ \end{equation}
+ де $K$ -- одне із ядер.
+ 
+ Результуючий вигляд розв'язку ...
  
  
- 
+ \subsection{Дискретизація}
+ Метод колокаціїї є частково дискретним мтодом, що осначає що інтеграли в системі рівнянь можемо обчислити точно. На жаль, це не завжди вдається, тому в даній роботі ми дискретизуємо метод використавши квадратури.
+
 Для обчислення ядра $K_{11}$ будемо використовувати відповідну квадратурну формулу. Для цього задаємо рівномірне розбиття:
 
 $$
@@ -749,7 +768,16 @@ $$
 	R_{j}(t):=-\frac{1}{2 M}\left\{1+2 \sum_{m=1}^{M-1} \frac{1}{m} \cos m\left(t-t_{j}\right)+\frac{\cos \left(t-t_{j}\right)}{M}\right\}
 \end{equation} 
 
-\subsection{Похибка}
+ Решта ядер не містять у собі особливості, тим більше легко бачити що вони є щонайменше двічі неперервно диференційовні на заданих кривих, отже доцільно буде для їх обчислення застосувати квадратури трапецій:
+ $$
+ \int_{a}^{b} f(\tau) d \tau \approx h \left(\frac{f(a)+f(b)}{2}+\sum_{i=1}^{n-1} f\left(\tau_{i}\right)\right),
+ $$
+ де 
+ 
+ подумати про індекси біля $\tau$ аналогічно до $R$
+ 
+ 
+ \subsection{Похибка}
  
 \begin{theorem}
 	\label{collocation-error}
@@ -795,7 +823,7 @@ $$
  \newpage
  \thispagestyle{empty}
  \section{Чисельні експеременти}
-\subsection{Приклад 1}
+ \subsection{Приклад 1}
 
 	\begin{equation}
 		\label{ex1}
@@ -812,10 +840,6 @@ $$
 			f_{2}(x)=1  \text { на } \Gamma_{2}
 		\end{array}
 	\end{equation}
-
-
-
-
   
   \begin{figure}[h]
   	\includegraphics[width=0.4\textwidth]{resources/curves_and_points.pdf}
