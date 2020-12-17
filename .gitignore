@@ -34,7 +34,6 @@ large/
 *.bcf
 *.run.xml
 *.nav
-*.pdf
 *.snm
 *.vrb
 
