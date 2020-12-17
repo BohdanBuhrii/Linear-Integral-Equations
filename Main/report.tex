@@ -143,7 +143,7 @@ sorting=ynt
 	\hskip8cm 
 	Виконали:
 	\\ \hskip8cm 
-	студенти \underline{IV} курсу групи \underline{ПМп-41}
+	студенти IV курсу групи ПМп-41
 	\\ \hskip8cm
 	напрямку підготовки (спеціальності)
 	\\ \hskip8cm
@@ -156,7 +156,9 @@ sorting=ynt
 
  \begin{flushleft}
 	\hskip8cm 
-	Перевірив:
+	Перевірили:
+	\\ \hskip8cm
+	проф. Хапко Р.С.
 	\\ \hskip8cm
 	ст. в. Гарасим Я.С.
  \end{flushleft}
@@ -187,9 +189,9 @@ sorting=ynt
  \thispagestyle{empty}
  \section{Постановка задачі}
 		
-	Припускаємо, що деяке двовимірне тіло задається двозв'язною областю $D \subset \mathbb{R}$ з досить гладкою границею що складається з внутрішньої кривої $\Gamma_1$ та зовнішньої $\Gamma_2$. 
+	Припускаємо, що деяке двовимірне тіло задається двозв'язною областю $D \subset \mathbb{R}^2$ з досить гладкою границею що складається з внутрішньої кривої $\Gamma_1$ та зовнішньої $\Gamma_2$. 
 	
-	Нехай $D_1 \subset \mathbb{R}^2$ – обмеженна область з гладкою границею $\Gamma_1 \subset C^2$ та $D_2 \subset \mathbb{R}^2$ – обмеженна область з гладкою границею $\Gamma_2 \subset C^2$. Тоді двозв'язна область $D = D_2 \; \backslash \; \overline{D}_1$ матиме вигляд:
+	Нехай $D_1 \subset \mathbb{R}^2$ – обмеженна область з гладкою границею $\Gamma_1 \subset C^2$ та $D_2 \subset \mathbb{R}^2$ – обмеженна область з гладкою границею $\Gamma_2 \subset C^2$, причому $D_1\subset D_2$. Тоді двозв'язна область $D = D_2 \; \backslash \; \overline{D}_1$ матиме вигляд:
 
 	\begin{figure}[h]
 		\centering
@@ -198,7 +200,7 @@ sorting=ynt
 		\label{fig:double-connected-region}
 	\end{figure}
 
-	Мішана задача Діріхле-Неймана для рівняння Лапласа полягає в знаходженні такої функції $u(x_1, x_2) \in C^{2}(D)\bigcap  C^{1}(\overline{D})$ що задовольняє
+	Мішана задача Діріхле-Неймана для рівняння Лапласа полягає в знаходженні такої функції $u \in C^{2}(D)\cap  C^{1}(\overline{D})$ що задовольняє
 
 	\begin{enumerate}
 		\item
@@ -213,6 +215,7 @@ sorting=ynt
 		\begin{equation}
 			\label{dirichlet-condition}
 			u = f_1 \quad \text{на} \quad \Gamma_1,
+			\vspace{-0.5cm}
 		\end{equation}
 	
 		\begin{equation}
@@ -221,7 +224,7 @@ sorting=ynt
 		\end{equation}
 
 	\end{enumerate}
-	де $\nu = \nu(x)$ - одиничний вектор зовнішньої нормалі, (\ref{dirichlet-condition}) є умовою Діріхле, а (\ref{neumann-condition}) є умовою Неймана.
+	де $\nu = \nu(x)$ - одиничний вектор зовнішньої нормалі, (\ref{dirichlet-condition}) називають умовою Діріхле, а (\ref{neumann-condition}) -- умовою Неймана.
 	
 \newcommand{\boundprob}{(\ref{laplace-eq}) -- (\ref{neumann-condition})} 
 	
@@ -229,9 +232,6 @@ sorting=ynt
  \newpage
  \thispagestyle{empty}
  \section{Коректність задачі}
- ...
- 
- %\subsection{Існування розв'язку}
  \subsection{Єдиність розв'язку задачі}
  \begin{theorem}
  \label{green}
@@ -240,8 +240,7 @@ sorting=ynt
  \intl_{D}(u \Delta v+grad u \cdot grad v) d x=\intl_{\partial D} u \frac{\partial v}{\partial \nu} d s
  $$
 \end{theorem}
- 
-\proof Посилання на Креса.
+\proof Див. \cite{kress2012linear}.
   
 \begin{theorem}
 	\label{single-sol}
@@ -275,7 +274,6 @@ sorting=ynt
  \newpage
  \thispagestyle{empty}
  \section{Зведення до інтегрального рівняння}
- ...
  \subsection{Теорія потенціалів. Потенціал простого шару}
 
 \begin{defn}
@@ -283,18 +281,14 @@ sorting=ynt
 	Нехай $D \subset \mathbb{R}^2$ -- замкнена обмежена облясть. Функція $u \in C^2(D)$, що набуває дійсних значень, називається гармонічною, якщо вона задовольняє рівняння Лапласа $\delta u = 0$ в $D$.
 \end{defn}
 
-Функція
-	\label{fundamental-solution-defn}
-
-\begin{defn}
+ \begin{defn}
 	 \label{fundamental-solution}  
 	 Функція
-	\begin{equation}
+ 	 \begin{equation}
 		 \Phi(x, y) := \frac{1}{2\pi} \ln \frac{1}{\abs{x - y}} 
-	\end{equation}
-	
+	 \end{equation}
 	 визначена на  $x \neq y,$ $x \in \mathbb{R}^2$ називається фундаментальним розв'язком рівняння Лапласа. Для фіксованого $y \in \mathbb{R}^2$ вона є гармонічною в $\mathbb{R}^2 \backslash \{y\}$.
-\end{defn}
+ \end{defn}
   
  \begin{defn}
 	\label{single-layer-potential}
@@ -305,48 +299,44 @@ sorting=ynt
 	 називають потенціалом простого шару з густиною $\varphi .$
  \end{defn}
 
-\begin{theorem}
- 	\label{potential-on-bound} 
+ \begin{theorem}
+ 	 \label{potential-on-bound} 
 	 Нехай $\partial D$ належить класу $C^{2}$ і $\varphi \in C(\partial D) .$ Тоді потенціал простого шару $u$ з густиною $\varphi$ неперервний на $\mathbb{R}^{2} .$ На границі області справджується рівність
 	 \begin{equation}
 		 u(x)=\intl_{\partial D} \varphi(y) \Phi(x, y) d s(y), \quad x \in \partial D
 	 \end{equation}
 	 де інтеграл існує і розуміється як невласний.
-\end{theorem}
- 
- \proof доведення в \cite{kress2012linear}
- 
- Щось про стрибок ...?
+ \end{theorem}
+ \proof Див. \cite{kress2012linear}.
  
  \begin{theorem}
- 	\label{potential-partial-derevative}
+ 	 \label{potential-partial-derevative}
 	 Нехай $\partial D$ належить класу $C^{2} .$ Тоді для потенціалу простого шару $u$ з неперервною густиною $\varphi$ маємо, що
+	 $$
+	 \frac{\partial u_{\pm}}{\partial \nu}(x) =
+	 \intl_{\partial D} \varphi(y) \frac{\partial \Phi(x, y)}{\partial \nu(x)} d s(y) \mp \frac{1}{2} \varphi(x),
+	 \quad x \in \partial D
+	 $$
+	 де
+	 $$
+	 \frac{\partial u_{\pm}}{\partial v}(x):=\lim _{h \rightarrow+0} v(x) \cdot \operatorname{grad} u(x \pm h v(x))
+	 $$
+	 слід розуміти в сенсі рівномірної збіжності на $\partial D$ і інтеграл існує як невласний.
  \end{theorem}
- 
- $$
- \frac{\partial u_{\pm}}{\partial \nu}(x) =
- \intl_{\partial D} \varphi(y) \frac{\partial \Phi(x, y)}{\partial \nu(x)} d s(y) \mp \frac{1}{2} \varphi(x),
- \quad x \in \partial D
- $$
- де
- $$
- \frac{\partial u_{\pm}}{\partial v}(x):=\lim _{h \rightarrow+0} v(x) \cdot \operatorname{grad} u(x \pm h v(x))
- $$
- слід розуміти у значенні рівномірної збіжності на $\partial D$ і інтеграл існує як невласний.
+ \proof Див. \cite{kress2012linear}.
  
  \subsection{Загальний вигляд розв'язку}
  
  Задача \boundprob \space зводиться до системи інтегральних рівнянь з двома невідомими функціями.
-Потенціал простого шару є гармонічною функцією, а отже їх сума також гармонічна.
-Тому розв'язок задачі \boundprob \space будемо шукати у вигляді суми потенціалів простого шару
+ Потенціал простого шару є гармонічною функцією, а отже їх сума також гармонічна.
+ Тому розв'язок задачі \boundprob \space будемо шукати у вигляді суми потенціалів простого шару
  \begin{equation}
-\label{potentials-sum-solution}
- u(x) 
- = \intl_{\Gamma_1} \varphi_1(y) \Phi(x, y) d s(y)
- + \intl_{\Gamma_2} \varphi_2(y) \Phi(x, y) d s(y)
- , \quad x \in D
+	 \label{potentials-sum-solution}
+	 u(x) 
+	 = \intl_{\Gamma_1} \varphi_1(y) \Phi(x, y) d s(y)
+	 + \intl_{\Gamma_2} \varphi_2(y) \Phi(x, y) d s(y)
+	 , \quad x \in D
  \end{equation}
- 
  з невідомими густинами $\varphi_1 \in C(\Gamma_{1}) $, $\varphi_2 \in C(\Gamma_{2})$.
  
  Враховуючи інтегральне подання розв'язку, крайові умови та властивості потенціалу простого шару, для знаходження невідомих функцій отримаємо таку систему інтегральних рівнянь:
@@ -397,9 +387,9 @@ sorting=ynt
 	\label{parametrization}
 	 \Gamma_{i} := \{ x_{i}(t) = (x_{i1}(t), x_{i2}(t)), \; t \in [ 0, 2\pi ] \} , \quad i = 1, 2
 \end{equation}
-\indent де $x_{i} : \mathbb{R} \rightarrow \mathbb{R}^2$, $2\pi$ періодична $\forall{t} \; \abs{x'(t)} > 0$ 
+де $x_{i} : \mathbb{R} \rightarrow \mathbb{R}^2$, $2\pi$ періодична $\forall{t} \; \abs{x'(t)} > 0$.
 
-Позначимо $\nu$ - одиничний вектор зовнішньої нормалі до кривої $\Gamma_{i}$, заданий як:
+Нехай $\nu$ - одиничний вектор зовнішньої нормалі до кривої $\Gamma_{i}$, заданий як:
 \begin{equation}
 	\nu(x_i(t)) = \left(
 	\frac{
@@ -439,8 +429,7 @@ $$
 		= 2g_{2}(t)
 	\end{array}\right.
 \end{equation}
-
-де $\displaystyle \psi_{i}(t) = \varphi(x_{i}(t)) \abs{x'_{i}(t)}, \; g_{i} = f_{i}(x_{i}(t)), \;  i  = 1, 2; \; t \in [0, 2\pi]$ \\[0.3cm]
+де $\displaystyle \psi_{i}(t) = \varphi(x_{i}(t)) \abs{x'_{i}(t)}, \; g_{i} = f_{i}(x_{i}(t)), \;  i  = 1, 2; \; t \in [0, 2\pi]$. \\[0.3cm]
 Ядра матимуть вигляд:
 
 $$
@@ -492,7 +481,7 @@ K_{22}(t, \tau) = \abs{x'_{2}(\tau)} \left\{
 = - \frac{1}{2} 
 \end{comment}
 
-Для  виділення логарифмічної особливості виконаємо наступні перетворення з $K_{11}$
+Для  виділення логарифмічної особливості виконаємо наступні перетворення з $K_{11}$:
 $$
 \begin{aligned}
 	K_{11}(t, \tau) 
@@ -651,9 +640,9 @@ $$
  \end{equation}
  з очевидним уточненням для $\ell_0$ та $\ell_n$.
  Шукані функції з системи (\ref{IE-parametrized}) подамо у вигляді суми
- $$
- \tilde{\psi_k}(t)=\sum_{j=1}^{n} c^{(k)}_{j} \ell_{j}(t), \quad k = 1,2
- $$
+ \begin{equation}
+ 	\tilde{\psi_k}(t)=\sum_{j=1}^{n} c^{(k)}_{j} \ell_{j}(t), \quad k = 1,2
+ \end{equation}
  Підставивши їх у систему (\ref{IE-parametrized}) оримаємо:
  
  \begin{equation}
@@ -743,15 +732,26 @@ $$
  Опираючись на властивості базису (\ref{basis}), інтеграли в системі (\ref{coll-sys}) можна подати у спрощеному вигляді:
  
  \begin{equation}
- 	\inttwopi \ell_{j}(\tau) K\left(t_{i}, \tau\right) d \tau=\frac{1}{h} \intl_{t_{j-1}}^{t_{j}}\left(\tau-t_{j-1}\right) K\left(t_{i}, \tau\right) d \tau+\frac{1}{h} \intl_{t_{j}}^{t_{j+1}}\left(t_{j+1}-\tau\right) K\left(t_{i}, \tau\right) d \tau
+ 	\begin{matrix}
+ 	\displaystyle
+ 	\inttwopi \ell_{j}(\tau) K\left(t_{i}, \tau\right) d \tau=\frac{1}{h} \intl_{t_{j-1}}^{t_{j}}\left(\tau-t_{j-1}\right) K\left(t_{i}, \tau\right) d \tau + \\
+ 	\displaystyle
+ 	+\frac{1}{h} \intl_{t_{j}}^{t_{j+1}}\left(t_{j+1}-\tau\right) K\left(t_{i}, \tau\right) d \tau
+ 	\end{matrix}
  \end{equation}
  де $K$ -- одне із ядер.
  
  Результуючий вигляд розв'язку ...
  
+ ...
+ 
+ ...
+ 
+ ...
+ 
  
  \subsection{Дискретизація}
- Метод колокаціїї є частково дискретним мтодом, що осначає що інтеграли в системі рівнянь можемо обчислити точно. На жаль, це не завжди вдається, тому в даній роботі ми дискретизуємо метод використавши квадратури.
+ Метод колокації є частково дискретним мтодом, що означає що інтеграли в системі рівнянь можемо обчислити точно. На жаль, це не завжди вдається, тому в даній роботі ми дискретизуємо метод використавши квадратури.
 
 Для обчислення ядра $K_{11}$ будемо використовувати відповідну квадратурну формулу. Для цього задаємо рівномірне розбиття:
 
@@ -768,13 +768,11 @@ $$
 	R_{j}(t):=-\frac{1}{2 M}\left\{1+2 \sum_{m=1}^{M-1} \frac{1}{m} \cos m\left(t-t_{j}\right)+\frac{\cos \left(t-t_{j}\right)}{M}\right\}
 \end{equation} 
 
- Решта ядер не містять у собі особливості, тим більше легко бачити що вони є щонайменше двічі неперервно диференційовні на заданих кривих, отже доцільно буде для їх обчислення застосувати квадратури трапецій:
- $$
- \int_{a}^{b} f(\tau) d \tau \approx h \left(\frac{f(a)+f(b)}{2}+\sum_{i=1}^{n-1} f\left(\tau_{i}\right)\right),
- $$
- де 
- 
- подумати про індекси біля $\tau$ аналогічно до $R$
+ Решта ядер не містять у собі особливості, тим більше легко бачити що вони є щонайменше двічі неперервно диференційовні на заданих кривих, отже доцільно буде для обчислення інтегралів застосувати квадратури трапецій:
+ \begin{equation}
+ 	\displaystyle
+ 	\int_{a}^{b} f(\tau) d \tau \approx h \left(\frac{f(a)+f(b)}{2}+\sum_{i=1}^{n-1} f\left(t_{i}\right)\right).
+ \end{equation}
  
  
  \subsection{Похибка}
@@ -790,8 +788,7 @@ $$
 \begin{equation}
  \left(P_{n} \varphi\right)(x)= \sum_{j=0}^{n} \varphi\left(x_{i}\right) l_{j}(x) .
 \end{equation}
- 
- Для оператора$P_{n} \varphi$ маємо такі оцінки похибки
+ Для оператора $P_{n} \varphi$ маємо такі оцінки похибки
  $$
  \begin{array}{l}
  	\displaystyle
@@ -883,7 +880,7 @@ $$
  \end{center}
  
   \newpage
-  \subsection{Приклад 1}
+  \subsection{Приклад 2}
   
  \newpage 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
