@@ -52,17 +52,23 @@
  \setcounter{dod}{0}
  \newcommand{\dod}[1]{\refstepcounter{dod} \textit{Додаток \arabic{dod}\label{#1}.}}
  
- \newcounter{defn}
- \setcounter{defn}{0}
- \newcommand{\defn}[1]{\refstepcounter{defn} \textbf{Означення \arabic{defn}\label{#1}.}}
+% \newcounter{defn}
+ %\setcounter{defn}{0}
+ %\newcommand{\defn}[1]{\refstepcounter{defn} %\textbf{Означення \arabic{defn}\label{#1}.}}
  
- \newcounter{theorem}
- \setcounter{theorem}{0}
- \newcommand{\theorem}[1]{\refstepcounter{theorem} \textbf{Теорема \arabic{theorem}\label{#1}.}}
+ %\newcounter{theorem}
+ %\setcounter{theorem}{0}
+ %\newcommand{\theorem}[1]{\refstepcounter{theorem} %\textbf{Теорема \arabic{theorem}\label{#1}.}}
+ \newtheorem{theorem}{Теорема}[section]
+ \newtheorem{defn}[theorem]{Означення}
+ \newtheorem{lemma}[theorem]{Лема}
  
  \newcommand{\proof}{\textit{Доведення. \space}}
 % \setcounter{page}{1}
 % \setcounter{section}{1}
+
+\numberwithin{equation}{section}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  \newcounter{stali}
  \setcounter{stali}{0}
@@ -91,6 +97,7 @@
  \newcommand{\intl}{\int\limits}
  
  \newcommand{\inttwopi}{\intl_{0}^{2\pi}}
+ 
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % bibliography
@@ -226,19 +233,26 @@ sorting=ynt
  
  %\subsection{Існування розв'язку}
  \subsection{Єдиність розв'язку задачі}
- \hspace{0.5cm}\theorem{green} Нехай $D$ - область з межею $\partial D \in C^1$ i $\overrightarrow{\nu} -$ одиничний вектор зовнішньої нормалі до межі $\partial D$. Тоді для $u \in C^1(\overline{D})$ і $v \in C^2(\overline{D})$ має місце перша формула Гріна
- $$
- \intl_{D}(u \Delta v+grad u \cdot grad v) d x=\intl_{\partial D} u \frac{\partial v}{\partial \nu} d s
- $$
- i для $u, v \in C^{2}(\overline{D})$ має місце друга формула Гріна
- $$
- \intl_{D}(u \Delta v-v \Delta u) d x=\intl_{\partial D}\left(u \frac{\partial v}{\partial \nu}-v \frac{\partial u}{\partial \nu}\right) d s
- $$
+ \begin{theorem}
+	 \label{green}
+	 Нехай $D$ - область з межею $\partial D \in C^1$ i $\overrightarrow{\nu} -$ одиничний вектор зовнішньої нормалі до межі $\partial D$. Тоді для $u \in C^1(\overline{D})$ і $v \in C^2(\overline{D})$ має місце перша формула Гріна
+	 $$
+	 \intl_{D}(u \Delta v+grad u \cdot grad v) d x=\intl_{\partial D} u \frac{\partial v}{\partial \nu} d s
+	 $$
+	 i для $u, v \in C^{2}(\overline{D})$ має місце друга формула Гріна
+	 $$
+	 \intl_{D}(u \Delta v-v \Delta u) d x=\intl_{\partial D}\left(u \frac{\partial v}{\partial \nu}-v \frac{\partial u}{\partial \nu}\right) d s
+	$$
+\end{theorem}
+
  
  \proof Посилання на Креса.
  
  
- \theorem{single-sol} Нехай $\Gamma_{1}, \Gamma_{2}$ -- гладкі границі, що належать класу $C^1$, обмежують двозв'язну область $D$. Тоді задача \boundprob \space має на $D$ не більше одного розв'язку.
+\begin{theorem}
+	\label{single-sol}
+	Нехай $\Gamma_{1}, \Gamma_{2}$ -- гладкі границі, що належать класу $C^1$, обмежують двозв'язну область $D$. Тоді задача \boundprob \space має на $D$ не більше одного розв'язку.
+\end{theorem}
  
  \proof Від супротивного. Нехай $\exists u_1, u_2 \in C^{2}(\overline{D}): u_1 \neq u_2 $ -- два різні розв'язки задачі \boundprob. Запишемо цю задачу для функції $u^* = u_1 - u_2$:
  $$
@@ -274,29 +288,45 @@ sorting=ynt
  
  \hspace{0.5cm} Означення гармонічної функції ...
  
- \theorem{fundamental-solution}  Функція
- $$
- \Phi(x, y) := \frac{1}{2\pi} \ln \frac{1}{\abs{x - y}} 
-$$
-визначена на  $x \neq y,$ $x \in \mathbb{R}$ називається фундаментальним розв'язком рівняння Лапласа. Для фіксованого $y \in \mathbb{R}^2$ вона є гармонічною в $\mathbb{R}^2 \backslash \{y\}$.
  
+ \begin{theorem}
+\label{fundamental-solution-theorem}
+
+Функція
+\begin{equation}
+	\label{fundamental-solution}
+	\Phi(x, y) := \frac{1}{2\pi} \ln \frac{1}{\abs{x - y}} 
+\end{equation}
+
+визначена на  $x \neq y,$ $x \in \mathbb{R}$ є фундаментальним розв'язком рівняння Лапласа. Для фіксованого $y \in \mathbb{R}^2$ вона є гармонічною в $\mathbb{R}^2 \backslash \{y\}$.
+\end{theorem}
  
- \defn{single-layer-potential} Нехай функція $\varphi \in C(\partial D),$ тоді
- $$
- u(x):=\intl_{\partial D} \varphi(y) \Phi(x, y) d s(y), \quad x \in \mathbb{R}^{m} \backslash \partial D
- $$
- називають потенціалом простого шару з густиною $\varphi .$
+ \begin{defn}
+	 \label{single-layer-potential}
+	 Нехай функція $\varphi \in C(\partial D),$ тоді
+	 \begin{equation}
+	 	u(x):=\intl_{\partial D} \varphi(y) \Phi(x, y) d s(y), \quad x \in \mathbb{R}^{m} \backslash \partial D
+	 \end{equation}
+	 називають потенціалом простого шару з густиною $\varphi .$
+ \end{defn}
  
- \theorem{potential-on-bound} Нехай $\partial D$ належить класу $C^{2}$ і $\varphi \in C(\partial D) .$ Тоді потенціал простого шару $u$ з густиною $\varphi$ неперервний на $\mathbb{R}^{m} .$ На границі області справджується рівність
- $$
- u(x)=\intl_{\partial D} \varphi(y) \Phi(x, y) d s(y), \quad x \in \partial D
- $$
- де інтеграл існує і розуміється як невласний.
+ \begin{theorem}
+	 \label{potential-on-bound} 
+	 Нехай $\partial D$ належить класу $C^{2}$ і $\varphi \in C(\partial D) .$ Тоді потенціал простого шару $u$ з густиною $\varphi$ неперервний на $\mathbb{R}^{m} .$ На границі області справджується рівність
+	 \begin{equation}
+		 u(x)=\intl_{\partial D} \varphi(y) \Phi(x, y) d s(y), \quad x \in \partial D
+	 \end{equation}
+	 де інтеграл існує і розуміється як невласний.
+ \end{theorem}
  \proof Кресс
  
  Щось про стрибок ...?
  
- \theorem{potential-partial-derevative} Нехай $\partial D$ належить класу $C^{2} .$ Тоді для потенціалу простого шару $u$ з неперервною густиною $\varphi$ маємо, що
+ \begin{theorem}
+ 	\label{potential-partial-derevative}
+	 Нехай $\partial D$ належить класу $C^{2} .$ Тоді для потенціалу простого шару $u$ з неперервною густиною $\varphi$ маємо, що
+ \end{theorem}
+ 
  $$
  \frac{\partial u_{\pm}}{\partial \nu}(x) =
  \intl_{\partial D} \varphi(y) \frac{\partial \Phi(x, y)}{\partial \nu(x)} d s(y) \mp \frac{1}{2} \varphi(x),
@@ -310,12 +340,14 @@ $$
  
  \subsection{Загальний вигляд розв'язку}
  Потенціал простого шару є гармонічною функцією, тому розв'язок задачі \boundprob \space будемо шукати у вигляді суми потенціалів простого шару
- $$
+ \begin{equation}
+\label{potentials-sum-solution}
  u(x) 
  = \intl_{\Gamma_1} \varphi_1(y) \Phi(x, y) d s(y)
  + \intl_{\Gamma_2} \varphi_2(y) \Phi(x, y) d s(y)
  , \quad x \in D
- $$
+ \end{equation}
+ 
  з невідомими густинами $\varphi_1 \in C(\Gamma_{1}) $, $\varphi_2 \in C(\Gamma_{2})$.
  
  Враховуючи інтегральне подання розв'язку, крайові умови та властивості потенціалу простого шару, для знаходження невідомих функцій отримаємо таку систему інтегральних рівнянь:
@@ -355,57 +387,6 @@ $$
  \end{array}\right.
  $$
  \end{comment}
-
- \newpage
- \thispagestyle{empty}
- \section{Коректність інтегрального рівняння}
- 
- \theorem{unique-solution} Для $\Gamma_{i} \in C^{2}$ i $f_{i} \in C\left(\Gamma_{i}\right)$ , $i=1,2,$ система інтегралъних рівнянь (\ref{IE-system}) має единий розв'язок $\mu_{i} \in C\left(\Gamma_{i}\right), i=1,2$, який неперервно залежить від вхідих даних.
- 
- Доведення: Введемо наступні інтегральні оператори:
- $$
- \begin{array}{l}
- 	
- 	\displaystyle
- 	(A \varphi)(x):= 2 \intl_{\Gamma_{1}} \Phi(x, y) \varphi(y)  d s(y), \quad x \in \Gamma_{1}
- 	\\[0.7cm]
- 	 
- 	 \displaystyle
- 	(B \varphi)(x):= 2 \intl_{\Gamma_{2}} \Phi(x, y) \varphi(y)  d s(y), \quad x \in \Gamma_{1}
- 	\\[0.7cm]
- 	
- 	 \displaystyle
-	(C \varphi)(x):= 2 \intl_{\Gamma_{1}} \frac{\partial \Phi(x, y)}{\partial \nu(x)} \varphi(y)  d s(y), \quad x \in \Gamma_{2}
-	\\[0.7cm]
-
- 	 \displaystyle
-	(D \varphi)(x):= 2 \intl_{\Gamma_{1}} \frac{\partial \Phi(x, y)}{\partial \nu(x)} \varphi(y)  d s(y), \quad x \in \Gamma_{2}
-	\\[0.7cm]
- \end{array}
- $$
- Запишемо систему інтегральних рівнянь \ref{IE-system} в операторному вигляді:
- \begin{equation}
- 	\label{IE-operator}
-	\varphi-U \varphi=F
-\end{equation}
-
- де $\varphi_:=\left(\varphi_{1}, \varphi_{2}\right)^{T}, F:=\left(2 f_{1}, 2 f_{2}\right)^{T}$ і оператор $U$ заданий як
- $$
- U:=\left(\begin{array}{ll}
- 	A & B \\
- 	C & D
- \end{array}\right)
- $$
- Позначимо $\Gamma:=\Gamma_{1} \cup \Gamma_{2}$. Оператори $B$ та $C$ містять неперервні ядра, отже $\epsilon$ компактними в $C(\Gamma) .$  Оператори А та D містять слабосингулярні ядра, а отже також є компактними. Таким чином ми можемо застосувати теорію Рісса для доведення коректності нашої системи IP.
-  
-  Відомо, що простір нулів $N(I-U)=\{0\}$, тобто оператор $(I-U)$ ін'єктивний. Тоді згідно теорії Рісса $(I-U)$ сюр'єктивний, тобто
-  $$
-  \forall F \in C(\Gamma) \quad \exists ! \varphi \in C(\Gamma): \quad(I-U) \varphi=F
-  $$
-  Тоді, обернений оператор $(I-U)^{-1}$ обмежений і розв'язок операторного рівняння \ref{IE-operator} можа подати у вигляді
-  $$
-  \varphi=(I-U)^{-1} F
-  $$
   
  \newpage
  \thispagestyle{empty}
@@ -413,12 +394,13 @@ $$
 
  Припустимо, що кривi $\Gamma_{1}$ та $\Gamma_{2}$ заданi в параметричному виглядi:
 \begin{equation}
+	\label{parametrization}
 	 \Gamma_{i} := \{ x_{i}(t) = (x_{i1}(t), x_{i2}(t)), \; t \in [ 0, 2\pi ] \} , \quad i = 1, 2
 \end{equation}
 \indent де $x_{i} : \mathbb{R} \rightarrow \mathbb{R}^2$, $2\pi$ періодична $\forall{t} \; \abs{x'(t)} > 0$ 
 
 Позначимо $\nu$ - одиничний вектор зовнішньої нормалі до кривої $\Gamma_{i}$, заданий як:
-$$
+\begin{equation}
 	\nu(x_i(t)) = \left(
 	\frac{
 		x'_{i2}(t)}{\abs{x'_{i}(t)}
@@ -426,7 +408,7 @@ $$
 	- \frac{
 	x'_{i1}(t)}{\abs{x'_{i}(t)}}
 	\right)
-$$
+\end{equation}
 
 Обчислимо похідну по нормалі від фундаментального роз'вязку
 $$
@@ -435,12 +417,14 @@ $$
 
 \indent де $r = \abs{x - y}$, отримаємо
 
-$$
-\pdv{\Phi(x, y)}{\nu(x)} = \frac{1}{2\pi} \frac{(y - x) \cdot \nu(x)}{r^2} 
-$$
+\begin{equation}
+	\pdv{\Phi(x, y)}{\nu(x)} = \frac{1}{2\pi} \frac{(y - x) \cdot \nu(x)}{r^2} 
+\end{equation}
 
-Перейдемо до параметризованої системи. Таким чином використовуючи параметризацію та описані вище перетворення перейдемо до параметризованої системи.
-$$
+
+Перейдемо до параметризованої системи. Таким чином використовуючи параметризацію (\ref{parametrization}) та вище наведенні перетворення подамо систему (\ref{IE-system}) у параметризованому вигляді.
+\begin{equation}
+\label{IE-parametrized-with-specia}
 	\left\{
 	\begin{array}{l}
 		\displaystyle
@@ -449,14 +433,14 @@ $$
 		= g_{1}(t)
 		\\ [0.3cm]
 		\displaystyle
-		- \frac{\psi_2(t)}{\abs{x'_{2}(t))}}
+		\frac{\psi_2(t)}{\abs{x'_{2}(t)) }}
 		+ \frac{1}{\pi} \inttwopi \psi_1(\tau) K_{21}(t, \tau) d \tau
 		+ \frac{1}{\pi} \inttwopi  \psi_2(\tau) K_{22}(t, \tau) d \tau
 		= 2g_{2}(t)
 	\end{array}\right.
-$$
+\end{equation}
 
-де $\displaystyle \psi_{i}(t) = \varphi(x_{i}(t)) \cdot \abs{x'_{i}(t)}, \; g_{i} = f_{i}(x_{i}(t)), \;  i  = 1, 2; \; t \in [0, 2\pi]$ \\[0.3cm]
+де $\displaystyle \psi_{i}(t) = \varphi(x_{i}(t)) \abs{x'_{i}(t)}, \; g_{i} = f_{i}(x_{i}(t)), \;  i  = 1, 2; \; t \in [0, 2\pi]$ \\[0.3cm]
 Ядра матимуть вигляд:
 
 $$
@@ -465,7 +449,7 @@ $$
 		K_{11}(t, \tau) = \left.
 			 \ln{\frac{1}{\abs{x - y}}}
 		\right|_{
-			{\small \parbox{20mm}{$ x = x_1(t)$ \\[-4pt] $y = x_1 ({\tau})$}}
+			{\small \parbox{20mm}{$ x = x_1(t)$ \\[-3pt] $y = x_1 ({\tau})$}}
 		} \quad \quad, \quad t \neq \tau
 		\\ [0.8cm]
 		
@@ -473,7 +457,7 @@ $$
 		K_{12}(t, \tau) = \left.
 			\ln{\frac{1}{\abs{x - y}}}
 		\right|_{
-			{\small \parbox{20mm}{$ x = x_1(t)$ \\[-4pt] $y = x_2 ({\tau})$}}
+			{\small \parbox{20mm}{$ x = x_1(t)$ \\[-3pt] $y = x_2 ({\tau})$}}
 		} \quad \quad;
 		\\ [0.8cm]
 		
@@ -481,7 +465,7 @@ $$
 		K_{21}(t, \tau) = \left.
 			\frac{(y - x) \cdot \nu(x)}{r^2}
 		\right|_{
-			{\small \parbox{20mm}{$ x = x_2(t)$ \\[-4pt] $y = x_1 ({\tau})$}}
+			{\small \parbox{20mm}{$ x = x_2(t)$ \\[-3pt] $y = x_1 ({\tau})$}}
 		};
 		\\ [0.8cm]
 		
@@ -489,7 +473,7 @@ $$
 		K_{22}(t, \tau) = \left.
 			\frac{(y - x) \cdot \nu(x)}{r^2}
 		\right|_{
-			{\small \parbox{20mm}{$ x = x_2(t)$ \\[-4pt] $y = x_2 ({\tau})$}}
+			{\small \parbox{20mm}{$ x = x_2(t)$ \\[-3pt] $y = x_2 ({\tau})$}}
 		} 
 		, \quad t \neq \tau
 	\end{array}
@@ -539,7 +523,7 @@ $$
 	{K_{11}}^{(2)}(t, \tau) =\frac{1}{2} \ln{\frac{\frac{4}{e} \sin ^{2} \frac{t-\tau}{2}}{\left|x_{1}(t)-x_{1}(\tau)\right|^{2}}}, \quad t \neq \tau;
 $$
 
-Для того щоб довизначити ${K_{11}}^{(2)}$, знайдему границю за правилом Лопіталя
+Для того щоб доозначити ${K_{11}}^{(2)}$, знайдему границю за правилом Лопіталя
 $$
 \lim _{\tau \rightarrow t} K_{11}{ }^{(2)}(t, \tau) = \lim _{\tau \rightarrow t} \ln \frac{\frac{4}{e} \sin ^{2} \frac{t-\tau}{2}}{\left|x_{1}(t)-x_{1}(\tau)\right|^{2}}=\ln \frac{\frac{4}{e} \frac{(t-\tau)^{2}}{4}}{\left|x_{1}^{\prime}(t)\right|^{2}(t-\tau)^{2}}=\ln \frac{1}{e\left|x_{1}^{\prime}(t)\right|^{2}}
 $$
@@ -559,7 +543,7 @@ $$
 \end{array}
 \right.
 $$
-Виділимо сингулярну особливість ядра $K_{22}$. Знайдемо границю при $\tau \rightarrow t$
+Доозначуємо ядро $K_{22}$. Знайдемо границю при $\tau \rightarrow t$
 
 \begin{comment}
  $$
@@ -594,7 +578,7 @@ $$
  \begin{array}{l}
 	 \displaystyle
 	 \frac{ \left( x_{2}(\tau) - x_{2}(t) \right) \cdot \nu (x_2(t)) }{ \abs{ x_{2}(t)-x_{2}(\tau) }^2 } 
-	 ,\quad t \neq \tau
+	 ,\quad t = \tau
 	 \\ [1cm]
  
  	\displaystyle
@@ -605,26 +589,27 @@ $$
 $$
 
 Отже, система буде мати вигляд
- $$
+\begin{equation}
+\label{IE-parametrized}
  \left\{
  \begin{array}{l}
  	\displaystyle
  	\inttwopi \psi_1(\tau) \left\{ {K_{11}}^{(1)} (t, \tau) \ln{\left( \frac{4}{e} \sin^{2}{\frac{t - \tau}{2}} \right) } + {K_{11}}^{(2)} (t, \tau) \right\} d \tau +
- 	\\[0.3cm] \qquad \qquad \qquad \qquad \qquad \qquad \qquad \quad
+ 	\\[0.3cm] \qquad \qquad \qquad \qquad \qquad \qquad \qquad
  	\displaystyle
  	+ \inttwopi \psi_2(\tau) K_{12}(t, \tau) d \tau
  	= 2\pi g_{1}(t)
  	\\ [0.3cm]
  	
  	\displaystyle
- 	- \pi\frac{\psi_2(t)}{\abs{x'_{2}(t))}}
+ 	\pi\frac{\psi_2(t)}{\abs{x'_{2}(t))}}
  	+ \inttwopi \psi_1(\tau) K_{21}(t, \tau) d \tau
  	+ \inttwopi \psi_2(\tau) K_{22}(t, \tau) d \tau
  	= 2\pi g_{2}(t)
  \end{array}\right.
- $$
+\end{equation}
  
- Використовуючи параметризацію ref можемо записати наближенний розв'язок мішаної задачі ref в параметризованому вигляді:
+ Використовуючи параметризацію (\ref{parametrization}) можемо записати розв'язок мішаної задачі (\ref{potentials-sum-solution}) в параметризованому вигляді:
  $$
  u(x)=\frac{1}{2 \pi} \int_{0}^{2 \pi} \psi_{1}(\tau) K_{1}(x, \tau) d \tau+\frac{1}{2 \pi} \int_{0}^{2 \pi} \psi_{2}(\tau) K_{2}(x, \tau) d \tau, \quad x \in D
  $$
@@ -739,26 +724,34 @@ $$
  
  
  
- Обчислення ядра $K_{11}$
- 
- For the full discretization of the integral equation of the first kind $(3.5),$ which has a logarithmic singularity, we apply a quadrature method together with the quadrature rule [13,14] based on trigonometric interpolation. For this purpose, we choose an equidistant mesh by setting $t_{i}:=i \pi / M, i=0, \ldots, 2 M-1, M \in \mathbb{N}$ and use the quadrature rules
- $$
- \begin{array}{c}
- 	\frac{1}{2 \pi} \int_{0}^{2 \pi} f(\tau) d \tau \approx \frac{1}{2 M} \sum_{j=0}^{2 M-1} f\left(t_{j}\right) \\
- 	\frac{1}{2 \pi} \int_{0}^{2 \pi} f(\tau) \ln \left(\frac{4}{e} \sin ^{2} \frac{t-\tau}{2}\right) d \tau \approx \sum_{j=0}^{2 M-1} R_{j}(t) f\left(t_{j}\right)
- \end{array}
- $$
- with known weight functions $R_{j}$ (see [13]).
- 
- $$
- R_{j}(t)=-\frac{1}{n} \sum_{m=1}^{n-1} \frac{1}{m} \cos m\left(t-t_{j}\right)+\frac{1}{2 n} \cos n\left(t-t_{j}\right)
- $$
- 
- 
+Для обчислення ядра $K_{11}$ будемо використовувати відповідну квадратурну формулу. Для цього задаємо рівномірне розбиття:
+
+$$
+t_{i}:=i \pi / M, \quad i=0, \ldots, 2 M-1, M \in \mathbb{N}
+$$
+Квадратурна формула буде мати вигляд:
+\begin{eqnarray}
+	\frac{1}{2 \pi} \int_{0}^{2 \pi} f(\tau) \ln \left(\frac{4}{e} \sin ^{2} \frac{t-\tau}{2}\right) d \tau \approx \sum_{j=0}^{2 M-1} R_{j}(t) f\left(t_{j}\right)
+\end{eqnarray}
+з ваговою функцією
+
+\begin{equation}
+	R_{j}(t):=-\frac{1}{2 M}\left\{1+2 \sum_{m=1}^{M-1} \frac{1}{m} \cos m\left(t-t_{j}\right)+\frac{\cos \left(t-t_{j}\right)}{M}\right\}
+\end{equation} 
+
  \subsection{Похибка}
  
- 2). Проекційний (інтерполяційний) о-р визначається як 
+	\begin{theorem}
+		Нехай $A: X \rightarrow X$ - обмежений лінійний оператор у банаховому ппросторі $X i I-A: X \rightarrow X-$ ізоморфізм. Припустимо, що $\left\|P_{n} A-A\right\| \rightarrow 0, n \rightarrow \infty .$ Тоді для достатньо великого $n \geq N$ оператори $\left(I-P_{n} A\right)^{-1}: X \rightarrow$ Х існують і є рівномірно обмежені. Для точного і наближеного розв'язку $\varphi-\varphi_{n}=\left(I-P_{n} A\right)^{-1}\left(\varphi-P_{n} \varphi\right)$ і має місце двостороння оцінка
+	\end{theorem} 
+
  $$
+ \frac{1}{\left\|I-P_{n} A\right\|}\left\|\varphi-P_{n} \varphi\right\| \leq\left\|\varphi-\varphi_{n}\right\| \leq\left\|\left(I-P_{n} A\right)^{-1}\right\|\left\|\varphi-P_{n} \varphi\right\|
+ $$
+ 
+ 
+Проекційний оператор визначається як
+ $$ччч
  \left(P_{n} \varphi\right)(x)= \sum_{j=0}^{n} \varphi\left(x_{i}\right) l_{j}(x) .
  $$
  
@@ -780,19 +773,100 @@ $$
  $$
  
  Тепер для відповідного інтегрального оператора $A: C[a, b] \rightarrow C[a, b]$ маємо за лемою $4.2\left\|P_{n} A-\dot{A}\right\| \rightarrow 0, n \rightarrow \infty$
- Отже, результати теореми 4.1 можна використати в цьому конкретному випадку. Таким чином для дост. великого $n \geq N$ апроксимаційне р-ня цього варіанту методу колокації $\left(I-P_{n} A\right) \varphi_{n}=P_{n} f$ має єдиний $_{1}$ р-к для $f \in C[a, b] i\left\|\varphi_{n}-\varphi\right\|_{\infty} \leq \dot{M}\left\|P_{n} \varphi-\varphi\right\|_{\infty}$. Для
+ Отже, результати теореми 4.1 можна використати в цьому конкретному випадку. 
+ 
+
+ Таким чином для достатньо великого $n \geq N$ апроксимаційне р-ня цього варіанту методу колокації  має єдиний
+ 
+\begin{equation}
+\left(I-P_{n} A\right) \varphi_{n}=P_{n} f
+\end{equation}
+ 
+ $_{1}$ р-к для $f \in C[a, b] i\left\|\varphi_{n}-\varphi\right\|_{\infty} \leq \dot{M}\left\|P_{n} \varphi-\varphi\right\|_{\infty}$. Для
  $\varphi \in C^{2}[a, b]\left\|\varphi_{n}-\varphi\right\|_{\infty} \leq M \frac{1}{8} h^{2}\left\|\varphi^{\prime \prime}\right\|_{\infty}$
+
+
  |нтеграли (3) слід обчислювати наближено з використанням квадратур, які не понижують отриманої вище оцінки. Зокрема можна скористатись способом, розглянутим у в-ку м-ду вир. ядер.
  Для кускової інтерполяцї можна вибирати поліноми вищого степеня $r .$ При цьому заг. ідея залишається незмінною і порядок збіжності буде $O\left(h^{r+1}\right)$ для $\varphi \in C^{r+1}[a, b] .$
  
  
+ p1 = [0.7, 1.2]
+ p2 = [-0.8, 0.9]
+ p3 = [-1, -1]
  \newpage
  \thispagestyle{empty}
- \section{Якийсь приклад}
+ \section{Чисельні експеременти}
+\subsection{Приклад 1}
+
+	\begin{equation}
+		\label{ex1}
+		\begin{array}{l}
+			\displaystyle
+			\Gamma_{1}=\left\{x_{1}(t)=(0.9 \cos t, 0.9 \sin t), \quad t \in[0,2 
+			\pi]\right\} \\
+			
+			\displaystyle
+			\Gamma_{2}=\left\{x_{2}(t)=(2 \cos t, 2 \sin t), \quad  t \in[0,2 \pi]\right\} \\[0.1cm]
+			
+			\displaystyle
+			f_{1}(x)=x  \text { на } \Gamma_{1} \quad \text {і} \quad
+			f_{2}(x)=1  \text { на } \Gamma_{2}
+		\end{array}
+	\end{equation}
+
+
+
+
+  
+  \begin{figure}[h]
+  	\includegraphics[width=0.4\textwidth]{resources/curves_and_points.pdf}
+  	\centering
+  	\caption{Граничні умови $\Gamma_1$, $\Gamma_2$ для \ref{ex1:region}}
+  \end{figure}
+
+  
+  
+ \begin{center}
+ 	\begin{tabular}{|c|c|c|c|}
+ 		\hline
+ 		
+ 		\tabboxc{2cm}{n}     
+ 		& \tabboxc{3cm}{x = (0.7,1.2)}
+ 		& \tabboxc{3cm}{x = (-0.8,0.9)}
+ 		& \tabboxc{3cm}{x = (-1, -1)}
+ 		\\ \hline
+ 		
+ 		4
+ 		& $3.32 \times 10 ^{-1}$
+ 		& $7.88 \times 10 ^{-2}$
+ 		& $3.11 \times 10 ^{-1}$
+ 		\\ \hline
+ 		8
+ 		& $1.07 \times 10 ^{-1}$
+ 		& $2.64 \times 10 ^{-2}$
+ 		& $4.91 \times 10 ^{-3}$
+ 		\\ \hline
+ 		16
+ 		& $5.30 \times 10 ^{-2}$
+ 		& $5.76 \times 10 ^{-3}$
+ 		& $8.18 \times 10 ^{-5}$
+ 		\\ \hline
+ 		32
+ 		& $1.44\times 10 ^{-2}$
+ 		& $2.48 \times 10 ^{-3}$
+ 		& $1.61\times 10 ^{-5}$
+		\\ \hline
+ 	\end{tabular}
+ \end{center}
  
   \newpage
+  \subsection{Приклад 1}
+  
+ \newpage 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 \nocite{kress2012linear}
+\nocite{chapko2009altrating}
+\nocite{chapko2009numerical}
 \printbibliography[title={Бібліографія}]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
